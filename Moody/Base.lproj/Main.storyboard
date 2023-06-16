@@ -219,13 +219,23 @@
                             <constraint firstItem="DXP-hF-DtJ" firstAttribute="leading" secondItem="nR0-Sh-tDs" secondAttribute="leading" constant="10" id="ymV-3a-Sha"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" style="editor" id="Ype-Oc-6ji"/>
+                    <navigationItem key="navigationItem" style="editor" id="Ype-Oc-6ji">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="X5b-lw-ngB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xIv-oq-FhK">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="clockTabBarButton" destination="Zdx-Uz-whx" id="nq0-Lg-ziJ"/>
                         <outlet property="collectionView" destination="BuZ-BP-hlD" id="raq-lK-mYW"/>
                         <outlet property="dateLabel" destination="iME-Mc-YgK" id="4P8-wh-hBa"/>
                         <outlet property="diary" destination="3BY-Wi-U9s" id="ziI-lg-qJg"/>
-                        <outlet property="toolbar" destination="fll-jM-UBJ" id="Wt0-Cj-Pdz"/>
+                        <outlet property="pullDownButton" destination="xIv-oq-FhK" id="L8g-VM-XcH"/>
+                        <outlet property="toolbar" destination="X5b-lw-ngB" id="a4C-Oz-Zg5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXY-Ky-zLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -253,6 +263,7 @@
     </scenes>
     <resources>
         <image name="clock" catalog="system" width="128" height="123"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="happy" width="67.333335876464844" height="66.666664123535156"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

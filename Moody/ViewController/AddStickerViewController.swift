@@ -10,6 +10,7 @@ import KTCenterFlowLayout
 
 class AddStickerViewController: UIViewController {
     
+    @IBOutlet weak var pullDownButton: UIButton!
     @IBOutlet weak var diary: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,17 +23,23 @@ class AddStickerViewController: UIViewController {
         collectionViewSetup()
         textViewSetup()
         setupPlaceholder()
-        
-        dateLabel.text = Date().description
-        clockTabBarButton.target = self
-        clockTabBarButton.action = #selector(addTime)
+        setup()
     }
 }
 
 extension AddStickerViewController: UITextViewDelegate {
+    private func setup() {
+        dateLabel.text = Date().description
+        clockTabBarButton.target = self
+        clockTabBarButton.action = #selector(addTime)
+        
+        pullDownButton.showsMenuAsPrimaryAction = true
+        pullDownButton.menu = addMenuItems()
+    }
+    
     private func textViewSetup(){
         diary.delegate = self
-        let padding = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
+        let padding = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
         diary.textContainerInset = padding
     }
     
@@ -40,8 +47,7 @@ extension AddStickerViewController: UITextViewDelegate {
         collectionView.dataSource = self
         collectionView.delegate = self
         let layout = KTCenterFlowLayout()
-        layout.minimumInteritemSpacing = 4 // Adjust the horizontal spacing
-        layout.sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4) // Adjust the spacing around the section
+        layout.minimumInteritemSpacing = 4 
         
         collectionView.collectionViewLayout = layout
     }
@@ -73,6 +79,23 @@ extension AddStickerViewController: UITextViewDelegate {
             diary.text = "오후 2시 "
         }
         else { diary.text += "오후 2시 " }
+    }
+    
+    private func addMenuItems() -> UIMenu {
+        let deleteTitle = NSAttributedString(string: "삭제", attributes: [.foregroundColor: UIColor.red])
+        let deleteAction = UIAction(title: "", image: UIImage(systemName: "trash")?.withTintColor(.red, renderingMode: .alwaysOriginal), handler: { (_) in
+            // Delete action handler
+        })
+        deleteAction.setValue(deleteTitle, forKey: "attributedTitle")
+        
+        let menuItems = UIMenu(title: "", options: .displayInline, children: [
+            UIAction(title: "수정", image: UIImage(systemName: "pencil"), handler: { (_) in
+                //
+            }),
+            deleteAction
+        ])
+        
+        return menuItems
     }
 }
 
