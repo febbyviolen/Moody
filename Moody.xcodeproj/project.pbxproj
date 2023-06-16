@@ -15,6 +15,8 @@
 		80354EF42A3B206D00412C73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80354EF22A3B206D00412C73 /* LaunchScreen.storyboard */; };
 		80354EFC2A3B216B00412C73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80354EFB2A3B216B00412C73 /* GoogleService-Info.plist */; };
 		80354EFF2A3B298C00412C73 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354EFE2A3B298C00412C73 /* DateCell.swift */; };
+		80354F012A3B6DD200412C73 /* AddStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F002A3B6DD200412C73 /* AddStickerViewController.swift */; };
+		80354F032A3C1B4B00412C73 /* StickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F022A3C1B4B00412C73 /* StickerCell.swift */; };
 		D5B21207D1455055F968CD2B /* Pods_Moody.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		80354EF52A3B206D00412C73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80354EFB2A3B216B00412C73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80354EFE2A3B298C00412C73 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		80354F002A3B6DD200412C73 /* AddStickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStickerViewController.swift; sourceTree = "<group>"; };
+		80354F022A3C1B4B00412C73 /* StickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerCell.swift; sourceTree = "<group>"; };
 		B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moody.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16FAD873342E95C6777C29B /* Pods-Moody.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moody.release.xcconfig"; path = "Target Support Files/Pods-Moody/Pods-Moody.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +88,8 @@
 			children = (
 				80354EEB2A3B206A00412C73 /* ViewController.swift */,
 				80354EFE2A3B298C00412C73 /* DateCell.swift */,
+				80354F002A3B6DD200412C73 /* AddStickerViewController.swift */,
+				80354F022A3C1B4B00412C73 /* StickerCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -222,7 +228,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				80354EEC2A3B206A00412C73 /* ViewController.swift in Sources */,
+				80354F032A3C1B4B00412C73 /* StickerCell.swift in Sources */,
 				80354EE82A3B206A00412C73 /* AppDelegate.swift in Sources */,
+				80354F012A3B6DD200412C73 /* AddStickerViewController.swift in Sources */,
 				80354EEA2A3B206A00412C73 /* SceneDelegate.swift in Sources */,
 				80354EFF2A3B298C00412C73 /* DateCell.swift in Sources */,
 			);
