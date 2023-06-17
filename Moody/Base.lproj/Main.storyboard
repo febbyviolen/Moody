@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nao-pA-7Am">
-                                <rect key="frame" x="16.666666666666657" y="197.66666666666663" width="360" height="457"/>
+                                <rect key="frame" x="16.666666666666657" y="200" width="360" height="452"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wOr-tM-2PI">
-                                        <rect key="frame" x="128" y="0.0" width="104" height="47"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wOr-tM-2PI">
+                                        <rect key="frame" x="128" y="0.0" width="104" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yearLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-MJ-Kdc">
                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="18"/>
@@ -30,7 +30,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monthLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5j-Wm-kdD">
-                                                <rect key="frame" x="0.0" y="23" width="104" height="24"/>
+                                                <rect key="frame" x="0.0" y="18" width="104" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ymt-dE-nzS" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="57" width="360" height="400"/>
+                                        <rect key="frame" x="0.0" y="52" width="360" height="400"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="360" id="01k-NS-OKH"/>
@@ -90,7 +90,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-n4-f8h">
-                                <rect key="frame" x="176.66666666666666" y="714.66666666666663" width="40" height="40"/>
+                                <rect key="frame" x="176.66666666666666" y="712" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="UaF-3s-UU4"/>
                                     <constraint firstAttribute="height" constant="40" id="lUP-wS-wQ0"/>
@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="980.91603053435108" y="-34.507042253521128"/>
         </scene>
-        <!--Add Sticker View Controller-->
+        <!--Diary Detail View Controller-->
         <scene sceneID="tnW-ox-8Fz">
             <objects>
-                <viewController id="lS4-XF-wXq" customClass="AddStickerViewController" customModule="Moody" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lS4-XF-wXq" customClass="DiaryDetailViewController" customModule="Moody" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xmu-v8-bZK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fll-jM-UBJ">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fll-jM-UBJ">
                                 <rect key="frame" x="5" y="774" width="383" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="qWQ-Eh-6sJ"/>
@@ -204,6 +204,7 @@
                                 <items>
                                     <barButtonItem title="Item" image="clock" catalog="system" id="Zdx-Uz-whx"/>
                                 </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nR0-Sh-tDs"/>
@@ -220,6 +221,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" style="editor" id="Ype-Oc-6ji">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="qoi-aH-QXR">
+                            <connections>
+                                <action selector="backButton:" destination="lS4-XF-wXq" id="kdc-zY-HaS"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="X5b-lw-ngB">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xIv-oq-FhK">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
@@ -236,11 +242,121 @@
                         <outlet property="diary" destination="3BY-Wi-U9s" id="ziI-lg-qJg"/>
                         <outlet property="pullDownButton" destination="xIv-oq-FhK" id="L8g-VM-XcH"/>
                         <outlet property="toolbar" destination="X5b-lw-ngB" id="a4C-Oz-Zg5"/>
+                        <segue destination="Gyf-YE-bmZ" kind="presentation" identifier="showSticker" id="Fzt-Zj-WQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXY-Ky-zLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1794.6564885496182" y="-35.211267605633807"/>
+        </scene>
+        <!--Sticker View Controller-->
+        <scene sceneID="6n2-nA-t0Y">
+            <objects>
+                <viewController id="Gyf-YE-bmZ" customClass="StickerViewController" customModule="Moody" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xxv-xA-O1P">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="igx-5v-Aw8">
+                                <rect key="frame" x="20" y="30" width="353" height="812"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="JSd-KV-Vqo">
+                                        <rect key="frame" x="93.666666666666686" y="0.0" width="166" height="49"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQB-Mv-YCk">
+                                                <rect key="frame" x="66.666666666666671" y="0.0" width="32.333333333333329" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘은 어떤 하루였나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meV-l6-7v7">
+                                                <rect key="frame" x="0.0" y="29" width="166" height="20"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Msn-U2-XVP">
+                                        <rect key="frame" x="0.0" y="66" width="353" height="746"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RIq-mo-Cmp" customClass="PlainSegmentedControl" customModule="Moody" customModuleProvider="target">
+                                                <rect key="frame" x="111" y="0.0" width="131" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="w5G-4P-bhM"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="First"/>
+                                                    <segment title="Second"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="segmentedControlAction:" destination="Gyf-YE-bmZ" eventType="valueChanged" id="970-gc-xvp"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4gs-WX-A7K">
+                                                <rect key="frame" x="0.0" y="60" width="353" height="686"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="rat-EN-INQ"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="5" id="af8-DU-ZXt">
+                                                    <size key="itemSize" width="100" height="100"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stickerCell" id="BtI-7J-qMh" customClass="StickerCell2" customModule="Moody" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EZp-eS-ilj">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWZ-c3-l7b">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="fWZ-c3-l7b" firstAttribute="top" secondItem="EZp-eS-ilj" secondAttribute="top" constant="3" id="WZ2-Qm-4qI"/>
+                                                                <constraint firstItem="fWZ-c3-l7b" firstAttribute="leading" secondItem="EZp-eS-ilj" secondAttribute="leading" constant="3" id="YjQ-Kv-Ypp"/>
+                                                                <constraint firstAttribute="bottom" secondItem="fWZ-c3-l7b" secondAttribute="bottom" constant="3" id="b21-HW-BMZ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="fWZ-c3-l7b" secondAttribute="trailing" constant="3" id="ogx-Cj-IcM"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="stickerImg" destination="fWZ-c3-l7b" id="Pd4-hy-4Gp"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4gs-WX-A7K" firstAttribute="leading" secondItem="Msn-U2-XVP" secondAttribute="leading" id="bdh-nq-bgA"/>
+                                            <constraint firstAttribute="trailing" secondItem="4gs-WX-A7K" secondAttribute="trailing" id="qhw-yV-zF5"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="p7k-d9-UR5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="p7k-d9-UR5" firstAttribute="trailing" secondItem="igx-5v-Aw8" secondAttribute="trailing" constant="20" id="PKf-AQ-da6"/>
+                            <constraint firstItem="igx-5v-Aw8" firstAttribute="leading" secondItem="p7k-d9-UR5" secondAttribute="leading" constant="20" id="fBV-jH-Epq"/>
+                            <constraint firstItem="igx-5v-Aw8" firstAttribute="centerX" secondItem="Xxv-xA-O1P" secondAttribute="centerX" id="jzW-Jb-sne"/>
+                            <constraint firstItem="igx-5v-Aw8" firstAttribute="top" secondItem="p7k-d9-UR5" secondAttribute="top" constant="30" id="mlF-bC-ZaY"/>
+                            <constraint firstItem="igx-5v-Aw8" firstAttribute="bottom" secondItem="p7k-d9-UR5" secondAttribute="bottom" id="vgu-TK-vay"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UH5-sW-Qnd"/>
+                    <connections>
+                        <outlet property="collectionView" destination="4gs-WX-A7K" id="eKP-7B-2DP"/>
+                        <outlet property="segmentedControl" destination="RIq-mo-Cmp" id="gH3-TN-I7t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01B-JG-eB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2600.7633587786258" y="-35.211267605633807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FhT-YE-ejH">
@@ -262,6 +378,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="happy" width="67.333335876464844" height="66.666664123535156"/>

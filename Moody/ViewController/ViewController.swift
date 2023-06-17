@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     let formatter = DateFormatter()
     var calendarDataSource: [String:String] = [:]
+    let font = Font()
     
     
     var dataCalendarFormatter: DateFormatter {
@@ -33,12 +34,20 @@ class ViewController: UIViewController {
         calendar.ibCalendarDataSource = self
         calendarSetup()
         UISetup()
+        FontSetup()
     
     }
 
 }
 
 extension ViewController {
+    func FontSetup() {
+        UILabel.appearance().font = font.sub2Size
+        yearLabel.font = font.sub2Size
+        monthLabel.font = font.titleSize
+        
+    }
+    
     func populateDataSource(){
         calendarDataSource = [
             "07-06-2023": "Happy",
