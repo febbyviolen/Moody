@@ -17,6 +17,16 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var clockTabBarButton: UIBarButtonItem!
     
+    let formatter = DateFormatter()
+    let font = Font()
+    var date = Date()
+    var dateString : String {
+        formatter.dateFormat = "yyyy.MM.dd EEEE"
+        return formatter.string(from: date)
+    }
+    
+    var sticker: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,6 +34,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         textViewSetup()
         setupPlaceholder()
         setup()
+        fontSetup()
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
@@ -35,6 +46,14 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSticker" {
+            if let VC = segue.destination as? StickerViewController {
+                VC.date = date
+            }
+        }
+    }
+    
 }
 
 extension DiaryDetailViewController: UITextViewDelegate {
@@ -42,9 +61,14 @@ extension DiaryDetailViewController: UITextViewDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
+    
+    private func fontSetup() {
+        dateLabel.font = font.dateSize
+        diary.font = font.subSize
+    }
 
     private func setup() {
-        dateLabel.text = Date().description
+        dateLabel.text = dateString
         clockTabBarButton.target = self
         clockTabBarButton.action = #selector(addTime)
         
@@ -108,18 +132,26 @@ extension DiaryDetailViewController: UITextViewDelegate {
         else { diary.text += "오후 2시 " }
     }
     
+    
+    //MENU
     private func addMenuItems() -> UIMenu {
-        let deleteTitle = NSAttributedString(string: "삭제", attributes: [.foregroundColor: UIColor.red])
+        //deleteAction
+        let deleteTitle = NSAttributedString(string: "삭제", attributes: [.foregroundColor: UIColor.red, .font: font.subSize])
         let deleteAction = UIAction(title: "", image: UIImage(systemName: "trash")?.withTintColor(.red, renderingMode: .alwaysOriginal), handler: { (_) in
             // Delete action handler
         })
         deleteAction.setValue(deleteTitle, forKey: "attributedTitle")
         
+        //shareAction
+        let shareTitle = NSAttributedString(string: "공유", attributes: [.foregroundColor: UIColor.black, .font: font.subSize])
+        let shareAction = UIAction(title: "공유", image: UIImage(systemName: "square.and.arrow.up"), handler: { (_) in
+            // Action action handler
+        })
+        shareAction.setValue(shareTitle, forKey: "attributedTitle")
+        
         //menu items
         let menuItems = UIMenu(title: "", options: .displayInline, children: [
-            UIAction(title: "공유", image: UIImage(systemName: "square.and.arrow.up"), handler: { (_) in
-                //
-            }),
+            shareAction,
             deleteAction
         ])
         
@@ -127,13 +159,21 @@ extension DiaryDetailViewController: UITextViewDelegate {
     }
 }
 
+//MARK: UICOLLECTIONVIEW
 extension DiaryDetailViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return sticker.count == 0 ? 1 : sticker.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell
+        
+        if sticker.count == 0 {
+            cell.stickerImg.image = UIImage(systemName: "plus.circle.fill")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
+            cell.stickerImg.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        } else {
+            cell.stickerImg.image = UIImage(named: sticker[indexPath.item])
+        }
         
         return cell
     }
@@ -141,6 +181,10 @@ extension DiaryDetailViewController : UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Return the desired size for each cell
         return CGSize(width: 60, height: 70)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showSticker", sender: self)
     }
     
 }

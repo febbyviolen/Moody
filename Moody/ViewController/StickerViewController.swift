@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class StickerViewController: UIViewController {
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: PlainSegmentedControl!
     
@@ -17,11 +20,26 @@ class StickerViewController: UIViewController {
     
     var showIndex = 0
     
+    let formatter = DateFormatter()
+    var date = Date()
+    var dateString : String {
+        formatter.dateFormat = "yyyy.MM.dd EEEE"
+        return formatter.string(from: date)
+    }
+    var monthString: String{
+        formatter.dateFormat = "MM"
+        return formatter.string(from: date)
+    }
+    
+    let font = Font()
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         setupUI()
+        setupFont()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -44,7 +62,20 @@ class StickerViewController: UIViewController {
 }
 
 extension StickerViewController {
+    func setupFont(){
+        dateLabel.font = font.sub2Size
+        titleLabel.font = font.titleSize
+    }
+    
     func setupUI(){
+        dateLabel.text = dateString
+        
+        let attributes = [
+            NSAttributedString.Key.font: font.sub2Size,
+            NSAttributedString.Key.foregroundColor: UIColor.gray
+        ]
+        segmentedControl.setTitleTextAttributes(attributes, for: .normal)
+
     }
 }
 
@@ -55,6 +86,7 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
         case 0:
             let selectedMoodSticker = moodSticker[indexPath.item]
             // Do something with the selected mood sticker
+            
             print("Selected mood sticker: \(selectedMoodSticker)")
         case 1:
             let selectedLifeSticker = lifeSticker[indexPath.item]
@@ -77,7 +109,7 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell
         
         cell.isSelected = (indexPath == collectionView.indexPathsForSelectedItems?.first)
         
@@ -101,6 +133,9 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
 
 //MARK: CUSTOM UISEGMENTEDCONTROL
 class PlainSegmentedControl: UISegmentedControl {
+    
+    let font = Font()
+    
     override init(items: [Any]?) {
         super.init(items: items)
 
@@ -125,13 +160,13 @@ class PlainSegmentedControl: UISegmentedControl {
         setDividerImage(tintColorImage, forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
 
         // Set some default label colors
-        setTitleTextAttributes([.foregroundColor: UIColor.gray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .regular)], for: .normal)
+        setTitleTextAttributes([.foregroundColor: UIColor.gray, NSAttributedString.Key.font: font.sub2Size], for: .normal)
         
         setTitleTextAttributes([
             .foregroundColor: UIColor.black,
             .underlineStyle: NSUnderlineStyle.double.rawValue,
             .underlineColor: UIColor.gray,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .regular)],
+            NSAttributedString.Key.font: font.sub2Size],
                                for: .selected)
     }
 }

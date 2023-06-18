@@ -20,6 +20,10 @@
 		80354F052A3CA1BC00412C73 /* StickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F042A3CA1BC00412C73 /* StickerViewController.swift */; };
 		80354F082A3DA24000412C73 /* Dongle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F072A3DA23700412C73 /* Dongle-Regular.ttf */; };
 		80354F0A2A3DA37900412C73 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F092A3DA37900412C73 /* Font.swift */; };
+		80354F0E2A3DAA1C00412C73 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F0D2A3DAA1A00412C73 /* GamjaFlower-Regular.ttf */; };
+		80354F112A3DAF8000412C73 /* Font-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F0F2A3DAC7F00412C73 /* Font-Regular.ttf */; };
+		80354F132A3DAF9900412C73 /* 오뮤_다예쁨체.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */; };
+		80354F152A3EE3B700412C73 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F142A3EE3B700412C73 /* Database.swift */; };
 		D5B21207D1455055F968CD2B /* Pods_Moody.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +44,10 @@
 		80354F042A3CA1BC00412C73 /* StickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerViewController.swift; sourceTree = "<group>"; };
 		80354F072A3DA23700412C73 /* Dongle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dongle-Regular.ttf"; sourceTree = "<group>"; };
 		80354F092A3DA37900412C73 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		80354F0D2A3DAA1A00412C73 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
+		80354F0F2A3DAC7F00412C73 /* Font-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font-Regular.ttf"; sourceTree = "<group>"; };
+		80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "오뮤_다예쁨체.ttf"; sourceTree = "<group>"; };
+		80354F142A3EE3B700412C73 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moody.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16FAD873342E95C6777C29B /* Pods-Moody.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moody.release.xcconfig"; path = "Target Support Files/Pods-Moody/Pods-Moody.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +94,7 @@
 				80354EF22A3B206D00412C73 /* LaunchScreen.storyboard */,
 				80354EFB2A3B216B00412C73 /* GoogleService-Info.plist */,
 				80354EF52A3B206D00412C73 /* Info.plist */,
+				80354F142A3EE3B700412C73 /* Database.swift */,
 			);
 			path = Moody;
 			sourceTree = "<group>";
@@ -94,11 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				80354EEB2A3B206A00412C73 /* ViewController.swift */,
-				80354EFE2A3B298C00412C73 /* DateCell.swift */,
 				80354F002A3B6DD200412C73 /* DiaryDetailViewController.swift */,
-				80354F022A3C1B4B00412C73 /* StickerCell.swift */,
 				80354F042A3CA1BC00412C73 /* StickerViewController.swift */,
-				80354F092A3DA37900412C73 /* Font.swift */,
+				80354EFE2A3B298C00412C73 /* DateCell.swift */,
+				80354F022A3C1B4B00412C73 /* StickerCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -106,7 +114,11 @@
 		80354F062A3DA22600412C73 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */,
+				80354F0F2A3DAC7F00412C73 /* Font-Regular.ttf */,
+				80354F0D2A3DAA1A00412C73 /* GamjaFlower-Regular.ttf */,
 				80354F072A3DA23700412C73 /* Dongle-Regular.ttf */,
+				80354F092A3DA37900412C73 /* Font.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -189,10 +201,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				80354EF42A3B206D00412C73 /* LaunchScreen.storyboard in Resources */,
+				80354F0E2A3DAA1C00412C73 /* GamjaFlower-Regular.ttf in Resources */,
 				80354F082A3DA24000412C73 /* Dongle-Regular.ttf in Resources */,
 				80354EFC2A3B216B00412C73 /* GoogleService-Info.plist in Resources */,
 				80354EF12A3B206D00412C73 /* Assets.xcassets in Resources */,
 				80354EEF2A3B206A00412C73 /* Main.storyboard in Resources */,
+				80354F132A3DAF9900412C73 /* 오뮤_다예쁨체.ttf in Resources */,
+				80354F112A3DAF8000412C73 /* Font-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +266,7 @@
 				80354F052A3CA1BC00412C73 /* StickerViewController.swift in Sources */,
 				80354F0A2A3DA37900412C73 /* Font.swift in Sources */,
 				80354F012A3B6DD200412C73 /* DiaryDetailViewController.swift in Sources */,
+				80354F152A3EE3B700412C73 /* Database.swift in Sources */,
 				80354EEA2A3B206A00412C73 /* SceneDelegate.swift in Sources */,
 				80354EFF2A3B298C00412C73 /* DateCell.swift in Sources */,
 			);

@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Font-Regular.ttf</string>
 		<string>Dongle-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

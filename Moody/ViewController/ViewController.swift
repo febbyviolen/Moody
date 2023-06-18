@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     var calendarDataSource: [String:String] = [:]
     let font = Font()
     
+    let db = Database()
+    let userdefault = UserDefaults.standard
     
     var dataCalendarFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -30,6 +32,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        db.getDiaryDetailData(date: Date())
+        
+        setupUser()
         calendar.ibCalendarDelegate = self
         calendar.ibCalendarDataSource = self
         calendarSetup()
@@ -41,6 +46,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
+    func setupUser(){
+        
+    }
+    
     func FontSetup() {
         UILabel.appearance().font = font.sub2Size
         yearLabel.font = font.sub2Size
@@ -74,8 +83,12 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         calendar.showsVerticalScrollIndicator = false
         
         calendar.scrollToDate(Date())
+        
+        //month label
         formatter.dateFormat = "MMMM"
         monthLabel.text = formatter.string(from: Date())
+        
+        //year label
         formatter.dateFormat = "yyyy"
         yearLabel.text = formatter.string(from: Date())
         
@@ -147,8 +160,14 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        
+        //month label when scrolled
         formatter.dateFormat = "MMMM"
-        monthLabel.text = formatter.string(from: visibleDates.monthDates.first!.date)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        let month = formatter.string(from: visibleDates.monthDates.first!.date).uppercased()
+        monthLabel.text = month
+        
+        //year label when scrolled
         formatter.dateFormat = "yyyy"
         yearLabel.text = formatter.string(from: visibleDates.monthDates.first!.date)
     }

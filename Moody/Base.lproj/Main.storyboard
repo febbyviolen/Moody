@@ -8,6 +8,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="오뮤_다예쁨체.ttf">
+            <string>omyu_pretty</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,19 +23,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nao-pA-7Am">
-                                <rect key="frame" x="16.666666666666657" y="200" width="360" height="452"/>
+                                <rect key="frame" x="16.666666666666657" y="199" width="360" height="454"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wOr-tM-2PI">
-                                        <rect key="frame" x="128" y="0.0" width="104" height="42"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wOr-tM-2PI">
+                                        <rect key="frame" x="128" y="0.0" width="104" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yearLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-MJ-Kdc">
-                                                <rect key="frame" x="0.0" y="0.0" width="104" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="15"/>
+                                                <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monthLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5j-Wm-kdD">
-                                                <rect key="frame" x="0.0" y="18" width="104" height="24"/>
+                                                <rect key="frame" x="0.0" y="20" width="104" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -38,7 +43,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ymt-dE-nzS" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="52" width="360" height="400"/>
+                                        <rect key="frame" x="0.0" y="54" width="360" height="400"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="360" id="01k-NS-OKH"/>
@@ -90,7 +95,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-n4-f8h">
-                                <rect key="frame" x="176.66666666666666" y="712" width="40" height="40"/>
+                                <rect key="frame" x="176.66666666666666" y="713" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="UaF-3s-UU4"/>
                                     <constraint firstAttribute="height" constant="40" id="lUP-wS-wQ0"/>
@@ -180,16 +185,16 @@
                                         <rect key="frame" x="0.0" y="80" width="373" height="392"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iME-Mc-YgK">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="14.333333333333334"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <color key="highlightedColor" systemColor="systemGrayColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3BY-Wi-U9s">
-                                                <rect key="frame" x="0.0" y="29.333333333333343" width="373" height="362.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="32" width="373" height="360"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -261,40 +266,40 @@
                                 <rect key="frame" x="20" y="30" width="353" height="812"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="JSd-KV-Vqo">
-                                        <rect key="frame" x="93.666666666666686" y="0.0" width="166" height="49"/>
+                                        <rect key="frame" x="79.000000000000014" y="0.0" width="195.33333333333337" height="52.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQB-Mv-YCk">
-                                                <rect key="frame" x="66.666666666666671" y="0.0" width="32.333333333333329" height="18"/>
+                                                <rect key="frame" x="81.333333333333343" y="0.0" width="32.333333333333343" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘은 어떤 하루였나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meV-l6-7v7">
-                                                <rect key="frame" x="0.0" y="29" width="166" height="20"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="29" width="195.33333333333334" height="23.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Msn-U2-XVP">
-                                        <rect key="frame" x="0.0" y="66" width="353" height="746"/>
+                                        <rect key="frame" x="0.0" y="69.333333333333314" width="353" height="742.66666666666674"/>
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RIq-mo-Cmp" customClass="PlainSegmentedControl" customModule="Moody" customModuleProvider="target">
-                                                <rect key="frame" x="111" y="0.0" width="131" height="36"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RIq-mo-Cmp" customClass="PlainSegmentedControl" customModule="Moody" customModuleProvider="target">
+                                                <rect key="frame" x="125" y="0.0" width="103" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="w5G-4P-bhM"/>
                                                 </constraints>
                                                 <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
+                                                    <segment title="기분 "/>
+                                                    <segment title="일상   "/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="segmentedControlAction:" destination="Gyf-YE-bmZ" eventType="valueChanged" id="970-gc-xvp"/>
                                                 </connections>
                                             </segmentedControl>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4gs-WX-A7K">
-                                                <rect key="frame" x="0.0" y="60" width="353" height="686"/>
+                                                <rect key="frame" x="0.0" y="60" width="353" height="682.66666666666663"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="rat-EN-INQ"/>
                                                 </constraints>
@@ -305,7 +310,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stickerCell" id="BtI-7J-qMh" customClass="StickerCell2" customModule="Moody" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stickerCell" id="BtI-7J-qMh" customClass="StickerCell" customModule="Moody" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EZp-eS-ilj">
@@ -351,7 +356,9 @@
                     <navigationItem key="navigationItem" id="UH5-sW-Qnd"/>
                     <connections>
                         <outlet property="collectionView" destination="4gs-WX-A7K" id="eKP-7B-2DP"/>
+                        <outlet property="dateLabel" destination="qQB-Mv-YCk" id="sj8-Lf-o23"/>
                         <outlet property="segmentedControl" destination="RIq-mo-Cmp" id="gH3-TN-I7t"/>
+                        <outlet property="titleLabel" destination="meV-l6-7v7" id="GI2-DM-hs4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="01B-JG-eB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
