@@ -8,7 +8,15 @@
 import UIKit
 import KTCenterFlowLayout
 
-class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate {
+class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, StickerViewDelegate {
+    
+    func stickerTapped(controller: StickerViewController) {
+        if sticker.count < 5 {
+            sticker.append(controller.selectedMoodSticker)
+        }
+        controller.dismiss(animated: true)
+        collectionView.reloadData()
+    }
     
     @IBOutlet weak var pullDownButton: UIButton!
     @IBOutlet weak var diary: UITextView!
@@ -17,6 +25,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var clockTabBarButton: UIBarButtonItem!
     
+    let fb = Firebase()
     let formatter = DateFormatter()
     let font = Font()
     var date = Date()
@@ -26,6 +35,19 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     var sticker: [String] = []
+    var story = ""
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if sticker.isEmpty {
+            performSegue(withIdentifier: "showSticker", sender: self)
+        }
+        
+        fb.getDiaryDetailData(date: date) { sticker, story in
+            self.sticker = sticker ?? []
+            self.story = story
+            self.collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,25 +60,28 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        performSegue(withIdentifier: "showSticker", sender: self)
-        
-    }
-    
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSticker" {
             if let VC = segue.destination as? StickerViewController {
                 VC.date = date
+                VC.delegate = self
             }
         }
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        if !sticker.isEmpty {
+            fb.addDiary(date: date, sticker: sticker, story: story)
+        }
+        navigationController?.popViewController(animated: true)
     }
     
 }
 
 extension DiaryDetailViewController: UITextViewDelegate {
+    
     //swipe back
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -173,6 +198,7 @@ extension DiaryDetailViewController : UICollectionViewDataSource, UICollectionVi
             cell.stickerImg.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         } else {
             cell.stickerImg.image = UIImage(named: sticker[indexPath.item])
+            cell.stickerImg.transform = CGAffineTransform.identity
         }
         
         return cell

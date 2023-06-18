@@ -8,7 +8,12 @@
 import UIKit
 import FirebaseFirestore
 
+protocol StickerViewDelegate{
+    func stickerTapped(controller: StickerViewController)
+}
+
 class StickerViewController: UIViewController {
+    var delegate: StickerViewDelegate! = nil
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,6 +24,7 @@ class StickerViewController: UIViewController {
     var lifeSticker = ["happy", "happy", "happy"]
     
     var showIndex = 0
+    var selectedMoodSticker = ""
     
     let formatter = DateFormatter()
     var date = Date()
@@ -84,8 +90,9 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch showIndex {
         case 0:
-            let selectedMoodSticker = moodSticker[indexPath.item]
+            selectedMoodSticker = moodSticker[indexPath.item]
             // Do something with the selected mood sticker
+            delegate.stickerTapped(controller: self)
             
             print("Selected mood sticker: \(selectedMoodSticker)")
         case 1:
@@ -160,13 +167,13 @@ class PlainSegmentedControl: UISegmentedControl {
         setDividerImage(tintColorImage, forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
 
         // Set some default label colors
-        setTitleTextAttributes([.foregroundColor: UIColor.gray, NSAttributedString.Key.font: font.sub2Size], for: .normal)
+        setTitleTextAttributes([.foregroundColor: UIColor.gray, NSAttributedString.Key.font: font.subSize], for: .normal)
         
         setTitleTextAttributes([
             .foregroundColor: UIColor.black,
             .underlineStyle: NSUnderlineStyle.double.rawValue,
             .underlineColor: UIColor.gray,
-            NSAttributedString.Key.font: font.sub2Size],
+            NSAttributedString.Key.font: font.subSize],
                                for: .selected)
     }
 }

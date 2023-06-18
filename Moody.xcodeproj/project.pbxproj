@@ -48,6 +48,7 @@
 		80354F0F2A3DAC7F00412C73 /* Font-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font-Regular.ttf"; sourceTree = "<group>"; };
 		80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "오뮤_다예쁨체.ttf"; sourceTree = "<group>"; };
 		80354F142A3EE3B700412C73 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		80354F162A3EF7B400412C73 /* user defaults.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "user defaults.md"; sourceTree = "<group>"; };
 		B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moody.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16FAD873342E95C6777C29B /* Pods-Moody.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moody.release.xcconfig"; path = "Target Support Files/Pods-Moody/Pods-Moody.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +86,8 @@
 		80354EE62A3B206A00412C73 /* Moody */ = {
 			isa = PBXGroup;
 			children = (
+				80354F162A3EF7B400412C73 /* user defaults.md */,
+				80354F142A3EE3B700412C73 /* Database.swift */,
 				80354F062A3DA22600412C73 /* Font */,
 				80354EFD2A3B270B00412C73 /* ViewController */,
 				80354EE72A3B206A00412C73 /* AppDelegate.swift */,
@@ -94,7 +97,6 @@
 				80354EF22A3B206D00412C73 /* LaunchScreen.storyboard */,
 				80354EFB2A3B216B00412C73 /* GoogleService-Info.plist */,
 				80354EF52A3B206D00412C73 /* Info.plist */,
-				80354F142A3EE3B700412C73 /* Database.swift */,
 			);
 			path = Moody;
 			sourceTree = "<group>";

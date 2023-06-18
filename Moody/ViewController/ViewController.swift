@@ -16,11 +16,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var calendar: JTAppleCalendarView!
     
     let formatter = DateFormatter()
-    var calendarDataSource: [String:String] = [:]
     let font = Font()
-    
-    let db = Database()
+    let fb = Firebase()
     let userdefault = UserDefaults.standard
+    
+    var dateSelected = Date()
+    var calendarDataSource: [String:String] = [:]
     
     var dataCalendarFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -28,13 +29,14 @@ class ViewController: UIViewController {
         return formatter
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        setupUser()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        db.getDiaryDetailData(date: Date())
-        
-        setupUser()
+
         calendar.ibCalendarDelegate = self
         calendar.ibCalendarDataSource = self
         calendarSetup()
@@ -42,12 +44,30 @@ class ViewController: UIViewController {
         FontSetup()
     
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSticker" {
+            if let VC = segue.destination as? DiaryDetailViewController {
+                VC.date = dateSelected
+            }
+        }
+    }
+    
+    @IBAction func addButton(_ sender: Any) {
+        dateSelected = Date()
+        performSegue(withIdentifier: "showSticker", sender: self)
+    }
+    
 }
 
 extension ViewController {
     func setupUser(){
-        
+        if userdefault.string(forKey: "userID") != nil {
+            //what to do
+            print(userdefault.string(forKey: "userID"))
+        } else {
+            fb.anonymSign()
+        }
     }
     
     func FontSetup() {
@@ -151,6 +171,11 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         }
     }
     
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        dateSelected = cellState.date
+        performSegue(withIdentifier: "showSticker", sender: self)
+    }
+    
     func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
         if cellState.date > Date() {
             return false
@@ -171,4 +196,5 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         formatter.dateFormat = "yyyy"
         yearLabel.text = formatter.string(from: visibleDates.monthDates.first!.date)
     }
+    
 }

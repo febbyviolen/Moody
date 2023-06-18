@@ -106,7 +106,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="lS4-XF-wXq" kind="show" id="0Aw-JS-rY1"/>
+                                    <action selector="addButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ar-He-U89"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -125,6 +125,7 @@
                         <outlet property="calendar" destination="ymt-dE-nzS" id="l7H-B0-lp6"/>
                         <outlet property="monthLabel" destination="o5j-Wm-kdD" id="2b4-eM-2E2"/>
                         <outlet property="yearLabel" destination="1T9-MJ-Kdc" id="bQJ-6u-F5f"/>
+                        <segue destination="lS4-XF-wXq" kind="show" identifier="showSticker" id="ZZf-lq-SjG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
