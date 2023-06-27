@@ -38,43 +38,31 @@ class Firebase {
         }
     }
     
-    func getDiaryDetailData(date: Date, completion: @escaping ([String]?, String) -> Void){
+    //get data for viewcontroller
+    func getDiaryData(date: Date, completion: @escaping ([String], String, String, String) -> Void){
         formatter.dateFormat = "yyyy"
         let year = formatter.string(from: date)
-        formatter.dateFormat = "MM"
-        let month = formatter.string(from: date)
-        formatter.dateFormat = "dd"
-        let day = formatter.string(from: date)
         
-        let docRef = userDocRef.collection(year).document("\(month).\(day)")
+        let docRef = userDocRef.collection("\(year)")
         
-        docRef.getDocument { (document, error) in
-            if let error = error {
-                print("\(error.localizedDescription)")
+        docRef.getDocuments { document, err in
+            if let err = err {
+                print("Error getting documents: \(err)")
             } else {
-                if let document = document, document.exists {
+                for document in document!.documents {
+                    print("\(document.documentID) => \(document.data())")
                     let data = document.data()
-                    
-                    if let sticker = data?["sticker"] as? [String], let story = data?["story"] as? String {
-//                        print("sticker: \(sticker)")
-//                        print("story: \(story)")
-                        completion(sticker, story)
+                    let ID = document.documentID // (ex: 2023.06.01
+                    if let sticker = data["sticker"] as? [String], let story = data["story"] as? String, let date = data["date"] as? String {
+                        completion(sticker, story, date, ID)
                     }
                     
-                } else {
-//                    print("Document doesnt exist ")
                 }
             }
         }
-        
     }
     
     func addDiary(date: Date, sticker: [String], story: String) {
-        let data : [String: Any] = [
-            "sticker" : sticker,
-            "story" : story
-        ]
-        
         formatter.dateFormat = "yyyy"
         let year = formatter.string(from: date)
         formatter.dateFormat = "MM"
@@ -82,13 +70,38 @@ class Firebase {
         formatter.dateFormat = "dd"
         let day = formatter.string(from: date)
         
-        let docRef = userDocRef.collection(year).document("\(month).\(day)")
+        let docRef = userDocRef.collection("\(year)").document("\(year).\(month).\(day)")
+        
+        let data : [String: Any] = [
+            "sticker" : sticker,
+            "story" : story,
+            "date" : "\(year).\(month).\(day)"
+        ]
         
         docRef.setData(data, merge: true) { error in
-            if let error = error {
+            if let _ = error {
 //                print("\(error.localizedDescription)")
             } else {
-//                print("ok")
+//                print("success")
+            }
+        }
+    }
+    
+    func deleteDiary(date: Date) {
+        formatter.dateFormat = "yyyy"
+        let year = formatter.string(from: date)
+        formatter.dateFormat = "MM"
+        let month = formatter.string(from: date)
+        formatter.dateFormat = "dd"
+        let day = formatter.string(from: date)
+        
+        let docRef = userDocRef.collection("\(year)").document("\(year).\(month).\(day)")
+        
+        docRef.delete() { error in
+            if let _ = error {
+//                print("\(error.localizedDescription)")
+            } else {
+//                print("success")
             }
         }
     }

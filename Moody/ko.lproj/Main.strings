@@ -1,0 +1,159 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0Xf-wJ-ZO2"; */
+"0Xf-wJ-ZO2.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "yearLabel"; ObjectID = "1T9-MJ-Kdc"; */
+"1T9-MJ-Kdc.text" = "yearLabel";
+
+/* Class = "UILabel"; text = "감정 순위"; ObjectID = "1x0-Zf-4qU"; */
+"1x0-Zf-4qU.text" = "감정 순위";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "29u-eL-npJ"; */
+"29u-eL-npJ.text" = "Label";
+
+/* Class = "UILabel"; text = "NOV"; ObjectID = "2zU-PO-lVL"; */
+"2zU-PO-lVL.text" = "NOV";
+
+/* Class = "UILabel"; text = "JULY"; ObjectID = "3tz-JI-Lrb"; */
+"3tz-JI-Lrb.text" = "JULY";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8a2-Hw-8jG"; */
+"8a2-Hw-8jG.text" = "Label";
+
+/* Class = "UILabel"; text = "FEB"; ObjectID = "DLb-Tv-5Db"; */
+"DLb-Tv-5Db.text" = "FEB";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Exs-xk-70d"; */
+"Exs-xk-70d.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HOs-U2-eww"; */
+"HOs-U2-eww.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PZV-Uw-1mi"; */
+"PZV-Uw-1mi.text" = "Label";
+
+/* Class = "UISegmentedControl"; RIq-mo-Cmp.segmentTitles[0] = "기분 "; ObjectID = "RIq-mo-Cmp"; */
+"RIq-mo-Cmp.segmentTitles[0]" = "기분 ";
+
+/* Class = "UISegmentedControl"; RIq-mo-Cmp.segmentTitles[1] = "일상   "; ObjectID = "RIq-mo-Cmp"; */
+"RIq-mo-Cmp.segmentTitles[1]" = "일상   ";
+
+/* Class = "UILabel"; text = "JUNE"; ObjectID = "RUM-fc-Wwe"; */
+"RUM-fc-Wwe.text" = "JUNE";
+
+/* Class = "UIButton"; configuration.title = "오늘"; ObjectID = "Rze-je-TBV"; */
+"Rze-je-TBV.configuration.title" = "오늘";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rze-je-TBV"; */
+"Rze-je-TBV.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Yiq-z0-XgO"; */
+"Yiq-z0-XgO.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Zdx-Uz-whx"; */
+"Zdx-Uz-whx.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a8y-9j-vfc"; */
+"a8y-9j-vfc.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aB1-iO-sVN"; */
+"aB1-iO-sVN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "aTi-nN-PaR"; */
+"aTi-nN-PaR.text" = "2";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ae8-lK-FCu"; */
+"ae8-lK-FCu.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "clz-xG-hqg"; */
+"clz-xG-hqg.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "cu4-u8-dRo"; */
+"cu4-u8-dRo.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dLg-n4-f8h"; */
+"dLg-n4-f8h.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dqj-nz-x2a"; */
+"dqj-nz-x2a.text" = "Label";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "eEy-Bu-Veo"; */
+"eEy-Bu-Veo.text" = "1";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "ePz-89-F1X"; */
+"ePz-89-F1X.text" = "3";
+
+/* Class = "UILabel"; text = "SEPT"; ObjectID = "eZ7-GB-0mm"; */
+"eZ7-GB-0mm.text" = "SEPT";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gJh-6K-3Z8"; */
+"gJh-6K-3Z8.text" = "Label";
+
+/* Class = "UILabel"; text = "MAY"; ObjectID = "hKs-XF-Xen"; */
+"hKs-XF-Xen.text" = "MAY";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "hTI-lk-NCx"; */
+"hTI-lk-NCx.text" = "5";
+
+/* Class = "UILabel"; text = "AUG"; ObjectID = "i1w-fU-KE8"; */
+"i1w-fU-KE8.text" = "AUG";
+
+/* Class = "UILabel"; text = "DateLabel"; ObjectID = "iME-Mc-YgK"; */
+"iME-Mc-YgK.text" = "DateLabel";
+
+/* Class = "UILabel"; text = "JAN"; ObjectID = "jAc-fZ-Dfo"; */
+"jAc-fZ-Dfo.text" = "JAN";
+
+/* Class = "UILabel"; text = "오늘은 어떤 하루였나요?"; ObjectID = "meV-l6-7v7"; */
+"meV-l6-7v7.text" = "오늘은 어떤 하루였나요?";
+
+/* Class = "UILabel"; text = "2023년 06월"; ObjectID = "nDv-vf-tsW"; */
+"nDv-vf-tsW.text" = "2023년 06월";
+
+/* Class = "UILabel"; text = "2023"; ObjectID = "nd5-rl-WaN"; */
+"nd5-rl-WaN.text" = "2023";
+
+/* Class = "UILabel"; text = "DEC"; ObjectID = "nke-Oh-6U2"; */
+"nke-Oh-6U2.text" = "DEC";
+
+/* Class = "UILabel"; text = "monthLabel"; ObjectID = "o5j-Wm-kdD"; */
+"o5j-Wm-kdD.text" = "monthLabel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oUi-1t-DtL"; */
+"oUi-1t-DtL.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "OCT"; ObjectID = "okx-5K-IxE"; */
+"okx-5K-IxE.text" = "OCT";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "piF-NK-mr4"; */
+"piF-NK-mr4.text" = "1";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "qQB-Mv-YCk"; */
+"qQB-Mv-YCk.text" = "Date";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "qoi-aH-QXR"; */
+"qoi-aH-QXR.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "rLz-1E-y3w"; */
+"rLz-1E-y3w.title" = "Item";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "u6t-Ku-Llr"; */
+"u6t-Ku-Llr.text" = "4";
+
+/* Class = "UILabel"; text = "APR"; ObjectID = "vRC-Vf-kOV"; */
+"vRC-Vf-kOV.text" = "APR";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "w7E-mo-fKn"; */
+"w7E-mo-fKn.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xIv-oq-FhK"; */
+"xIv-oq-FhK.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "yiF-ag-Ket"; */
+"yiF-ag-Ket.title" = "Item";
+
+/* Class = "UILabel"; text = "MAR"; ObjectID = "zWn-bY-Ok6"; */
+"zWn-bY-Ok6.text" = "MAR";
+
+/* Class = "UILabel"; text = "2023년 06월"; ObjectID = "zlI-dP-XQg"; */
+"zlI-dP-XQg.text" = "2023년 06월";

@@ -20,7 +20,7 @@ class StickerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: PlainSegmentedControl!
     
-    var moodSticker = ["happy", "happy", "happy", "happy"]
+    var moodSticker = Mood.allCases
     var lifeSticker = ["happy", "happy", "happy"]
     
     var showIndex = 0
@@ -70,7 +70,7 @@ class StickerViewController: UIViewController {
 extension StickerViewController {
     func setupFont(){
         dateLabel.font = font.sub2Size
-        titleLabel.font = font.titleSize
+        titleLabel.font = font.title2Size
     }
     
     func setupUI(){
@@ -90,7 +90,7 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch showIndex {
         case 0:
-            selectedMoodSticker = moodSticker[indexPath.item]
+            selectedMoodSticker = moodSticker[indexPath.item].imgName
             // Do something with the selected mood sticker
             delegate.stickerTapped(controller: self)
             
@@ -117,6 +117,17 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell
+        switch showIndex {
+        case 0:
+            cell.stickerImg.image = UIImage(named: moodSticker[indexPath.item].imgName) 
+            
+        case 1:
+            let selectedLifeSticker = lifeSticker[indexPath.item]
+            // Do something with the selected life sticker
+            print("Selected life sticker: \(selectedLifeSticker)")
+        default:
+            break
+        }
         
         cell.isSelected = (indexPath == collectionView.indexPathsForSelectedItems?.first)
         

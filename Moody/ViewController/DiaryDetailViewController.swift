@@ -8,6 +8,12 @@
 import UIKit
 import KTCenterFlowLayout
 
+
+protocol DiaryDetailDelegate {
+    func diaryAdded(controller: DiaryDetailViewController)
+    func diaryDeleted(controller: DiaryDetailViewController)
+}
+
 class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, StickerViewDelegate {
     
     func stickerTapped(controller: StickerViewController) {
@@ -25,6 +31,8 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var clockTabBarButton: UIBarButtonItem!
     
+    var comeFromVC: String!
+    var delegate : DiaryDetailDelegate! = nil
     let fb = Firebase()
     let formatter = DateFormatter()
     let font = Font()
@@ -33,19 +41,15 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         formatter.dateFormat = "yyyy.MM.dd EEEE"
         return formatter.string(from: date)
     }
+    var selectedIndex: IndexPath? 
     
     var sticker: [String] = []
     var story = ""
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
         if sticker.isEmpty {
             performSegue(withIdentifier: "showSticker", sender: self)
-        }
-        
-        fb.getDiaryDetailData(date: date) { sticker, story in
-            self.sticker = sticker ?? []
-            self.story = story
-            self.collectionView.reloadData()
         }
     }
     
@@ -59,7 +63,6 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         fontSetup()
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,10 +75,31 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     }
     
     @IBAction func backButton(_ sender: Any) {
-        if !sticker.isEmpty {
-            fb.addDiary(date: date, sticker: sticker, story: story)
+        guard let NC = navigationController?.viewControllers else {return}
+        if let _ = NC[NC.count - 2] as? ViewController{
+            if !sticker.isEmpty {
+                if diary.text == "오늘 하루를 기록해보세요" {
+                    fb.addDiary(date: date, sticker: sticker, story: "")
+                } else {
+                    fb.addDiary(date: date, sticker: sticker, story: diary.text)
+                }
+                
+                delegate.diaryAdded(controller: self)
+            }
+            navigationController?.popViewController(animated: true)
         }
-        navigationController?.popViewController(animated: true)
+        if let _ = NC[NC.count - 2] as? DiaryListViewController {
+            if diary.text == "오늘 하루를 기록해보세요" {
+                fb.addDiary(date: date, sticker: sticker, story: "")
+            } else {
+                fb.addDiary(date: date, sticker: sticker, story: diary.text)
+            }
+            
+            delegate.diaryAdded(controller: self)
+            
+            navigationController?.navigationBar.isHidden = true
+            navigationController?.popViewController(animated: true)
+        }
     }
     
 }
@@ -94,6 +118,12 @@ extension DiaryDetailViewController: UITextViewDelegate {
 
     private func setup() {
         dateLabel.text = dateString
+        if story == "" {
+            setupPlaceholder()
+        } else {
+            diary.textColor = .black
+            diary.text = story
+        }
         clockTabBarButton.target = self
         clockTabBarButton.action = #selector(addTime)
         
@@ -105,6 +135,7 @@ extension DiaryDetailViewController: UITextViewDelegate {
     
     private func textViewSetup(){
         diary.delegate = self
+        
         let padding = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
         diary.textContainerInset = padding
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -123,7 +154,7 @@ extension DiaryDetailViewController: UITextViewDelegate {
         collectionView.dataSource = self
         collectionView.delegate = self
         let layout = KTCenterFlowLayout()
-        layout.minimumInteritemSpacing = 4 
+        layout.minimumInteritemSpacing = 8
         
         collectionView.collectionViewLayout = layout
     }
@@ -146,24 +177,30 @@ extension DiaryDetailViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             setupPlaceholder()
+        } else {
+            story = diary.text
         }
     }
     
     @objc func addTime(){
+        formatter.timeStyle = .short
         if diary.textColor == UIColor.lightGray {
             diary.textColor = UIColor.black
-            diary.text = "오후 2시 "
+            diary.text = formatter.string(from: Date())
         }
-        else { diary.text += "오후 2시 " }
+        else { diary.text += formatter.string(from: Date()) }
     }
     
     
-    //MENU
+    //MARK: MENU
     private func addMenuItems() -> UIMenu {
         //deleteAction
         let deleteTitle = NSAttributedString(string: "삭제", attributes: [.foregroundColor: UIColor.red, .font: font.subSize])
         let deleteAction = UIAction(title: "", image: UIImage(systemName: "trash")?.withTintColor(.red, renderingMode: .alwaysOriginal), handler: { (_) in
             // Delete action handler
+            self.fb.deleteDiary(date: self.date)
+            self.delegate.diaryDeleted(controller: self)
+            self.navigationController?.popViewController(animated: true)
         })
         deleteAction.setValue(deleteTitle, forKey: "attributedTitle")
         

@@ -12,6 +12,10 @@ class Font {
     let fontName = "omyu_pretty"
     
     var titleSize: UIFont {
+        return UIFont(name: fontName, size: 30.0)!
+    }
+    
+    var title2Size: UIFont {
         return UIFont(name: fontName, size: 20.0)!
     }
     
