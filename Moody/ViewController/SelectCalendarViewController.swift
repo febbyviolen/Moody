@@ -50,7 +50,6 @@ class SelectCalendarViewController: UIViewController {
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissView)))
         
-        
         setupUI()
         setupAction()
         
