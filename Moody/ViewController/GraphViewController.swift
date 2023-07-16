@@ -10,6 +10,7 @@ import Charts
 
 class GraphViewController: UIViewController, SelectCalendarDelegate {
     
+    //MARK: DELEGATE
     func dataPass(controller: SelectCalendarViewController) {
         let newDate = reloadCalendarFormatter.date(from: "\(controller.yearLabel.text ?? "2023").\(controller.selectedMonth)")
         date = newDate!
@@ -20,6 +21,7 @@ class GraphViewController: UIViewController, SelectCalendarDelegate {
         dataSetup()
     }
     
+    //MARK: PROPERTIES
     @IBOutlet weak var fifthCountLabel: UILabel!
     @IBOutlet weak var fifthImg: UIImageView!
     @IBOutlet weak var fifthView: UIView!
@@ -51,12 +53,15 @@ class GraphViewController: UIViewController, SelectCalendarDelegate {
     var date = Date()
     let calendar = Calendar.current
     
+    
+    //=== FORMATTER ===
     var reloadCalendarFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM"
         return formatter
     }
     
+    //MARK: LIFE CYCLE
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         
@@ -76,6 +81,7 @@ class GraphViewController: UIViewController, SelectCalendarDelegate {
         }
     }
 
+    //=== BUTTON ===
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: false)
     }
@@ -105,40 +111,47 @@ class GraphViewController: UIViewController, SelectCalendarDelegate {
         graphItem.removeAll()
         dataSetup()
     }
+    
+    //=== OBJC FUNC ===
+    @objc private func showCalendarSelect(){
+        self.performSegue(withIdentifier: "showCalendarSelect", sender: self)
+    }
+    
 
 }
 
 extension GraphViewController {
+    //MARK: SETUP UI
     private func setupFont(){
-        rankTitleLabel.text = "감정 순위"
+        rankTitleLabel.text = String(format: NSLocalizedString("감정 순위", comment: ""))
         rankTitleLabel.font = font.titleSize
     }
     
     private func setupUI(){
-        self.navigationController?.navigationBar.isHidden = true
         
         dateLabel.text = reloadCalendarFormatter.string(from: date)
         dateLabel.font = font.title2Size
         
         
         rankingViewBackground.layer.cornerRadius = 10
-        rankingViewBackground.layer.borderColor = UIColor.black.cgColor
+        rankingViewBackground.layer.borderColor = UIColor(named: "black")!.cgColor
         rankingViewBackground.layer.borderWidth = 1
     }
     
-    @objc private func showCalendarSelect(){
-        self.performSegue(withIdentifier: "showCalendarSelect", sender: self)
-    }
     
+    //MARK: RANK DATA SETUP
     private func dataSetup(){
         item = calendarDataSource.filter({ (key, value) in
             return key.contains(dateLabel.text!)
         }).map({$0.value})
+        
         for i in item {
-            if graphItem[i.sticker.first!] == nil {
-                graphItem[i.sticker.first!] = 1
-            } else {
-                graphItem[i.sticker.first!]! += 1
+            for j in i.sticker {
+                if graphItem[j] == nil {
+                    graphItem[j] = 1
+                } else {
+                    graphItem[j]! += 1
+                }
             }
         }
         
@@ -146,8 +159,22 @@ extension GraphViewController {
     }
     
     private func dateUI(){
-        let graphItemTitleSorted = graphItem.sorted(by: {$0.value > $1.value}).map({$0.key})
-        let graphItemCountSorted = graphItem.sorted(by: {$0.value > $1.value}).map({$0.value})
+        let graphItemTitleSorted = graphItem.sorted { (item1, item2) in
+            if item1.value == item2.value {
+                return item1.key < item2.key
+            } else {
+                return item1.value > item2.value
+            }
+        }.map { $0.key }
+
+        let graphItemCountSorted = graphItem.sorted { (item1, item2) in
+            if item1.value == item2.value {
+                return item1.key < item2.key
+            } else {
+                return item1.value > item2.value
+            }
+        }.map { $0.value }
+        
         switch graphItem.count {
         case 1:
             setupFont()
@@ -220,7 +247,7 @@ extension GraphViewController {
             fifthImg.image = UIImage(named: graphItemTitleSorted[4])
             fifthCountLabel.text = String(graphItemCountSorted[4])
         default:
-            rankTitleLabel.text = "데이터가 없습니다"
+            rankTitleLabel.text = String(format: NSLocalizedString("데이터 없음", comment: ""))
             rankTitleLabel.font = font.subSize
             firstView.isHidden = true
             secondView.isHidden = true

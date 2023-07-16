@@ -14,16 +14,39 @@ protocol DiaryDetailDelegate {
     func diaryDeleted(controller: DiaryDetailViewController)
 }
 
-class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, StickerViewDelegate {
+class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, StickerViewDelegate, StickerCellDelegate {
+    
+    //MARK: DELEGATE
+    func deleteSticker(cell: StickerCell) {
+        if let indexPath = collectionView.indexPath(for: cell) {
+            print(indexPath)
+            collectionView.performBatchUpdates({
+                // Perform any additional deletion logic if needed
+                collectionView.deleteItems(at: [indexPath])
+                self.sticker.remove(at: indexPath.item)
+                if sticker.count == 0 {
+                    collectionView.isHidden = true
+                } else {
+                    collectionView.reloadData()
+                }
+            }, completion: nil)
+        }
+    }
     
     func stickerTapped(controller: StickerViewController) {
         if sticker.count < 5 {
             sticker.append(controller.selectedMoodSticker)
+        } else {
+            addStickerButton.isHidden = true 
         }
+        collectionView.isHidden = false
         controller.dismiss(animated: true)
         collectionView.reloadData()
     }
     
+    
+    //MARK: PROPERTY
+    @IBOutlet weak var addStickerButton: UIButton!
     @IBOutlet weak var pullDownButton: UIButton!
     @IBOutlet weak var diary: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -37,19 +60,28 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     let formatter = DateFormatter()
     let font = Font()
     var date = Date()
+    var selectedIndex: IndexPath?
+    
+    //=== DATE FORMATTER ===
     var dateString : String {
         formatter.dateFormat = "yyyy.MM.dd EEEE"
         return formatter.string(from: date)
     }
-    var selectedIndex: IndexPath? 
+    
+    var deleteButtonAction: (() -> Void)?
     
     var sticker: [String] = []
     var story = ""
     
+    
+    //MARK: LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         if sticker.isEmpty {
             performSegue(withIdentifier: "showSticker", sender: self)
+        }
+        if sticker.count >= 5 {
+            addStickerButton.isHidden = true
         }
     }
     
@@ -61,7 +93,10 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         setupPlaceholder()
         setup()
         fontSetup()
+        setupTapGestureRecognizer()
+        keyboardToolBar()
         
+        //swipe back function
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
@@ -74,11 +109,30 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         }
     }
     
+    //when back swiped, perform back button action
+    //returning false from this method ensures that the default swipe back gesture is canceled, and the action is perform instead
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == navigationController?.interactivePopGestureRecognizer {
+            print("Back button tapped")
+            backButton(self)
+            return false
+        }
+        return true
+    }
+
+
+    //MARK: BUTTON
     @IBAction func backButton(_ sender: Any) {
         guard let NC = navigationController?.viewControllers else {return}
+        
         if let _ = NC[NC.count - 2] as? ViewController{
+            if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
+                self.fb.deleteDiary(date: self.date)
+                self.delegate.diaryDeleted(controller: self)
+            }
+            
             if !sticker.isEmpty {
-                if diary.text == "오늘 하루를 기록해보세요" {
+                if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
                     fb.addDiary(date: date, sticker: sticker, story: "")
                 } else {
                     fb.addDiary(date: date, sticker: sticker, story: diary.text)
@@ -86,31 +140,49 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
                 
                 delegate.diaryAdded(controller: self)
             }
+            
             navigationController?.popViewController(animated: true)
         }
+        
         if let _ = NC[NC.count - 2] as? DiaryListViewController {
-            if diary.text == "오늘 하루를 기록해보세요" {
-                fb.addDiary(date: date, sticker: sticker, story: "")
-            } else {
-                fb.addDiary(date: date, sticker: sticker, story: diary.text)
+            if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
+                self.fb.deleteDiary(date: self.date)
+                self.delegate.diaryDeleted(controller: self)
             }
             
-            delegate.diaryAdded(controller: self)
+            if !sticker.isEmpty {
+                if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
+                    fb.addDiary(date: date, sticker: sticker, story: "")
+                } else {
+                    fb.addDiary(date: date, sticker: sticker, story: diary.text)
+                }
+                
+                delegate.diaryAdded(controller: self)
+            }
             
-            navigationController?.navigationBar.isHidden = true
             navigationController?.popViewController(animated: true)
         }
     }
     
+    @IBAction func addSticker(_ sender: Any) {  
+        performSegue(withIdentifier: "showSticker", sender: self)
+    }
 }
 
 extension DiaryDetailViewController: UITextViewDelegate {
     
-    //swipe back
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    //MARK: FROM NOTIFICATION
+    func fromNotification() {
+        self.navigationController?.navigationBar.isHidden = false
+        performSegue(withIdentifier: "showSticker", sender: self)
     }
     
+//    //MARK: SWIPE BACK
+//    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
+    
+    //MARK: SETUP
     private func fontSetup() {
         dateLabel.font = font.dateSize
         diary.font = font.subSize
@@ -121,7 +193,7 @@ extension DiaryDetailViewController: UITextViewDelegate {
         if story == "" {
             setupPlaceholder()
         } else {
-            diary.textColor = .black
+            diary.textColor = UIColor(named: "black")
             diary.text = story
         }
         clockTabBarButton.target = self
@@ -130,9 +202,51 @@ extension DiaryDetailViewController: UITextViewDelegate {
         pullDownButton.showsMenuAsPrimaryAction = true
         pullDownButton.menu = addMenuItems()
         
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = UIColor(named: "black")
     }
     
+    private func keyboardToolBar() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        
+        let addTimeButton = UIBarButtonItem(title: "", image: UIImage(systemName: "clock"), target: self, action: #selector(addTime))
+        addTimeButton.tintColor = UIColor(named: "black")
+        
+        let doneButton = UIBarButtonItem(title: String(NSLocalizedString("done.writting", comment: "")), style: .done, target: self, action: #selector(didTapDone))
+        doneButton.tintColor = UIColor(named: "black")
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        
+        toolbar.items = [addTimeButton, flexibleSpace, doneButton]
+        toolbar.sizeToFit()
+        diary.inputAccessoryView = toolbar
+        
+    }
+    
+    @objc private func didTapDone(){
+        diary.resignFirstResponder()
+        resetCellStates()
+    }
+
+    //=== BAR ITEM FUNC ===
+    @objc private func addTime(){
+        formatter.timeStyle = .short
+        if diary.textColor == UIColor.lightGray {
+            diary.textColor = UIColor(named: "black")
+            diary.text = formatter.string(from: Date())
+        }
+        else { diary.text += formatter.string(from: Date()) }
+    }
+    
+    @objc private func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        // Resign first responder status of the text view when tapped outside
+        if !diary.bounds.contains(gestureRecognizer.location(in: diary)) {
+            diary.resignFirstResponder()
+            resetCellStates()
+        }
+        resetCellStates()
+    }
+     
+    //MARK: DIARY SETUP
     private func textViewSetup(){
         diary.delegate = self
         
@@ -143,34 +257,20 @@ extension DiaryDetailViewController: UITextViewDelegate {
         view.addGestureRecognizer(tapGesture)
     }
     
-    @objc private func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        // Resign first responder status of the text view when tapped outside
-        if !diary.bounds.contains(gestureRecognizer.location(in: diary)) {
-            diary.resignFirstResponder()
-        }
-    }
-    
-    private func collectionViewSetup() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        let layout = KTCenterFlowLayout()
-        layout.minimumInteritemSpacing = 8
-        
-        collectionView.collectionViewLayout = layout
-    }
-    
     private func setupPlaceholder() {
-        let placeholderText = "오늘 하루를 기록해보세요"
+        let placeholderText = String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: ""))
         let placeholderColor = UIColor.lightGray
         
         diary.text = placeholderText
         diary.textColor = placeholderColor
     }
     
+    //TEXT VIEW SETUP
     func textViewDidBeginEditing(_ textView: UITextView) {
+        resetCellStates()
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = UIColor.black
+            textView.textColor = UIColor(named:"black")
         }
     }
     
@@ -181,21 +281,11 @@ extension DiaryDetailViewController: UITextViewDelegate {
             story = diary.text
         }
     }
-    
-    @objc func addTime(){
-        formatter.timeStyle = .short
-        if diary.textColor == UIColor.lightGray {
-            diary.textColor = UIColor.black
-            diary.text = formatter.string(from: Date())
-        }
-        else { diary.text += formatter.string(from: Date()) }
-    }
-    
-    
+
     //MARK: MENU
     private func addMenuItems() -> UIMenu {
         //deleteAction
-        let deleteTitle = NSAttributedString(string: "삭제", attributes: [.foregroundColor: UIColor.red, .font: font.subSize])
+        let deleteTitle = NSAttributedString(string: String(format: NSLocalizedString("삭제", comment: "")), attributes: [.foregroundColor: UIColor.red, .font: font.subSize])
         let deleteAction = UIAction(title: "", image: UIImage(systemName: "trash")?.withTintColor(.red, renderingMode: .alwaysOriginal), handler: { (_) in
             // Delete action handler
             self.fb.deleteDiary(date: self.date)
@@ -205,15 +295,15 @@ extension DiaryDetailViewController: UITextViewDelegate {
         deleteAction.setValue(deleteTitle, forKey: "attributedTitle")
         
         //shareAction
-        let shareTitle = NSAttributedString(string: "공유", attributes: [.foregroundColor: UIColor.black, .font: font.subSize])
-        let shareAction = UIAction(title: "공유", image: UIImage(systemName: "square.and.arrow.up"), handler: { (_) in
+        let shareTitle = NSAttributedString(string: String(format: NSLocalizedString("공유", comment: "")), attributes: [.foregroundColor: UIColor(named: "black")!, .font: font.subSize])
+        let shareAction = UIAction(title: String(format: NSLocalizedString("공유", comment: "")), image: UIImage(systemName: "square.and.arrow.up"), handler: { (_) in
             // Action action handler
         })
         shareAction.setValue(shareTitle, forKey: "attributedTitle")
         
         //menu items
         let menuItems = UIMenu(title: "", options: .displayInline, children: [
-            shareAction,
+//            shareAction,
             deleteAction
         ])
         
@@ -223,31 +313,62 @@ extension DiaryDetailViewController: UITextViewDelegate {
 
 //MARK: UICOLLECTIONVIEW
 extension DiaryDetailViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    private func collectionViewSetup() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        let layout = KTCenterFlowLayout()
+        layout.minimumInteritemSpacing = 8
+        
+        collectionView.collectionViewLayout = layout
+        if sticker.count > 0 {
+            collectionView.isHidden = false
+        } else {
+            collectionView.isHidden = true
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sticker.count == 0 ? 1 : sticker.count
+        return sticker.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell
         
-        if sticker.count == 0 {
-            cell.stickerImg.image = UIImage(systemName: "plus.circle.fill")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
-            cell.stickerImg.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        } else {
-            cell.stickerImg.image = UIImage(named: sticker[indexPath.item])
-            cell.stickerImg.transform = CGAffineTransform.identity
-        }
+        cell.delegate = self
+        
+        cell.stickerImg.image = UIImage(named: sticker[indexPath.item])
+        cell.stickerImg.transform = CGAffineTransform.identity
         
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Return the desired size for each cell
         return CGSize(width: 60, height: 70)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showSticker", sender: self)
+    private func resetCellStates() {
+        for cell in collectionView.visibleCells {
+            if let imageCell = cell as? StickerCell {
+                imageCell.resetState()
+            }
+        }
+    }
+    
+    // Add tap gesture recognizer to the collection view
+    private func setupTapGestureRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapSticker(_:)))
+        collectionView.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    // Handle the tap gesture on the collection view
+    @objc private func handleTapSticker(_ gestureRecognizer: UITapGestureRecognizer) {
+        // Tapped outside of an image cell, reset the cell states
+        resetCellStates()
+        diary.resignFirstResponder()
+        resetCellStates()
     }
     
 }

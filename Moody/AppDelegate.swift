@@ -8,11 +8,11 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
+import UserNotifications
+import LanguageManager_iOS
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -38,3 +38,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+// Handle user's response to the notification (e.g., open a specific view)
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // Handle the response based on the actionIdentifier
+        switch response.actionIdentifier {
+        case UNNotificationDefaultActionIdentifier:
+            // The user tapped on the notification to open the app
+            // Implement your desired action here
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let diaryDetailVC = storyboard.instantiateViewController(withIdentifier: "DiaryDetailViewController") as? DiaryDetailViewController {
+                // Customize the code below based on how you handle navigation, such as using a navigation controller
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let sceneDelegate = windowScene.delegate as? SceneDelegate,
+                   let window = sceneDelegate.window {
+                    if let mainVC = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController {
+                        window.rootViewController = mainVC
+                        window.makeKeyAndVisible()
+                        diaryDetailVC.fromNotification()
+                    }
+                }
+            }
+        default:
+            break
+        }
+        
+        completionHandler()
+    }
+}

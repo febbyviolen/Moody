@@ -11,11 +11,29 @@ protocol DiaryListDelegate {
     func passDataBack(controller: DiaryListViewController)
 }
 
-class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetailDelegate, SelectCalendarDelegate {
+class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetailDelegate, SelectCalendarDelegate, DiaryListCellDelegate {
     
+    //MARK: DELEGATE
+    func collectionViewCellTapped(_ cell: DiaryListCell) {
+        // Get the index path of the table view cell containing the collection view cell
+        if let indexPath = tableView.indexPath(for: cell) {
+            // Perform the necessary action when the collection view cell is clicked, based on the index path
+            // Example:
+            selectedDiary = item[indexPath.row]
+            selectedIndex = indexPath
+            performSegue(withIdentifier: "showDetailController", sender: self)
+        }
+    }
+
     func diaryAdded(controller: DiaryDetailViewController) {
         let newDate = dataCalendarFormatter.string(from: controller.date)
-        calendarDataSource[newDate] = DiaryModel(sticker: controller.sticker, story: controller.diary.text, date: newDate)
+        var story = ""
+        if controller.diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
+            story = ""
+        } else {
+            story = controller.diary.text
+        }
+        calendarDataSource[newDate] = DiaryModel(sticker: controller.sticker, story: story, date: newDate)
         tableViewSetupIndex(indexPath: controller.selectedIndex!)
     }
     
@@ -32,6 +50,7 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
         tableViewSetup()
     }
     
+    //MARK: PROPERTY
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
@@ -47,6 +66,7 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
     
     let font = Font()
     
+    //MARK: FORMATTER
     var dataCalendarFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
@@ -59,18 +79,24 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
         return formatter
     }
     
+    //MARK: LIFE CYCLE
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         setupUI()
         
+        //==== TABLE VIEW SETUP ====
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableViewSetup()
         
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        //=== GESTURE RECOGNIZER ===
         dateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showCalendarSelect)))
     }
     
@@ -93,6 +119,7 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
         }
     }
     
+    //MARK: BUTTON
     @IBAction func backButton(_ sender: Any) {
         delegate.passDataBack(controller: self)
         navigationController?.popViewController(animated: true)
@@ -106,6 +133,7 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
             date = nextMonth
             dateLabel.text = reloadCalendarFormatter.string(from: nextMonth)
             tableViewSetup()
+            tableView.reloadData()
         }
     }
     
@@ -117,40 +145,51 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
             date = previousMonth
             dateLabel.text = reloadCalendarFormatter.string(from: previousMonth)
             tableViewSetup()
+            tableView.reloadData()
         }
     }
     
+    //MARK: OBJC FUNC
     @objc private func showCalendarSelect(){
         self.performSegue(withIdentifier: "showCalendarSelect", sender: self)
     }
 
 }
 
-
+//MARK: INIT SETUP
 extension DiaryListViewController {
     private func setupUI(){
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         dateLabel.text = reloadCalendarFormatter.string(from: date)
         dateLabel.font = font.title2Size
     }
     
+    //table view setup
     private func tableViewSetup(){
+        item.removeAll()
         
         item = calendarDataSource.filter({ (key, value) in
             return key.contains(dateLabel.text!)
-        }).map({$0.value}).sorted(by: {$0.date < $1.date})
+        }).map({$0.value}).sorted(by: {$0.date > $1.date})
+        
         tableView.reloadData()
     }
    
+    //table view setup for changed data
     private func tableViewSetupIndex(indexPath: IndexPath) {
+        item.removeAll()
+        
         item = calendarDataSource.filter({ (key, value) in
             return key.contains(dateLabel.text!)
-        }).map({$0.value}).sorted(by: {$0.date < $1.date})
+        }).map({$0.value}).sorted(by: {$0.date > $1.date})
+        
         tableView.reloadData()
     }
 }
 
+
+//MARK: TABLE VIEW 
 extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -164,9 +203,10 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.background.layer.cornerRadius = 10
         cell.background.layer.borderWidth = 1
-        cell.background.layer.borderColor = UIColor.black.cgColor
+        cell.background.layer.borderColor = UIColor(named: "black")?.cgColor
         
         cell.item = item[indexPath.item].sticker
+        cell.reloadDataCollectionView()
         if item[indexPath.item].sticker != [] {
             cell.item = item[indexPath.item].sticker
             cell.collectionView.isHidden = false
@@ -181,6 +221,7 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.storyLabel.isHidden = false
         } else {cell.storyLabel.isHidden = true}
         
+        cell.delegate = self
         
         return cell
     }

@@ -56,7 +56,7 @@ class SelectCalendarViewController: UIViewController {
     }
     
     @objc private func dismissView() {
-        self.dismiss(animated: true)
+        self.dismiss(animated: false)
     }
     
     @IBAction func rightButton(_ sender: Any) {

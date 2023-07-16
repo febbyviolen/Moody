@@ -21,7 +21,7 @@ class StickerViewController: UIViewController {
     @IBOutlet weak var segmentedControl: PlainSegmentedControl!
     
     var moodSticker = Mood.allCases
-    var lifeSticker = ["happy", "happy", "happy"]
+    var lifeSticker = [""]
     
     var showIndex = 0
     var selectedMoodSticker = ""
@@ -40,6 +40,7 @@ class StickerViewController: UIViewController {
     let font = Font()
     let db = Firestore.firestore()
     
+    //MARK: LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -52,6 +53,8 @@ class StickerViewController: UIViewController {
 
     }
     
+    //MARK: SEGMENTED CONTROL ACTION
+    //sticker option
     @IBAction func segmentedControlAction(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -94,11 +97,12 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
             // Do something with the selected mood sticker
             delegate.stickerTapped(controller: self)
             
-            print("Selected mood sticker: \(selectedMoodSticker)")
         case 1:
-            let selectedLifeSticker = lifeSticker[indexPath.item]
+//            let selectedLifeSticker = lifeSticker[indexPath.item]
+            
             // Do something with the selected life sticker
-            print("Selected life sticker: \(selectedLifeSticker)")
+            print("Selected life sticker: ")
+            
         default:
             break
         }
@@ -109,29 +113,39 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
         case 0:
             return moodSticker.count
         case 1:
-            return lifeSticker.count
+            return 2
+//            return lifeSticker.count
         default:
             return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
         switch showIndex {
         case 0:
-            cell.stickerImg.image = UIImage(named: moodSticker[indexPath.item].imgName) 
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
+            cell.stickerImg.image = UIImage(named: moodSticker[indexPath.item].imgName)
             
+            return cell
         case 1:
-            let selectedLifeSticker = lifeSticker[indexPath.item]
-            // Do something with the selected life sticker
-            print("Selected life sticker: \(selectedLifeSticker)")
+            
+            let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "comingSoonCell", for: indexPath) as! comingSoonCell
+            if indexPath.item == 0 {
+                cell2.label.text = ""
+            } else if indexPath.item == 1 {
+                cell2.label.text = "Coming Soon"
+                cell2.label.font = font.dateSize
+                cell2.label.textColor = .systemGray2
+            }
+            
+            return cell2
         default:
             break
+            
         }
-        
-        cell.isSelected = (indexPath == collectionView.indexPathsForSelectedItems?.first)
-        
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -181,7 +195,7 @@ class PlainSegmentedControl: UISegmentedControl {
         setTitleTextAttributes([.foregroundColor: UIColor.gray, NSAttributedString.Key.font: font.subSize], for: .normal)
         
         setTitleTextAttributes([
-            .foregroundColor: UIColor.black,
+            .foregroundColor: UIColor(named: "black")!,
             .underlineStyle: NSUnderlineStyle.double.rawValue,
             .underlineColor: UIColor.gray,
             NSAttributedString.Key.font: font.subSize],

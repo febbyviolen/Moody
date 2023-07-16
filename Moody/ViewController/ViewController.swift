@@ -7,13 +7,33 @@
 
 import UIKit
 import JTAppleCalendar
+import UserNotifications
 
-class ViewController: UIViewController, DiaryDetailDelegate, DiaryListDelegate {
+class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetailDelegate, DiaryListDelegate, passwordDelegate, SelectCalendarDelegate{
+    
+    //MARK: DELEGATE
+    func dataPass(controller: SelectCalendarViewController) {
+        let newDate = dataCalendarFormatter.date(from: "\(controller.yearLabel.text ?? "2023").\(controller.selectedMonth).\(15)")
+        calendar.scrollToDate(newDate!, animateScroll: true)
+        
+        //month label
+        formatter.dateFormat = "MMMM"
+        monthLabel.text = formatter.string(from: newDate!).uppercased()
+        
+        //year label
+        formatter.dateFormat = "yyyy"
+        yearLabel.text = formatter.string(from: newDate!)
+        
+        currentYear = formatter.string(from: newDate!)
+        
+        calendar.reloadData()
+    }
     
     func diaryAdded(controller: DiaryDetailViewController) {
         let newDate = dataCalendarFormatter.string(from: controller.date)
-        calendarDataSource[newDate] = DiaryModel(sticker: controller.sticker, story: controller.diary.text, date: newDate)
+        calendarDataSource[newDate] = DiaryModel(sticker: controller.sticker, story: controller.diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) ? "" : controller.diary.text, date: newDate)
         calendar.reloadDates([controller.date])
+        calendar.scrollToDate(controller.date)
     }
     
     func diaryDeleted(controller: DiaryDetailViewController) {
@@ -26,6 +46,11 @@ class ViewController: UIViewController, DiaryDetailDelegate, DiaryListDelegate {
         calendarDataSource = controller.calendarDataSource
     }
     
+    func passData(controller: PasswordViewController) {
+        loggedIn = true
+    }
+     
+    @IBOutlet weak var dateStackView: UIStackView!
     @IBOutlet weak var todayButton: UIButton!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
@@ -40,9 +65,11 @@ class ViewController: UIViewController, DiaryDetailDelegate, DiaryListDelegate {
     var dateSelected = Date()
     var selected : DiaryModel?
     
-    var calendarDataSource: [String:DiaryModel] = [:]
+    var calendarDataSource: [String: DiaryModel] = [:]
     var currentYear: String = ""
+    var loggedIn = false
     
+    //=== DATE FORMATTER ===
     var dataCalendarFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
@@ -52,19 +79,23 @@ class ViewController: UIViewController, DiaryDetailDelegate, DiaryListDelegate {
     //MARK: LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
         setupUser()
+        
         self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        
+        checkPasscodeAvail()
+        setNotification()
         calendar.ibCalendarDelegate = self
         calendar.ibCalendarDataSource = self
-        calendarSetup()
         UISetup()
         FontSetup()
-    
+        setFunc()
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,15 +119,27 @@ class ViewController: UIViewController, DiaryDetailDelegate, DiaryListDelegate {
                 VC.calendarDataSource = calendarDataSource
             }
         }
+        if segue.identifier == "showPassword" {
+            if let VC = segue.destination as? PasswordViewController {
+                VC.delegate = self
+                VC.navigationController?.isNavigationBarHidden = true
+            }
+        }
+        if segue.identifier == "showCalendarSelect" {
+            if let VC = segue.destination as? SelectCalendarViewController {
+                VC.delegate = self
+            }
+        }
     }
     
+    //MARK: BUTTON
     @IBAction func addButton(_ sender: Any) {
         dateSelected = Date()
+        selected = calendarDataSource[dataCalendarFormatter.string(from: dateSelected)]
         performSegue(withIdentifier: "showSticker", sender: self)
     }
     
     @IBAction func TodayButton(_ sender: Any) {
-        calendar.scrollToDate(Date())
         formatter.dateFormat = "MMMM"
         monthLabel.text = formatter.string(from: Date()).uppercased()
         
@@ -104,28 +147,119 @@ class ViewController: UIViewController, DiaryDetailDelegate, DiaryListDelegate {
         formatter.dateFormat = "yyyy"
         yearLabel.text = formatter.string(from: Date())
         
+        formatter.dateFormat = "dd"
+        var date = formatter.string(from: Date())
+        
+        if date == "01" || date == "1" {
+            formatter.dateFormat = "yyyy.MMMM.dd"
+            var newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
+            calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
+        } else {
+            calendar.scrollToDate(Date(), animateScroll: false)
+        }
+        
         currentYear = formatter.string(from: Date())
         calendar.reloadData()
     }
-    
 }
 
 extension ViewController {
-    func setupUser(){
-        if userdefault.string(forKey: "userID") != nil {
-//            print(userdefault.string(forKey: "userID"))
-        } else {
-            fb.anonymSign()
+    //MARK: APP OPENED FUNC
+    //check if passcode is activated or not
+    private func checkPasscodeAvail(){
+        //if passcode is activated
+        if userdefault.string(forKey: "password") != nil {
+            if loggedIn == false {
+                performSegue(withIdentifier: "showPassword", sender: self)
+            } // if biopassword is activated
+        } else if userdefault.string(forKey: "bioPassword") == "true" {
+            if loggedIn == false {
+                performSegue(withIdentifier: "showPassword", sender: self)
+            }
         }
+    }
+    
+    //calendar setup
+    private func setupUser(){
+        if userdefault.string(forKey: "userID") != nil {
+            calendarSetup()
+        } else {
+            fb.anonymSign {
+                self.calendarSetup()
+            }
+        }
+    }
+    
+    //MARK: FIRST DOWNLOAD
+    //if user allow the notification, and hasn't open the settings it will initially set alarm at 10pm
+    private func setNotification() {
+        if userdefault.string(forKey: "alarmSetting") == nil {
+            
+            // Request authorization for notifications
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                if granted {
+                    // User granted permission
+                    // Create notification content
+                    let content = UNMutableNotificationContent()
+                    content.title = "Moody"
+                    content.body = String(format: NSLocalizedString("오늘 하루도 기록해보세요!", comment: ""))
+                    content.sound = UNNotificationSound.default
+                    
+                    // Create date components for 10 PM
+                    var dateComponents = DateComponents()
+                    dateComponents.hour = self.userdefault.integer(forKey: "alarmTime") == 0 ? 22 : self.userdefault.integer(forKey: "alarmTime")
+                    dateComponents.minute = self.userdefault.integer(forKey: "alarmMinute") == 0 ? 00 : self.userdefault.integer(forKey: "alarmMinute")
+                    
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                    
+                    let request = UNNotificationRequest(identifier: "addDiaryNotification", content: content, trigger: trigger)
+                    
+                    UNUserNotificationCenter.current().add(request) { error in
+                        if let _ = error {
+                            print("error")
+                        } else {
+                            print("not error")
+                        }
+                    }
+                } else {
+                    // User denied permission or there was an error
+                    print("Notification permission denied or error: \(error?.localizedDescription ?? "")")
+                }
+            }
+            
+        }
+    }
+    
+    //MARK: FUNC SETUP
+    private func setFunc(){
+        dateStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSelectCalendar)))
+    }
+    
+    //MARK: OBJC FUNC
+    @objc private func showSelectCalendar(){
+        self.performSegue(withIdentifier: "showCalendarSelect", sender: self)
+    }
+    
+    //MARK: UI SETUP
+    private func UISetup(){
+        todayButton.titleLabel?.font = font.sub2Size
+        todayButton.titleLabel?.text = String(format: NSLocalizedString("오늘", comment: ""))
+        
+        //change navigationcontroller title font
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font.subSize ]
     }
     
     private func FontSetup() {
         UILabel.appearance().font = font.sub2Size
         yearLabel.font = font.sub2Size
         monthLabel.font = font.titleSize
-        
     }
+}
+
+//MARK: JTAPPLECALENDAR
+extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
     
+    //MARK: CALENDAR SETUP
     private func populateDataSource(){
         calendarDataSource.removeAll()
         fb.getDiaryData(date: Date()) { sticker, story, date, ID in
@@ -143,28 +277,28 @@ extension ViewController {
         calendar.reloadData()
     }
     
-    private func UISetup(){
-        todayButton.titleLabel?.font = font.sub2Size
-        todayButton.titleLabel?.text = "오늘"
-    }
-}
-
-extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate{
-    
     private func calendarSetup() {
         calendar.scrollingMode = .stopAtEachCalendarFrame
         calendar.scrollDirection = .vertical
         calendar.showsVerticalScrollIndicator = false
         
-        calendar.scrollToDate(Date())
+        //year label
+        formatter.dateFormat = "yyyy"
+        yearLabel.text = formatter.string(from: Date())
         
         //month label
         formatter.dateFormat = "MMMM"
         monthLabel.text = formatter.string(from: Date())
         
-        //year label
-        formatter.dateFormat = "yyyy"
-        yearLabel.text = formatter.string(from: Date())
+        formatter.dateFormat = "dd"
+        var date = formatter.string(from: Date())
+        if date == "01" || date == "1" {
+            formatter.dateFormat = "yyyy.MMMM.dd"
+            var newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
+            calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
+        } else {
+            calendar.scrollToDate(Date(), animateScroll: false)
+        }
         
         currentYear = formatter.string(from: Date())
         
@@ -209,7 +343,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         if cellState.day == .sunday {
             cell.dateLabel.textColor = .red
         } else {
-            cell.dateLabel.textColor = .black
+            cell.dateLabel.textColor = UIColor(named: "black")
         }
         
         if cellState.date > Date() {
@@ -249,7 +383,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         let month = formatter.string(from: visibleDates.monthDates.first!.date).uppercased()
         monthLabel.text = month
         
-                
+        
         //year label when scrolled
         formatter.dateFormat = "yyyy"
         let year = formatter.string(from: visibleDates.monthDates.first!.date)
@@ -257,7 +391,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
             currentYear = year
             addDataSource(date: visibleDates.monthDates.first?.date ?? Date())
         }
-            
+        
         yearLabel.text = year
         
         formatter.dateFormat = "yyyy.MMMM"
@@ -267,7 +401,5 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         } else {
             todayButton.alpha = 0
         }
-        
     }
-    
 }

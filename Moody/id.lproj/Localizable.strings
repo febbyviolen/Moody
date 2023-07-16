@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Moody
+
+  Created by Ebbyy on 2023/07/02.
+  
+*/
+
+"무디" = "무디";
+"오늘 하루도 기록해보세요!" = "Jangan lupa untuk menulis diary hari ini!";
+
+"오늘" = "Hari ini";
+
+"오늘 하루를 기록해보세요" = "Bagaimana harimu?";
+
+"공유" = "Bagikan";
+"삭제" = "Hapus";
+"done.writting" = "Selesai";
+
+"감정 순위" = "Mood-o-Meter";
+"데이터 없음" = "Tidak ada data";
+
+"비밀번호 입력해주세요" = "Silahkan masukkan kata sandi" ;
+
+"Face ID를 사용하여 인증해주세요" = "Otentikasi menggunakan FaceID";
+
+"faceId.localizedAuthenticationFailed" = "Autentikasi Face ID gagal";
+"faceId.localizedMismatch" = "Wajah tidak cocok. Silakan coba lagi.";
+"faceId.localizedFallbackTitle" = "Coba lagi dengan Face ID";
+"faceId.localizedCancelTitle" = "Batal";
+"biometricAuthentication.notAvailable" = "Autentikasi biometrik tidak tersedia";
+"password.wrong" = "Kata sandi salah";
+
+"네" = "Ya";
+"취소" = "Batal";
+
+"language.restartInstruction" = "Anda perlu me-restart aplikasi untuk melihat perubahan bahasa";
+"language.restartMessage" = "Apakah Anda ingin me-restart sekarang?";
+"language.restart" = "Restart";
+"language.later" = "Nanti";
+
+"connection_message" = "Terhubung";
+"merge_data_message" = "Akun Google telah terdaftar dengan aplikasi ini. Apakah Anda ingin menggabungkan data dari login sebelumnya?";

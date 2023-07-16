@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  Moody
+
+  Created by Ebbyy on 2023/07/02.
+  
+*/
+
+"무디" = "Moody";
+"오늘 하루도 기록해보세요!" = "How's your day?";
+
+"오늘" = "Today";
+
+"오늘 하루를 기록해보세요" = "How's your day?";
+"공유" = "Share";
+"삭제" = "Delete";
+"done.writting" = "Done";
+
+"감정 순위" = "Emotion Ranking";
+"데이터 없음" = "No data";
+
+"비밀번호 입력해주세요" = "Please enter your password";
+"Face ID를 사용하여 인증해주세요" = "Please authenticate using Face ID";
+"faceId.localizedAuthenticationFailed" = "Face ID authentication failed";
+"faceId.localizedMismatch" = "Face does not match. Please try again.";
+"faceId.localizedFallbackTitle" = "Try Face ID again";
+"faceId.localizedCancelTitle" = "Cancel";
+"biometricAuthentication.notAvailable" = "Biometric authentication is not available";
+"password.wrong" = "The password is incorrect";
+
+"네" = "Yes";
+"취소" = "Cancel";
+
+"language.restartInstruction" = "You need to restart the app to see the language changes";
+"language.restartMessage" = "Do you want to restart now?";
+"language.restart" = "Restart";
+"language.later" = "Later";
+
+"connection.message" = "Connected";
+"merge_data_message" = "A Google account has been registered with this app. Do you want to merge data from your previous login?";
+
+
