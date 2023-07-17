@@ -17,8 +17,8 @@ target 'Moody' do
 	pod 'JTAppleCalendar', '~> 7.1'
 	pod 'KTCenterFlowLayout'
 	pod 'GoogleSignIn'
-	pod 'LanguageManager-iOS'
 	pod 'NVActivityIndicatorView'
+	pod 'Google-Mobile-Ads-SDK'
 
 end
 

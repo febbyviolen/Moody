@@ -8,7 +8,7 @@
 import Foundation
 
 enum Mood: CaseIterable{
-    case happy, sad, amazed, angry, cryNotCry, foody, huft, shy, sick, silly, sleepy, soHappy, soSad, suprised, umm, netflix, youtube
+    case happy, sad, soHappy, soSad, amazed, angry, huft, cryNotCry, suprised, foody, shy, sick, silly, sleepy, umm, netflix, youtube, song, paint
     
     var imgName: String {
         switch self {
@@ -46,6 +46,10 @@ enum Mood: CaseIterable{
             return "netflix"
         case .youtube:
             return "youtube"
+        case .song:
+            return "song"
+        case .paint:
+            return "paint"
         }
     }
 }

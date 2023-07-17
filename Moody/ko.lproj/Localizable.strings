@@ -43,3 +43,5 @@
 "connection.message" = "연결되었습니다";
 "merge_data_message" = "이 앱에서 Google 계정이 등록되었습니다. 이전 로그인에서 데이터를 병합하시겠습니까?";
 
+"today.title" = "오늘";
+"widget.today.message" = "오늘의 감정을 확인합니다";

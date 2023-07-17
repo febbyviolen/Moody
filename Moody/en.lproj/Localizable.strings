@@ -40,3 +40,5 @@
 "merge_data_message" = "A Google account has been registered with this app. Do you want to merge data from your previous login?";
 
 
+"today.title" = "Today";
+"widget.today.message" = "Show your today's mood";

@@ -2024,7 +2024,7 @@
                                                     <action selector="segmentedControlAction:" destination="Gyf-YE-bmZ" eventType="valueChanged" id="970-gc-xvp"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evT-OJ-kgt">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evT-OJ-kgt">
                                                 <rect key="frame" x="0.0" y="60" width="350" height="726.66666666666663"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hZT-br-EhE"/>
@@ -2807,12 +2807,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="KaJ-vc-GpT"/>
-        <segue reference="Cmv-AD-0k5"/>
-        <segue reference="ZZf-lq-SjG"/>
+        <segue reference="qrc-6j-0SO"/>
+        <segue reference="Ra0-QD-eix"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="align.vertical.bottom.fill" catalog="system" width="128" height="115"/>
-        <image name="angry" width="676.33331298828125" height="639.33331298828125"/>
+        <image name="angry" width="471.33334350585938" height="445.66665649414062"/>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="123"/>

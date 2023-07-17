@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 protocol DiaryListDelegate {
     func passDataBack(controller: DiaryListViewController)
@@ -65,6 +66,8 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
     var delegate: DiaryListDelegate! = nil
     
     let font = Font()
+    
+    private var banner: GADBannerView!
     
     //MARK: FORMATTER
     var dataCalendarFormatter: DateFormatter {
@@ -160,10 +163,43 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
 extension DiaryListViewController {
     private func setupUI(){
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        bannerSetup()
         
         dateLabel.text = reloadCalendarFormatter.string(from: date)
         dateLabel.font = font.title2Size
     }
+    
+    private func bannerSetup(){
+        banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
+        addBannerViewToView(banner)
+        
+        banner.adUnitID = "ca-app-pub-2267001621089435/8329415847"
+        banner.backgroundColor = .secondarySystemBackground
+        banner.rootViewController = self
+        
+        banner.load(GADRequest())
+    }
+    
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(banner)
+        view.addConstraints(
+          [NSLayoutConstraint(item: banner!,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: banner!,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     
     //table view setup
     private func tableViewSetup(){

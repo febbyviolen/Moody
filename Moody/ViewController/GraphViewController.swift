@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Charts
+import GoogleMobileAds
 
 class GraphViewController: UIViewController, SelectCalendarDelegate {
     
@@ -44,6 +44,8 @@ class GraphViewController: UIViewController, SelectCalendarDelegate {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var rankTitleLabel: UILabel!
     @IBOutlet weak var rankingViewBackground: UIStackView!
+    
+    private var banner: GADBannerView!
     
     let font = Font()
     
@@ -128,15 +130,43 @@ extension GraphViewController {
     }
     
     private func setupUI(){
+        banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
+        addBannerViewToView(banner)
+        
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.backgroundColor = .secondarySystemBackground
+        banner.rootViewController = self
+        
+        banner.load(GADRequest())
         
         dateLabel.text = reloadCalendarFormatter.string(from: date)
         dateLabel.font = font.title2Size
-        
         
         rankingViewBackground.layer.cornerRadius = 10
         rankingViewBackground.layer.borderColor = UIColor(named: "black")!.cgColor
         rankingViewBackground.layer.borderWidth = 1
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(banner)
+        view.addConstraints(
+          [NSLayoutConstraint(item: banner!,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: banner!,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     
     
     //MARK: RANK DATA SETUP

@@ -7,6 +7,7 @@
 
 import UIKit
 import KTCenterFlowLayout
+import WidgetKit
 
 
 protocol DiaryDetailDelegate {
@@ -36,7 +37,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     func stickerTapped(controller: StickerViewController) {
         if sticker.count < 5 {
             sticker.append(controller.selectedMoodSticker)
-        } else {
+        } else if sticker.count == 5 {
             addStickerButton.isHidden = true 
         }
         collectionView.isHidden = false
@@ -127,6 +128,10 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         
         if let _ = NC[NC.count - 2] as? ViewController{
             if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
+                
+                let ud = UserDefaults(suiteName: "group.widgetcache")
+                ud?.setValue(sticker.last ?? "" , forKey: "img")
+                
                 self.fb.deleteDiary(date: self.date)
                 self.delegate.diaryDeleted(controller: self)
             }
@@ -134,11 +139,21 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
             if !sticker.isEmpty {
                 if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
                     fb.addDiary(date: date, sticker: sticker, story: "")
+                    
+                    let ud = UserDefaults(suiteName: "group.widgetcache")
+                    ud?.setValue(sticker.last, forKey: "img")
+                    WidgetCenter.shared.reloadAllTimelines()
                 } else {
                     fb.addDiary(date: date, sticker: sticker, story: diary.text)
+                    
+                    let ud = UserDefaults(suiteName: "group.widgetcache")
+                    ud?.setValue(sticker.last, forKey: "img")
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
                 
                 delegate.diaryAdded(controller: self)
+            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text != "") {
+                fb.addDiary(date: date, sticker: [], story: diary.text)
             }
             
             navigationController?.popViewController(animated: true)
@@ -146,6 +161,10 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         
         if let _ = NC[NC.count - 2] as? DiaryListViewController {
             if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
+                
+                let ud = UserDefaults(suiteName: "group.widgetcache")
+                ud?.setValue(sticker.last ?? "" , forKey: "img")
+                
                 self.fb.deleteDiary(date: self.date)
                 self.delegate.diaryDeleted(controller: self)
             }
@@ -153,11 +172,21 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
             if !sticker.isEmpty {
                 if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
                     fb.addDiary(date: date, sticker: sticker, story: "")
+                    
+                    let ud = UserDefaults(suiteName: "group.widgetcache")
+                    ud?.setValue(sticker.last, forKey: "img")
+                    WidgetCenter.shared.reloadAllTimelines()
                 } else {
                     fb.addDiary(date: date, sticker: sticker, story: diary.text)
+                    
+                    let ud = UserDefaults(suiteName: "group.widgetcache")
+                    ud?.setValue(sticker.last, forKey: "img")
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
                 
                 delegate.diaryAdded(controller: self)
+            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text != "") {
+                fb.addDiary(date: date, sticker: [], story: diary.text)
             }
             
             navigationController?.popViewController(animated: true)

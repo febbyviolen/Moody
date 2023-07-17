@@ -41,3 +41,6 @@
 
 "connection_message" = "Terhubung";
 "merge_data_message" = "Akun Google telah terdaftar dengan aplikasi ini. Apakah Anda ingin menggabungkan data dari login sebelumnya?";
+
+"today.title" = "Hari ini";
+"widget.today.message" = "Menunjukan mood hari ini";

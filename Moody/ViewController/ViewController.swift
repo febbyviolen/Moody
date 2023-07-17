@@ -8,13 +8,13 @@
 import UIKit
 import JTAppleCalendar
 import UserNotifications
+import GoogleMobileAds
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetailDelegate, DiaryListDelegate, passwordDelegate, SelectCalendarDelegate{
     
     //MARK: DELEGATE
     func dataPass(controller: SelectCalendarViewController) {
         let newDate = dataCalendarFormatter.date(from: "\(controller.yearLabel.text ?? "2023").\(controller.selectedMonth).\(15)")
-        calendar.scrollToDate(newDate!, animateScroll: true)
         
         //month label
         formatter.dateFormat = "MMMM"
@@ -33,7 +33,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
         let newDate = dataCalendarFormatter.string(from: controller.date)
         calendarDataSource[newDate] = DiaryModel(sticker: controller.sticker, story: controller.diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) ? "" : controller.diary.text, date: newDate)
         calendar.reloadDates([controller.date])
-        calendar.scrollToDate(controller.date)
+        
+        formatter.dateFormat = "dd"
+        let date = formatter.string(from: controller.date)
+        
+        if date == "01" || date == "1" {
+            formatter.dateFormat = "yyyy.MMMM.dd"
+            let newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
+            calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
+        } else {
+            calendar.scrollToDate(controller.date, animateScroll: false)
+        }
     }
     
     func diaryDeleted(controller: DiaryDetailViewController) {
@@ -57,6 +67,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var calendar: JTAppleCalendarView!
     
+    private var banner: GADBannerView!
+    
     let formatter = DateFormatter()
     let font = Font()
     let fb = Firebase()
@@ -78,7 +90,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     
     //MARK: LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
-        setupUser()
+        if calendarDataSource.isEmpty {
+            setupUser()
+        }
         
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -148,11 +162,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
         yearLabel.text = formatter.string(from: Date())
         
         formatter.dateFormat = "dd"
-        var date = formatter.string(from: Date())
+        let date = formatter.string(from: Date())
         
         if date == "01" || date == "1" {
             formatter.dateFormat = "yyyy.MMMM.dd"
-            var newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
+            let newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
             calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
         } else {
             calendar.scrollToDate(Date(), animateScroll: false)
@@ -245,9 +259,43 @@ extension ViewController {
         todayButton.titleLabel?.font = font.sub2Size
         todayButton.titleLabel?.text = String(format: NSLocalizedString("오늘", comment: ""))
         
+        bannerSetup()
+        
         //change navigationcontroller title font
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font.subSize ]
     }
+    
+    private func bannerSetup(){
+        banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
+        addBannerViewToView(banner)
+        
+        banner.adUnitID = "ca-app-pub-2267001621089435/8329415847"
+        banner.backgroundColor = .secondarySystemBackground
+        banner.rootViewController = self
+        
+        banner.load(GADRequest())
+    }
+    
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(banner)
+        view.addConstraints(
+          [NSLayoutConstraint(item: banner!,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: banner!,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     
     private func FontSetup() {
         UILabel.appearance().font = font.sub2Size
@@ -291,10 +339,10 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         monthLabel.text = formatter.string(from: Date())
         
         formatter.dateFormat = "dd"
-        var date = formatter.string(from: Date())
+        let date = formatter.string(from: Date())
         if date == "01" || date == "1" {
             formatter.dateFormat = "yyyy.MMMM.dd"
-            var newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
+            let newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
             calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
         } else {
             calendar.scrollToDate(Date(), animateScroll: false)
@@ -356,8 +404,10 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         if calendarDataSource[dateString] == nil {
             cell.stickerImage.isHidden = true
         } else {
-            cell.stickerImage.image = UIImage(named: calendarDataSource[dateString]?.sticker.first ?? "happy")
-            cell.stickerImage.isHidden = false
+            if !(calendarDataSource[dateString]?.sticker.isEmpty)! {
+                cell.stickerImage.image = UIImage(named: (calendarDataSource[dateString]?.sticker.first)!)
+                cell.stickerImage.isHidden = false
+            }
         }
     }
     
