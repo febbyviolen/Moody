@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     func dataPass(controller: SelectCalendarViewController) {
         let newDate = dataCalendarFormatter.date(from: "\(controller.yearLabel.text ?? "2023").\(controller.selectedMonth).\(15)")
         
+        calendar.scrollToDate(newDate!, animateScroll: true)
+        
         //month label
         formatter.dateFormat = "MMMM"
         monthLabel.text = formatter.string(from: newDate!).uppercased()
@@ -209,8 +211,12 @@ extension ViewController {
     private func setNotification() {
         if userdefault.string(forKey: "alarmSetting") == nil {
             
+            
             // Request authorization for notifications
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            UNUserNotificationCenter.current()
+                .requestAuthorization(
+                    options: [.alert, .sound, .badge]
+                ) { (granted, error) in
                 if granted {
                     // User granted permission
                     // Create notification content
@@ -259,7 +265,7 @@ extension ViewController {
         todayButton.titleLabel?.font = font.sub2Size
         todayButton.titleLabel?.text = String(format: NSLocalizedString("오늘", comment: ""))
         
-        bannerSetup()
+//        bannerSetup()
         
         //change navigationcontroller title font
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font.subSize ]
@@ -403,10 +409,14 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         let dateString = dataCalendarFormatter.string(from: cellState.date)
         if calendarDataSource[dateString] == nil {
             cell.stickerImage.isHidden = true
+            cell.dateLabel.isHidden = false
         } else {
             if !(calendarDataSource[dateString]?.sticker.isEmpty)! {
                 cell.stickerImage.image = UIImage(named: (calendarDataSource[dateString]?.sticker.first)!)
                 cell.stickerImage.isHidden = false
+                cell.dateLabel.isHidden = true
+            } else {
+                cell.dateLabel.isHidden = false
             }
         }
     }

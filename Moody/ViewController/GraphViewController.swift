@@ -133,7 +133,7 @@ extension GraphViewController {
         banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
         addBannerViewToView(banner)
         
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.adUnitID = "ca-app-pub-2267001621089435/8329415847"
         banner.backgroundColor = .secondarySystemBackground
         banner.rootViewController = self
         

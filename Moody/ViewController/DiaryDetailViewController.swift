@@ -114,7 +114,6 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     //returning false from this method ensures that the default swipe back gesture is canceled, and the action is perform instead
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == navigationController?.interactivePopGestureRecognizer {
-            print("Back button tapped")
             backButton(self)
             return false
         }
@@ -206,10 +205,6 @@ extension DiaryDetailViewController: UITextViewDelegate {
         performSegue(withIdentifier: "showSticker", sender: self)
     }
     
-//    //MARK: SWIPE BACK
-//    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return true
-//    }
     
     //MARK: SETUP
     private func fontSetup() {

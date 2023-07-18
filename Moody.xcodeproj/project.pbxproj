@@ -47,6 +47,7 @@
 		80D965C52A63EFE100B8394A /* DayWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 80D965C02A63EFDE00B8394A /* DayWidget.intentdefinition */; };
 		80D965C82A63EFE100B8394A /* DayWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 80D965B62A63EFDD00B8394A /* DayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		80D965CD2A63F4BC00B8394A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802CB2E42A515BFA00509957 /* Localizable.strings */; };
+		80D965D72A65643400B8394A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D965D62A65643400B8394A /* Launch Screen.storyboard */; };
 		D5B21207D1455055F968CD2B /* Pods_Moody.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		80D965C32A63EFE100B8394A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D965D02A64437000B8394A /* Moody.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Moody.entitlements; sourceTree = "<group>"; };
 		80D965D12A64438800B8394A /* DayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayWidgetExtension.entitlements; sourceTree = "<group>"; };
+		80D965D62A65643400B8394A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moody.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16FAD873342E95C6777C29B /* Pods-Moody.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moody.release.xcconfig"; path = "Target Support Files/Pods-Moody/Pods-Moody.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +206,7 @@
 				80354F062A3DA22600412C73 /* Font */,
 				80354EFD2A3B270B00412C73 /* ViewController */,
 				80354EED2A3B206A00412C73 /* Main.storyboard */,
+				80D965D62A65643400B8394A /* Launch Screen.storyboard */,
 				802CB2E42A515BFA00509957 /* Localizable.strings */,
 				80354EF02A3B206D00412C73 /* Assets.xcassets */,
 				80354EFB2A3B216B00412C73 /* GoogleService-Info.plist */,
@@ -370,6 +373,7 @@
 				80354F0E2A3DAA1C00412C73 /* GamjaFlower-Regular.ttf in Resources */,
 				80354F082A3DA24000412C73 /* Dongle-Regular.ttf in Resources */,
 				80354EFC2A3B216B00412C73 /* GoogleService-Info.plist in Resources */,
+				80D965D72A65643400B8394A /* Launch Screen.storyboard in Resources */,
 				802CB2E22A515BFA00509957 /* Localizable.strings in Resources */,
 				80354EF12A3B206D00412C73 /* Assets.xcassets in Resources */,
 				80354EEF2A3B206A00412C73 /* Main.storyboard in Resources */,
