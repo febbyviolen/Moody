@@ -16,19 +16,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     func dataPass(controller: SelectCalendarViewController) {
         let newDate = dataCalendarFormatter.date(from: "\(controller.yearLabel.text ?? "2023").\(controller.selectedMonth).\(15)")
         
-        calendar.scrollToDate(newDate!, animateScroll: true)
+        calendar.scrollToDate(newDate ?? Date(), animateScroll: true)
         
-        //month label
+        //change to current month label
         formatter.dateFormat = "MMMM"
-        monthLabel.text = formatter.string(from: newDate!).uppercased()
-        
-        //year label
+        monthLabel.text = formatter.string(from: newDate ?? Date()).uppercased()
+
+        //change to current year label
         formatter.dateFormat = "yyyy"
-        yearLabel.text = formatter.string(from: newDate!)
+        yearLabel.text = formatter.string(from: newDate ?? Date())
+//
+        currentYear = formatter.string(from: newDate ?? Date())
         
-        currentYear = formatter.string(from: newDate!)
-        
-        calendar.reloadData()
     }
     
     func diaryAdded(controller: DiaryDetailViewController) {
@@ -156,16 +155,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     }
     
     @IBAction func TodayButton(_ sender: Any) {
-        formatter.dateFormat = "MMMM"
-        monthLabel.text = formatter.string(from: Date()).uppercased()
-        
-        //year label
-        formatter.dateFormat = "yyyy"
-        yearLabel.text = formatter.string(from: Date())
         
         formatter.dateFormat = "dd"
         let date = formatter.string(from: Date())
-        
         if date == "01" || date == "1" {
             formatter.dateFormat = "yyyy.MMMM.dd"
             let newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
@@ -174,8 +166,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
             calendar.scrollToDate(Date(), animateScroll: false)
         }
         
-        currentYear = formatter.string(from: Date())
-        calendar.reloadData()
     }
 }
 
@@ -197,7 +187,7 @@ extension ViewController {
     
     //calendar setup
     private func setupUser(){
-        if userdefault.string(forKey: "userID") != nil {
+        if userdefault.string(forKey: "userID") != nil{
             calendarSetup()
         } else {
             fb.anonymSign {
@@ -236,14 +226,14 @@ extension ViewController {
                     
                     UNUserNotificationCenter.current().add(request) { error in
                         if let _ = error {
-                            print("error")
+//                            print("error")
                         } else {
-                            print("not error")
+//                            print("not error")
                         }
                     }
                 } else {
                     // User denied permission or there was an error
-                    print("Notification permission denied or error: \(error?.localizedDescription ?? "")")
+//                    print("Notification permission denied or error: \(error?.localizedDescription ?? "")")
                 }
             }
             
@@ -385,6 +375,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         handleEvents(cell: cell, cellState: cellState)
     }
     
+    //handle date belongs to this month or not
     private func handleInOutDates(cell: DateCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
             cell.isHidden = false
@@ -407,10 +398,14 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     
     private func handleEvents(cell: DateCell, cellState: CellState) {
         let dateString = dataCalendarFormatter.string(from: cellState.date)
+        print(dateString)
+        print(calendarDataSource)
+        print(calendarDataSource[dateString].debugDescription)
         if calendarDataSource[dateString] == nil {
             cell.stickerImage.isHidden = true
             cell.dateLabel.isHidden = false
         } else {
+            
             if !(calendarDataSource[dateString]?.sticker.isEmpty)! {
                 cell.stickerImage.image = UIImage(named: (calendarDataSource[dateString]?.sticker.first)!)
                 cell.stickerImage.isHidden = false

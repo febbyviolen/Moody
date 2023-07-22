@@ -12,7 +12,6 @@
 		800C8C742A4ADC9600BE512E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C8C732A4ADC9600BE512E /* SettingViewController.swift */; };
 		800C8C762A4AF02500BE512E /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C8C752A4AF02500BE512E /* DatePickerViewController.swift */; };
 		800C8C782A4C2A6800BE512E /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C8C772A4C2A6800BE512E /* PasswordViewController.swift */; };
-		800F84DF2A53FEAE004A5D01 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800F84DE2A53FEAE004A5D01 /* UserData.swift */; };
 		800F84E12A59336A004A5D01 /* ConnectGoogleAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800F84E02A59336A004A5D01 /* ConnectGoogleAccountViewController.swift */; };
 		802CB2E22A515BFA00509957 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802CB2E42A515BFA00509957 /* Localizable.strings */; };
 		802CB2ED2A51697600509957 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CB2EC2A51697600509957 /* LanguageViewController.swift */; };
@@ -82,7 +81,6 @@
 		800C8C732A4ADC9600BE512E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		800C8C752A4AF02500BE512E /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		800C8C772A4C2A6800BE512E /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
-		800F84DE2A53FEAE004A5D01 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		800F84E02A59336A004A5D01 /* ConnectGoogleAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectGoogleAccountViewController.swift; sourceTree = "<group>"; };
 		802CB2DA2A5158EC00509957 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
 		802CB2E82A5162D700509957 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 			children = (
 				80354F182A416B1400412C73 /* DiaryModel.swift */,
 				80354F1A2A4456EE00412C73 /* Mood.swift */,
-				800F84DE2A53FEAE004A5D01 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,7 +453,6 @@
 				800C8C6E2A48450500BE512E /* GraphViewController.swift in Sources */,
 				800C8C762A4AF02500BE512E /* DatePickerViewController.swift in Sources */,
 				802E92442A4DC06500A25A23 /* PasswordSettingsViewController.swift in Sources */,
-				800F84DF2A53FEAE004A5D01 /* UserData.swift in Sources */,
 				80354F192A416B1400412C73 /* DiaryModel.swift in Sources */,
 				80354F152A3EE3B700412C73 /* Database.swift in Sources */,
 				80354EEA2A3B206A00412C73 /* SceneDelegate.swift in Sources */,
@@ -653,6 +649,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = febby.Moody;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -685,6 +684,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = febby.Moody;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

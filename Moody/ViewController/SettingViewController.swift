@@ -37,8 +37,8 @@ class SettingViewController: UIViewController, DatePickerDelegate {
     @IBOutlet weak var lockLabel: UILabel!
     @IBOutlet weak var alarmClockLabel: UILabel!
     @IBOutlet weak var alarmLabel: UILabel!
-    @IBOutlet weak var premiumLabel: UILabel!
     @IBOutlet weak var buySubscribeBackground: UIView!
+    @IBOutlet weak var buySubscribeLable: UILabel!
     
     let font = Font()
     let fb = Firebase()
@@ -147,13 +147,14 @@ extension SettingViewController {
     
     private func setupUI(){
         buySubscribeBackground.layer.cornerRadius = 10
-        buySubscribeBackground.layer.borderColor = UIColor.black.cgColor
-        buySubscribeBackground.layer.borderWidth = 1
+        buySubscribeLable.text = "\(String(format: NSLocalizedString("subscription.title", comment: ""))) "
+//        buySubscribeBackground.layer.borderColor = UIColor.black.cgColor
+//        buySubscribeBackground.layer.borderWidth = 1
         
     }
     
     private func setupFont(){
-        premiumLabel.font = font.title2Size
+        buySubscribeLable.font = font.title2Size
         alarmLabel.font = font.subSize
         alarmClockLabel.font = font.subSize
         lockLabel.font = font.subSize

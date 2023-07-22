@@ -151,7 +151,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
                 }
                 
                 delegate.diaryAdded(controller: self)
-            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text != "") {
+            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) && diary.text != "") {
                 fb.addDiary(date: date, sticker: [], story: diary.text)
             }
             
@@ -184,7 +184,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
                 }
                 
                 delegate.diaryAdded(controller: self)
-            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text != "") {
+            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) && diary.text != "") {
                 fb.addDiary(date: date, sticker: [], story: diary.text)
             }
             

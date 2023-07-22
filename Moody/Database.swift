@@ -31,7 +31,6 @@ class Firebase {
                     // User object is nil
                     return
                 }
-                UserData.shared.setUser(newUser: user)
                 let userID = user.uid
                 self.userDefault.set(userID, forKey: "userID")
                 completion()

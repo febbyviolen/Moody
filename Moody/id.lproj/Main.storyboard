@@ -114,7 +114,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uHL-dE-MqG">
                                                                     <rect key="frame" x="0.0" y="59" width="364" height="54.333333333333343"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diX-Ys-ddE">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diX-Ys-ddE">
                                                                             <rect key="frame" x="0.0" y="0.0" width="364" height="24"/>
                                                                             <color key="tintColor" systemColor="systemGrayColor"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -204,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nao-pA-7Am">
-                                <rect key="frame" x="27" y="158" width="360" height="454"/>
+                                <rect key="frame" x="27" y="171" width="360" height="454"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wOr-tM-2PI">
                                         <rect key="frame" x="128" y="0.0" width="104" height="44"/>
@@ -317,7 +317,7 @@
                             <constraint firstItem="nao-pA-7Am" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Aa-Lf-9Jq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FAE-Ya-1G8" secondAttribute="bottom" constant="80" id="8eg-ov-RtC"/>
                             <constraint firstItem="FAE-Ya-1G8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EGX-Oj-MqH"/>
-                            <constraint firstItem="nao-pA-7Am" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="mrT-FH-wCl"/>
+                            <constraint firstItem="nao-pA-7Am" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="sWA-J7-HzT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g1s-Z3-QZ9">
@@ -847,31 +847,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="iCl-96-blo">
                                 <rect key="frame" x="15" y="108" width="384" height="290"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-LW-ckm">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="80"/>
+                                    <view hidden="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nxi-4Z-Pi5">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Langganan premium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM1-zf-cs6">
-                                                <rect key="frame" x="40" y="30" width="156" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="soHappy" translatesAutoresizingMaskIntoConstraints="NO" id="pPm-zk-Yoq">
-                                                <rect key="frame" x="304" y="15" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="ds6-nh-unu"/>
-                                                    <constraint firstAttribute="height" constant="50" id="kxY-eW-oSA"/>
-                                                </constraints>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fTl-7w-rvd">
+                                                <rect key="frame" x="30" y="0.0" width="324" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프리미엄 이용권 구매 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yG-d4-fXE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="324" height="50"/>
+                                                        <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
+                                                        <color key="textColor" name="white"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="tintColor" name="white"/>
+                                            </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="secondary"/>
                                         <constraints>
-                                            <constraint firstItem="PM1-zf-cs6" firstAttribute="centerY" secondItem="3nb-LW-ckm" secondAttribute="centerY" id="HWK-Jw-GlU"/>
-                                            <constraint firstAttribute="height" constant="80" id="M8F-V0-G2O"/>
-                                            <constraint firstAttribute="trailing" secondItem="pPm-zk-Yoq" secondAttribute="trailing" constant="30" id="SOe-DN-0hZ"/>
-                                            <constraint firstItem="pPm-zk-Yoq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PM1-zf-cs6" secondAttribute="trailing" constant="8" symbolic="YES" id="YV5-rb-gZ6"/>
-                                            <constraint firstItem="pPm-zk-Yoq" firstAttribute="centerY" secondItem="3nb-LW-ckm" secondAttribute="centerY" id="iEi-t7-JUg"/>
-                                            <constraint firstItem="PM1-zf-cs6" firstAttribute="leading" secondItem="3nb-LW-ckm" secondAttribute="leading" constant="40" id="yXi-yv-sz5"/>
+                                            <constraint firstAttribute="height" constant="50" id="2dx-up-nlp"/>
+                                            <constraint firstItem="fTl-7w-rvd" firstAttribute="leading" secondItem="Nxi-4Z-Pi5" secondAttribute="leading" constant="30" id="OZ8-Sj-XRG"/>
+                                            <constraint firstAttribute="trailing" secondItem="fTl-7w-rvd" secondAttribute="trailing" constant="30" id="UCD-nL-EFi"/>
+                                            <constraint firstItem="fTl-7w-rvd" firstAttribute="top" secondItem="Nxi-4Z-Pi5" secondAttribute="top" id="oc0-tp-twk"/>
+                                            <constraint firstAttribute="bottom" secondItem="fTl-7w-rvd" secondAttribute="bottom" id="wp7-10-1If"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z6v-PE-eC4">
@@ -1159,14 +1157,14 @@
                         <outlet property="alarmLabel" destination="UXV-Ut-nSi" id="Nnt-NP-hPY"/>
                         <outlet property="alarmSwitch" destination="PtV-hr-O9B" id="1d6-n8-hmE"/>
                         <outlet property="appReviewLabel" destination="Pyd-Zy-PfF" id="AcQ-ds-wN8"/>
-                        <outlet property="buySubscribeBackground" destination="3nb-LW-ckm" id="Ghm-GG-lVm"/>
+                        <outlet property="buySubscribeBackground" destination="Nxi-4Z-Pi5" id="xLY-w0-pbR"/>
+                        <outlet property="buySubscribeLable" destination="5yG-d4-fXE" id="DCV-cC-sD9"/>
                         <outlet property="googleAuthView" destination="VHh-ax-4gM" id="8Yr-un-jCe"/>
                         <outlet property="googleLabel" destination="Mop-gM-MkS" id="7p5-Ao-w33"/>
                         <outlet property="languageLabel" destination="FU4-hM-jMw" id="dwa-Fh-8y7"/>
                         <outlet property="languageView" destination="c80-VJ-Tek" id="eEm-ru-OdV"/>
                         <outlet property="lockLabel" destination="DCd-fd-KTH" id="bJT-zy-sjk"/>
                         <outlet property="passwordView" destination="hjj-Oj-THG" id="E0b-Cw-GuR"/>
-                        <outlet property="premiumLabel" destination="PM1-zf-cs6" id="U5p-hc-G3S"/>
                         <outlet property="rateAppView" destination="E7C-js-V9I" id="nfL-EM-B9b"/>
                         <outlet property="timeClockLabel" destination="rEl-Tb-Fzg" id="Wsj-D4-h1m"/>
                         <segue destination="uCs-Y4-Zcv" kind="presentation" identifier="showDatePicker" animates="NO" modalPresentationStyle="overFullScreen" id="SBN-QH-PEJ"/>
@@ -2662,12 +2660,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="KaJ-vc-GpT"/>
-        <segue reference="PSo-Qb-hQO"/>
-        <segue reference="ZZf-lq-SjG"/>
+        <segue reference="qrc-6j-0SO"/>
+        <segue reference="Ra0-QD-eix"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="align.vertical.bottom.fill" catalog="system" width="128" height="115"/>
-        <image name="angry" width="471.33334350585938" height="445.66665649414062"/>
+        <image name="angry" width="676.33331298828125" height="639.33331298828125"/>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="123"/>
@@ -2682,7 +2680,7 @@
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="globe" catalog="system" width="128" height="123"/>
         <image name="google" width="251" height="256"/>
-        <image name="happy" width="677.33331298828125" height="608.66668701171875"/>
+        <image name="happy" width="471.33334350585938" height="423.66665649414062"/>
         <image name="lock" catalog="system" width="125" height="128"/>
         <image name="lock.rotation.open" catalog="system" width="128" height="112"/>
         <image name="pin.fill" catalog="system" width="116" height="128"/>
@@ -2691,11 +2689,13 @@
         <image name="rectangle.split.1x2.fill" catalog="system" width="128" height="93"/>
         <image name="seal.fill" catalog="system" width="128" height="124"/>
         <image name="smiley" catalog="system" width="128" height="123"/>
-        <image name="soHappy" width="670.66668701171875" height="602.66668701171875"/>
         <image name="trash.fill" catalog="system" width="119" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondary">
+            <color red="0.51764705882352946" green="0.49411764705882355" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
