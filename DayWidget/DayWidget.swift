@@ -9,10 +9,6 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-class firebase {
-    
-}
-
 struct Provider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (DayEntry) -> Void) {
         let entry = DayEntry(date: Date(), img: "happy")
@@ -22,13 +18,17 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<DayEntry>) -> Void) {
         var entries: [DayEntry] = []
         
-        let userDefaults = UserDefaults(suiteName: "group.widgetcache")
-        let img = userDefaults?.value(forKey: "img") as? String ?? ""
+        let userDefaults = UserDefaults(suiteName: "group.febby.moody.widgetcache")
+        var img = userDefaults?.value(forKey: "img") as? String ?? ""
         
         let currentDate = Date()
-        for dayOffSet in 0..<7 {
+        for dayOffSet in 0...1 {
             let entryDate = Calendar.current.date(byAdding: .day, value: dayOffSet ,to: currentDate)!
             let startOfDate = Calendar.current.startOfDay(for: entryDate)
+            if startOfDate == Date() {
+                userDefaults?.set("", forKey: "img")
+                img = userDefaults?.value(forKey: "img") as? String ?? ""
+            }
             let entry = DayEntry(date: startOfDate,
                                  img: img)
             entries.append(entry)
@@ -68,7 +68,6 @@ struct DayWidgetEntryView : View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(minWidth: 20, idealWidth: 50, minHeight: 20, idealHeight: 50)
-                
             }
             .padding()
             .padding()

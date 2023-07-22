@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Font-Regular.ttf">
+        <array key="오뮤_다예쁨체.ttf">
             <string>omyu_pretty</string>
         </array>
     </customFonts>
@@ -2675,12 +2675,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="KaJ-vc-GpT"/>
-        <segue reference="nVT-Ps-u92"/>
+        <segue reference="3jP-Nj-UWb"/>
         <segue reference="ZZf-lq-SjG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="align.vertical.bottom.fill" catalog="system" width="128" height="115"/>
-        <image name="angry" width="676.33331298828125" height="639.33331298828125"/>
+        <image name="angry" width="471.33334350585938" height="445.66665649414062"/>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="123"/>
@@ -2695,7 +2695,7 @@
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="globe" catalog="system" width="128" height="123"/>
         <image name="google" width="251" height="256"/>
-        <image name="happy" width="471.33334350585938" height="423.66665649414062"/>
+        <image name="happy" width="416.66665649414062" height="416.66665649414062"/>
         <image name="lock" catalog="system" width="125" height="128"/>
         <image name="lock.rotation.open" catalog="system" width="128" height="112"/>
         <image name="pin.fill" catalog="system" width="116" height="128"/>

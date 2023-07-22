@@ -21,7 +21,7 @@ class StickerViewController: UIViewController {
     @IBOutlet weak var segmentedControl: PlainSegmentedControl!
     
     var moodSticker = Mood.allCases
-    var lifeSticker = [""]
+    var lifeSticker = mainDaily.allCases
     
     var showIndex = 0
     var selectedMoodSticker = ""
@@ -98,10 +98,10 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
             delegate.stickerTapped(controller: self)
             
         case 1:
-//            let selectedLifeSticker = lifeSticker[indexPath.item]
+            let selectedLifeSticker = lifeSticker[indexPath.item]
             
             // Do something with the selected life sticker
-            print("Selected life sticker: ")
+            delegate.stickerTapped(controller: self)
             
         default:
             break
@@ -113,8 +113,7 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
         case 0:
             return moodSticker.count
         case 1:
-            return 2
-//            return lifeSticker.count
+            return lifeSticker.count
         default:
             return 0
         }
@@ -130,16 +129,10 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         case 1:
             
-            let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "comingSoonCell", for: indexPath) as! comingSoonCell
-            if indexPath.item == 0 {
-                cell2.label.text = ""
-            } else if indexPath.item == 1 {
-                cell2.label.text = "Coming Soon"
-                cell2.label.font = font.dateSize
-                cell2.label.textColor = .systemGray2
-            }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
+            cell.stickerImg.image = UIImage(named: lifeSticker[indexPath.item].imgName)
             
-            return cell2
+            return cell
         default:
             break
             

@@ -81,6 +81,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     var calendarDataSource: [String: DiaryModel] = [:]
     var currentYear: String = ""
     var loggedIn = false
+    var sendFromAddSticker = false
     
     //=== DATE FORMATTER ===
     var dataCalendarFormatter: DateFormatter {
@@ -91,6 +92,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     
     //MARK: LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
+        sendFromAddSticker = false
+        
         if calendarDataSource.isEmpty {
             setupUser()
         }
@@ -121,6 +124,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
                 VC.story = selected?.story ?? ""
                 VC.delegate = self
                 VC.comeFromVC = ViewController.description()
+                VC.fromAddSticker = sendFromAddSticker
             }
         }
         if segue.identifier == "showListController" {
@@ -151,6 +155,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     @IBAction func addButton(_ sender: Any) {
         dateSelected = Date()
         selected = calendarDataSource[dataCalendarFormatter.string(from: dateSelected)]
+        sendFromAddSticker = true
         performSegue(withIdentifier: "showSticker", sender: self)
     }
     
@@ -398,9 +403,6 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     
     private func handleEvents(cell: DateCell, cellState: CellState) {
         let dateString = dataCalendarFormatter.string(from: cellState.date)
-        print(dateString)
-        print(calendarDataSource)
-        print(calendarDataSource[dateString].debugDescription)
         if calendarDataSource[dateString] == nil {
             cell.stickerImage.isHidden = true
             cell.dateLabel.isHidden = false

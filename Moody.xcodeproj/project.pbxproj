@@ -13,6 +13,7 @@
 		800C8C762A4AF02500BE512E /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C8C752A4AF02500BE512E /* DatePickerViewController.swift */; };
 		800C8C782A4C2A6800BE512E /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C8C772A4C2A6800BE512E /* PasswordViewController.swift */; };
 		800F84E12A59336A004A5D01 /* ConnectGoogleAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800F84E02A59336A004A5D01 /* ConnectGoogleAccountViewController.swift */; };
+		8022919E2A6BB6870020CE86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */; };
 		802CB2E22A515BFA00509957 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802CB2E42A515BFA00509957 /* Localizable.strings */; };
 		802CB2ED2A51697600509957 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CB2EC2A51697600509957 /* LanguageViewController.swift */; };
 		802E92442A4DC06500A25A23 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E92432A4DC06500A25A23 /* PasswordSettingsViewController.swift */; };
@@ -33,7 +34,7 @@
 		80354F132A3DAF9900412C73 /* 오뮤_다예쁨체.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */; };
 		80354F152A3EE3B700412C73 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F142A3EE3B700412C73 /* Database.swift */; };
 		80354F192A416B1400412C73 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F182A416B1400412C73 /* DiaryModel.swift */; };
-		80354F1B2A4456EE00412C73 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F1A2A4456EE00412C73 /* Mood.swift */; };
+		80354F1B2A4456EE00412C73 /* MainStickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F1A2A4456EE00412C73 /* MainStickers.swift */; };
 		80354F1D2A447B0300412C73 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F1C2A447B0300412C73 /* DiaryListViewController.swift */; };
 		80354F232A44841F00412C73 /* DiaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F222A44841F00412C73 /* DiaryListCell.swift */; };
 		80B23E4D2A52A82D007AECEF /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B23E4C2A52A82D007AECEF /* LanguageManager.swift */; };
@@ -46,7 +47,6 @@
 		80D965C52A63EFE100B8394A /* DayWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 80D965C02A63EFDE00B8394A /* DayWidget.intentdefinition */; };
 		80D965C82A63EFE100B8394A /* DayWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 80D965B62A63EFDD00B8394A /* DayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		80D965CD2A63F4BC00B8394A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802CB2E42A515BFA00509957 /* Localizable.strings */; };
-		80D965D72A65643400B8394A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D965D62A65643400B8394A /* Launch Screen.storyboard */; };
 		D5B21207D1455055F968CD2B /* Pods_Moody.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +82,7 @@
 		800C8C752A4AF02500BE512E /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		800C8C772A4C2A6800BE512E /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		800F84E02A59336A004A5D01 /* ConnectGoogleAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectGoogleAccountViewController.swift; sourceTree = "<group>"; };
+		8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		802CB2DA2A5158EC00509957 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
 		802CB2E82A5162D700509957 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		802CB2EA2A51660B00509957 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -106,7 +107,7 @@
 		80354F142A3EE3B700412C73 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		80354F162A3EF7B400412C73 /* user defaults.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "user defaults.md"; sourceTree = "<group>"; };
 		80354F182A416B1400412C73 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
-		80354F1A2A4456EE00412C73 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		80354F1A2A4456EE00412C73 /* MainStickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStickers.swift; sourceTree = "<group>"; };
 		80354F1C2A447B0300412C73 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		80354F222A44841F00412C73 /* DiaryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListCell.swift; sourceTree = "<group>"; };
 		80B23E4B2A52A1D7007AECEF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		80D965C32A63EFE100B8394A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D965D02A64437000B8394A /* Moody.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Moody.entitlements; sourceTree = "<group>"; };
 		80D965D12A64438800B8394A /* DayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayWidgetExtension.entitlements; sourceTree = "<group>"; };
-		80D965D62A65643400B8394A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moody.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16FAD873342E95C6777C29B /* Pods-Moody.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moody.release.xcconfig"; path = "Target Support Files/Pods-Moody/Pods-Moody.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,7 +204,7 @@
 				80354F062A3DA22600412C73 /* Font */,
 				80354EFD2A3B270B00412C73 /* ViewController */,
 				80354EED2A3B206A00412C73 /* Main.storyboard */,
-				80D965D62A65643400B8394A /* Launch Screen.storyboard */,
+				8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */,
 				802CB2E42A515BFA00509957 /* Localizable.strings */,
 				80354EF02A3B206D00412C73 /* Assets.xcassets */,
 				80354EFB2A3B216B00412C73 /* GoogleService-Info.plist */,
@@ -246,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				80354F182A416B1400412C73 /* DiaryModel.swift */,
-				80354F1A2A4456EE00412C73 /* Mood.swift */,
+				80354F1A2A4456EE00412C73 /* MainStickers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,7 +346,6 @@
 			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				en,
 				ko,
 				id,
@@ -370,7 +369,7 @@
 				80354F0E2A3DAA1C00412C73 /* GamjaFlower-Regular.ttf in Resources */,
 				80354F082A3DA24000412C73 /* Dongle-Regular.ttf in Resources */,
 				80354EFC2A3B216B00412C73 /* GoogleService-Info.plist in Resources */,
-				80D965D72A65643400B8394A /* Launch Screen.storyboard in Resources */,
+				8022919E2A6BB6870020CE86 /* LaunchScreen.storyboard in Resources */,
 				802CB2E22A515BFA00509957 /* Localizable.strings in Resources */,
 				80354EF12A3B206D00412C73 /* Assets.xcassets in Resources */,
 				80354EEF2A3B206A00412C73 /* Main.storyboard in Resources */,
@@ -441,7 +440,7 @@
 				80354F032A3C1B4B00412C73 /* StickerCell.swift in Sources */,
 				80354EE82A3B206A00412C73 /* AppDelegate.swift in Sources */,
 				800C8C742A4ADC9600BE512E /* SettingViewController.swift in Sources */,
-				80354F1B2A4456EE00412C73 /* Mood.swift in Sources */,
+				80354F1B2A4456EE00412C73 /* MainStickers.swift in Sources */,
 				80354F1D2A447B0300412C73 /* DiaryListViewController.swift in Sources */,
 				800C8C702A4A83E800BE512E /* SelectCalendarViewController.swift in Sources */,
 				80B23E4D2A52A82D007AECEF /* LanguageManager.swift in Sources */,

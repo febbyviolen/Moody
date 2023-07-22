@@ -9,7 +9,6 @@ import UIKit
 import KTCenterFlowLayout
 import WidgetKit
 
-
 protocol DiaryDetailDelegate {
     func diaryAdded(controller: DiaryDetailViewController)
     func diaryDeleted(controller: DiaryDetailViewController)
@@ -62,6 +61,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     let font = Font()
     var date = Date()
     var selectedIndex: IndexPath?
+    var fromAddSticker = false
     
     //=== DATE FORMATTER ===
     var dateString : String {
@@ -69,16 +69,26 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         return formatter.string(from: date)
     }
     
+    var widgetFormatter : DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter
+    }
+    
     var deleteButtonAction: (() -> Void)?
     
-    var sticker: [String] = []
+    var sticker: [String] = [] {
+        didSet {
+            updatePlusButton()
+        }
+    }
     var story = ""
     
     
     //MARK: LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        if sticker.isEmpty {
+        if sticker.isEmpty || fromAddSticker {
             performSegue(withIdentifier: "showSticker", sender: self)
         }
         if sticker.count >= 5 {
@@ -128,9 +138,6 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         if let _ = NC[NC.count - 2] as? ViewController{
             if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
                 
-                let ud = UserDefaults(suiteName: "group.widgetcache")
-                ud?.setValue(sticker.last ?? "" , forKey: "img")
-                
                 self.fb.deleteDiary(date: self.date)
                 self.delegate.diaryDeleted(controller: self)
             }
@@ -139,31 +146,21 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
                 if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
                     fb.addDiary(date: date, sticker: sticker, story: "")
                     
-                    let ud = UserDefaults(suiteName: "group.widgetcache")
-                    ud?.setValue(sticker.last, forKey: "img")
-                    WidgetCenter.shared.reloadAllTimelines()
                 } else {
                     fb.addDiary(date: date, sticker: sticker, story: diary.text)
-                    
-                    let ud = UserDefaults(suiteName: "group.widgetcache")
-                    ud?.setValue(sticker.last, forKey: "img")
-                    WidgetCenter.shared.reloadAllTimelines()
                 }
                 
                 delegate.diaryAdded(controller: self)
             } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) && diary.text != "") {
                 fb.addDiary(date: date, sticker: [], story: diary.text)
             }
-            
+    
+            updateWidget()
             navigationController?.popViewController(animated: true)
         }
         
         if let _ = NC[NC.count - 2] as? DiaryListViewController {
             if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
-                
-                let ud = UserDefaults(suiteName: "group.widgetcache")
-                ud?.setValue(sticker.last ?? "" , forKey: "img")
-                
                 self.fb.deleteDiary(date: self.date)
                 self.delegate.diaryDeleted(controller: self)
             }
@@ -172,15 +169,8 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
                 if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
                     fb.addDiary(date: date, sticker: sticker, story: "")
                     
-                    let ud = UserDefaults(suiteName: "group.widgetcache")
-                    ud?.setValue(sticker.last, forKey: "img")
-                    WidgetCenter.shared.reloadAllTimelines()
                 } else {
                     fb.addDiary(date: date, sticker: sticker, story: diary.text)
-                    
-                    let ud = UserDefaults(suiteName: "group.widgetcache")
-                    ud?.setValue(sticker.last, forKey: "img")
-                    WidgetCenter.shared.reloadAllTimelines()
                 }
                 
                 delegate.diaryAdded(controller: self)
@@ -188,12 +178,31 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
                 fb.addDiary(date: date, sticker: [], story: diary.text)
             }
             
+            updateWidget()
             navigationController?.popViewController(animated: true)
         }
     }
     
     @IBAction func addSticker(_ sender: Any) {  
         performSegue(withIdentifier: "showSticker", sender: self)
+    }
+    
+    private func updateWidget() {
+        if widgetFormatter.string(from: date) == widgetFormatter.string(from: Date()) {
+            let ud = UserDefaults(suiteName: "group.febby.moody.widgetcache")
+            ud?.setValue(sticker.last, forKey: "img")
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
+    
+    private func updatePlusButton() {
+        if sticker.count >= 5 {
+            addStickerButton?.isHidden = true
+        } else {
+            if addStickerButton != nil {
+                addStickerButton.isHidden = false
+            }
+        }
     }
 }
 

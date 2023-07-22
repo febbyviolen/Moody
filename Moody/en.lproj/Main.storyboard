@@ -645,6 +645,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addStickerButton" destination="waJ-aP-Qbb" id="874-Mh-eJY"/>
                         <outlet property="clockTabBarButton" destination="Zdx-Uz-whx" id="nq0-Lg-ziJ"/>
                         <outlet property="collectionView" destination="BuZ-BP-hlD" id="raq-lK-mYW"/>
                         <outlet property="dateLabel" destination="iME-Mc-YgK" id="4P8-wh-hBa"/>

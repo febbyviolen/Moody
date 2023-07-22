@@ -497,6 +497,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addStickerButton" destination="Sp5-qs-WJ9" id="vFy-oj-gn4"/>
                         <outlet property="clockTabBarButton" destination="Zdx-Uz-whx" id="nq0-Lg-ziJ"/>
                         <outlet property="collectionView" destination="BuZ-BP-hlD" id="raq-lK-mYW"/>
                         <outlet property="dateLabel" destination="iME-Mc-YgK" id="4P8-wh-hBa"/>
