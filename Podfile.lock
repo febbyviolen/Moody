@@ -813,12 +813,6 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (2.3.1)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
 
 DEPENDENCIES:
   - FirebaseAnalytics
@@ -829,8 +823,6 @@ DEPENDENCIES:
   - JTAppleCalendar (~> 7.1)
   - KTCenterFlowLayout
   - NVActivityIndicatorView
-  - RxCocoa
-  - RxSwift
 
 SPEC REPOS:
   trunk:
@@ -859,9 +851,6 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - PromisesObjC
-    - RxCocoa
-    - RxRelay
-    - RxSwift
 
 SPEC CHECKSUMS:
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
@@ -889,10 +878,7 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: 9b58829ad69ebe96e6b0e77fde36b37ef5458ee4
+PODFILE CHECKSUM: d79b3445c787c0208b976a9ed43774ea2020c1ea
 
 COCOAPODS: 1.12.1

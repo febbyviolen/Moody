@@ -1,0 +1,393 @@
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "0O8-79-33E"; */
+"0O8-79-33E.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0Xf-wJ-ZO2"; */
+"0Xf-wJ-ZO2.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "5"; ObjectID = "12o-Sk-XmD"; */
+"12o-Sk-XmD.configuration.title" = "5";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "12o-Sk-XmD"; */
+"12o-Sk-XmD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "yearLabel"; ObjectID = "1T9-MJ-Kdc"; */
+"1T9-MJ-Kdc.text" = "yearLabel";
+
+/* Class = "UILabel"; text = "Emotion Ranking"; ObjectID = "1x0-Zf-4qU"; */
+"1x0-Zf-4qU.text" = "Rank";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "29u-eL-npJ"; */
+"29u-eL-npJ.text" = "Label";
+
+/* Class = "UILabel"; text = "Please check the following before proceeding:"; ObjectID = "2dV-zl-RAc"; */
+"2dV-zl-RAc.text" = "Please check the following before proceeding:";
+
+/* Class = "UILabel"; text = "NOV"; ObjectID = "2zU-PO-lVL"; */
+"2zU-PO-lVL.text" = "NOV";
+
+/* Class = "UILabel"; text = "JULY"; ObjectID = "3tz-JI-Lrb"; */
+"3tz-JI-Lrb.text" = "JULY";
+
+/* Class = "UIButton"; configuration.title = "0"; ObjectID = "5kR-5z-ak8"; */
+"5kR-5z-ak8.configuration.title" = "0";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5kR-5z-ak8"; */
+"5kR-5z-ak8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Data Sync"; ObjectID = "8Wv-vq-bb8"; */
+"8Wv-vq-bb8.text" = "Data Sync";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8a2-Hw-8jG"; */
+"8a2-Hw-8jG.text" = "Label";
+
+/* Class = "UILabel"; text = "By checking the above, you are considered to have agreed to the terms and conditions."; ObjectID = "A8N-S2-kn8"; */
+"A8N-S2-kn8.text" = "By checking the above, you are considered to have agreed to the terms and conditions.";
+
+/* Class = "UILabel"; text = "Data Sync"; ObjectID = "AaW-SI-5yX"; */
+"AaW-SI-5yX.text" = "Data Sync";
+
+/* Class = "UILabel"; text = "By connecting your Google account, you can log in conveniently and easily without the need to remember additional usernames or passwords."; ObjectID = "AgB-zN-1as"; */
+"AgB-zN-1as.text" = "Connect to your Google Account for convenient and effortless login to our app.";
+
+/* Class = "UINavigationItem"; title = "Graph"; ObjectID = "AgM-5m-ciS"; */
+"AgM-5m-ciS.title" = "Graph";
+
+/* Class = "UILabel"; text = "Bahasa Indonesia"; ObjectID = "CRz-GY-y7J"; */
+"CRz-GY-y7J.text" = "Bahasa Indonesia";
+
+/* Class = "UILabel"; text = "Screen Lock"; ObjectID = "DCd-fd-KTH"; */
+"DCd-fd-KTH.text" = "Screen Lock";
+
+/* Class = "UILabel"; text = "FEB"; ObjectID = "DLb-Tv-5Db"; */
+"DLb-Tv-5Db.text" = "FEB";
+
+/* Class = "UIButton"; configuration.title = "4"; ObjectID = "DiE-BB-nj4"; */
+"DiE-BB-nj4.configuration.title" = "4";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DiE-BB-nj4"; */
+"DiE-BB-nj4.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "By securely backing up your mood data to your Google account, you can recover valuable information without losing it in case of device loss, damage, or app reinstallation."; ObjectID = "DnL-WA-b1u"; */
+"DnL-WA-b1u.text" = "By securely backing up your mood data to your Google account, you can recover valuable information without losing it in case of device loss, damage, or app reinstallation.";
+
+/* Class = "UILabel"; text = "Language Setting"; ObjectID = "FU4-hM-jMw"; */
+"FU4-hM-jMw.text" = "Language Setting";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HOs-U2-eww"; */
+"HOs-U2-eww.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Data Sync"; ObjectID = "Igg-QY-GLI"; */
+"Igg-QY-GLI.text" = "Data Sync";
+
+/* Class = "UIButton"; configuration.title = "When merging data, I understand that duplicated items in the existing account may be overwritten."; ObjectID = "JXd-fB-kUd"; */
+"JXd-fB-kUd.configuration.title" = "When merging data, I understand that duplicated items in the existing account may be overwritten.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JXd-fB-kUd"; */
+"JXd-fB-kUd.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Screen Lock"; ObjectID = "KE5-wP-77g"; */
+"KE5-wP-77g.title" = "Screen Lock";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "MYj-cR-lpF"; */
+"MYj-cR-lpF.title" = "Item";
+
+/* Class = "UILabel"; text = "Data Backup"; ObjectID = "McV-jy-M6v"; */
+"McV-jy-M6v.text" = "Data Backup";
+
+/* Class = "UILabel"; text = "Connect Your Google Account"; ObjectID = "Mop-gM-MkS"; */
+"Mop-gM-MkS.text" = "Connect Your Google Account";
+
+/* Class = "UIButton"; configuration.title = "취소"; ObjectID = "P9t-FD-aRI"; */
+"P9t-FD-aRI.configuration.title" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "P9t-FD-aRI"; */
+"P9t-FD-aRI.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "프리미엄 이용권 구매 "; ObjectID = "PM1-zf-cs6"; */
+"PM1-zf-cs6.text" = "Purchase Premium Pass";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PZV-Uw-1mi"; */
+"PZV-Uw-1mi.text" = "Label";
+
+/* Class = "UILabel"; text = "개발자 응원하러 가기"; ObjectID = "Pyd-Zy-PfF"; */
+"Pyd-Zy-PfF.text" = "Support the Developer";
+
+/* Class = "UISegmentedControl"; RIq-mo-Cmp.segmentTitles[0] = "기분"; ObjectID = "RIq-mo-Cmp"; */
+"RIq-mo-Cmp.segmentTitles[0]" = "Mood";
+
+/* Class = "UISegmentedControl"; RIq-mo-Cmp.segmentTitles[1] = "일상   "; ObjectID = "RIq-mo-Cmp"; */
+"RIq-mo-Cmp.segmentTitles[1]" = "Daily";
+
+/* Class = "UILabel"; text = "JUNE"; ObjectID = "RUM-fc-Wwe"; */
+"RUM-fc-Wwe.text" = "JUNE";
+
+/* Class = "UIButton"; configuration.title = "오늘"; ObjectID = "Rze-je-TBV"; */
+"Rze-je-TBV.configuration.title" = "Today";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rze-je-TBV"; */
+"Rze-je-TBV.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UIu-82-S2p"; */
+"UIu-82-S2p.text" = "Label";
+
+/* Class = "UILabel"; text = "일기 알림"; ObjectID = "UXV-Ut-nSi"; */
+"UXV-Ut-nSi.text" = "Diary Notifications";
+
+/* Class = "UILabel"; text = "주의 사항"; ObjectID = "VCP-qp-Ar9"; */
+"VCP-qp-Ar9.text" = "Caution";
+
+/* Class = "UILabel"; text = "데이터 동기화"; ObjectID = "VfC-SQ-g3q"; */
+"VfC-SQ-g3q.text" = "Data Synchronization";
+
+/* Class = "UILabel"; text = "한국어"; ObjectID = "XIm-2Y-tWe"; */
+"XIm-2Y-tWe.text" = "한국어";
+
+/* Class = "UIButton"; configuration.title = "1"; ObjectID = "XSv-nh-TQG"; */
+"XSv-nh-TQG.configuration.title" = "1";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XSv-nh-TQG"; */
+"XSv-nh-TQG.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "8"; ObjectID = "XW2-iq-DzQ"; */
+"XW2-iq-DzQ.configuration.title" = "8";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XW2-iq-DzQ"; */
+"XW2-iq-DzQ.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "확인"; ObjectID = "Y3R-Wh-UFA"; */
+"Y3R-Wh-UFA.configuration.title" = "OK";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Y3R-Wh-UFA"; */
+"Y3R-Wh-UFA.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Yiq-z0-XgO"; */
+"Yiq-z0-XgO.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Zdx-Uz-whx"; */
+"Zdx-Uz-whx.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a8y-9j-vfc"; */
+"a8y-9j-vfc.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aB1-iO-sVN"; */
+"aB1-iO-sVN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "aTi-nN-PaR"; */
+"aTi-nN-PaR.text" = "2";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aXr-jx-4EY"; */
+"aXr-jx-4EY.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ae8-lK-FCu"; */
+"ae8-lK-FCu.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "apM-65-WoV"; */
+"apM-65-WoV.title" = "Item";
+
+/* Class = "UILabel"; text = "기존에 사용 중인 구글 계정이 있는 경우, 현재의 앱 데이터와 병합할 수 있습니다. 데이터가 중복된 경우에도 저희 앱의 데이터가 우선됩니다."; ObjectID = "bW0-2R-L33"; */
+"bW0-2R-L33.text" = "If you have an existing Google account, you have the option to merge your current app data with our app. In case of duplicate data, our app's data will take precedence.";
+
+/* Class = "UILabel"; text = "iPad 및 iPhone과 같은 여러 기기에서 사용하는 기분 다이어리를 원활하게 동기화하여 언제 어디서든 항상 최신 정보를 확인하실 수 있습니다."; ObjectID = "bua-Vf-nTc"; */
+"bua-Vf-nTc.text" = "Seamlessly synchronize your mood diary across multiple devices, ensuring your entries are always up to date, regardless of the device you use.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "clz-xG-hqg"; */
+"clz-xG-hqg.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "cu4-u8-dRo"; */
+"cu4-u8-dRo.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dLg-n4-f8h"; */
+"dLg-n4-f8h.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dqj-nz-x2a"; */
+"dqj-nz-x2a.text" = "Label";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "eEy-Bu-Veo"; */
+"eEy-Bu-Veo.text" = "1";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "ePz-89-F1X"; */
+"ePz-89-F1X.text" = "3";
+
+/* Class = "UILabel"; text = "SEPT"; ObjectID = "eZ7-GB-0mm"; */
+"eZ7-GB-0mm.text" = "SEPT";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ekU-WM-2Me"; */
+"ekU-WM-2Me.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fY8-gs-kma"; */
+"fY8-gs-kma.text" = "Label";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "gOf-J4-o3o"; */
+"gOf-J4-o3o.text" = "English";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gQs-5B-99I"; */
+"gQs-5B-99I.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "MAY"; ObjectID = "hKs-XF-Xen"; */
+"hKs-XF-Xen.text" = "MAY";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "hLv-AH-J6g"; */
+"hLv-AH-J6g.title" = "Item";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "hTI-lk-NCx"; */
+"hTI-lk-NCx.text" = "5";
+
+/* Class = "UILabel"; text = "편리한 로그인"; ObjectID = "hgj-EL-jTD"; */
+"hgj-EL-jTD.text" = "Convenient Login";
+
+/* Class = "UILabel"; text = "AUG"; ObjectID = "i1w-fU-KE8"; */
+"i1w-fU-KE8.text" = "AUG";
+
+/* Class = "UILabel"; text = "DateLabel"; ObjectID = "iME-Mc-YgK"; */
+"iME-Mc-YgK.text" = "DateLabel";
+
+/* Class = "UILabel"; text = "비밀번호"; ObjectID = "iNo-ZH-4gM"; */
+"iNo-ZH-4gM.text" = "Password";
+
+/* Class = "UILabel"; text = "JAN"; ObjectID = "jAc-fZ-Dfo"; */
+"jAc-fZ-Dfo.text" = "JAN";
+
+/* Class = "UIButton"; configuration.title = "7"; ObjectID = "jGv-f1-Crj"; */
+"jGv-f1-Crj.configuration.title" = "7";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "jGv-f1-Crj"; */
+"jGv-f1-Crj.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "알림 시간"; ObjectID = "k7F-S0-i4p"; */
+"k7F-S0-i4p.text" = "Notification Time";
+
+/* Class = "UIButton"; configuration.title = "9"; ObjectID = "kcq-dV-AJ7"; */
+"kcq-dV-AJ7.configuration.title" = "9";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kcq-dV-AJ7"; */
+"kcq-dV-AJ7.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "2"; ObjectID = "knx-bW-T5E"; */
+"knx-bW-T5E.configuration.title" = "2";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "knx-bW-T5E"; */
+"knx-bW-T5E.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "By connecting your Google account, you understand that data will be synchronized and backup functionality will be provided by our app."; ObjectID = "kpf-GW-DPN"; */
+"kpf-GW-DPN.configuration.title" = "By connecting your Google account, you understand that data will be synchronized and backup functionality will be provided by our app.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kpf-GW-DPN"; */
+"kpf-GW-DPN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "By connecting your Google account, you can enjoy various benefits in using our app."; ObjectID = "mPZ-BV-NEZ"; */
+"mPZ-BV-NEZ.text" = "By connecting your Google account, you can enjoy various benefits in using our app.";
+
+/* Class = "UILabel"; text = "How was your day today?"; ObjectID = "meV-l6-7v7"; */
+"meV-l6-7v7.text" = "How was your day?";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mhz-rC-OiL"; */
+"mhz-rC-OiL.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "2023년 06월"; ObjectID = "nDv-vf-tsW"; */
+"nDv-vf-tsW.text" = "June 2023";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nMk-kU-O5x"; */
+"nMk-kU-O5x.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "2023"; ObjectID = "nd5-rl-WaN"; */
+"nd5-rl-WaN.text" = "2023";
+
+/* Class = "UILabel"; text = "DEC"; ObjectID = "nke-Oh-6U2"; */
+"nke-Oh-6U2.text" = "DEC";
+
+/* Class = "UILabel"; text = "monthLabel"; ObjectID = "o5j-Wm-kdD"; */
+"o5j-Wm-kdD.text" = "monthLabel";
+
+/* Class = "UIButton"; configuration.title = "6"; ObjectID = "oND-Sm-YeD"; */
+"oND-Sm-YeD.configuration.title" = "6";
+
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oND-Sm-YeD"; */
+"oND-Sm-YeD.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oUi-1t-DtL"; */
+"oUi-1t-DtL.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Data Sync"; ObjectID = "oYZ-Ig-UAr"; */
+"oYZ-Ig-UAr.text" = "Data Sync";
+
+/* Class = "UILabel"; text = "OCT"; ObjectID = "okx-5K-IxE"; */
+"okx-5K-IxE.text" = "OCT";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "piF-NK-mr4"; */
+"piF-NK-mr4.text" = "1";
+
+/* Class = "UIButton"; configuration.title = "Start Connection"; ObjectID = "prv-o2-QaS"; */
+"prv-o2-QaS.configuration.title" = "Start Connection";
+
+/* Class = "UIButton"; normalTitle = "Start Connection"; ObjectID = "prv-o2-QaS"; */
+"prv-o2-QaS.normalTitle" = "Start Connection";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "q0a-Gs-p2o"; */
+"q0a-Gs-p2o.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "q7t-gW-DqG"; */
+"q7t-gW-DqG.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "qQB-Mv-YCk"; */
+"qQB-Mv-YCk.text" = "Date";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "qoi-aH-QXR"; */
+"qoi-aH-QXR.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Language Settings"; ObjectID = "r31-2q-UWl"; */
+"r31-2q-UWl.title" = "Language Settings";
+
+/* Class = "UILabel"; text = "10:00 PM"; ObjectID = "rEl-Tb-Fzg"; */
+"rEl-Tb-Fzg.text" = "10:00 PM";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "rLz-1E-y3w"; */
+"rLz-1E-y3w.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "rmK-fX-eqt"; */
+"rmK-fX-eqt.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Diary"; ObjectID = "s3p-cg-ODa"; */
+"s3p-cg-ODa.title" = "Diary";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "s6N-Iz-ht4"; */
+"s6N-Iz-ht4.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Biometric Authentication"; ObjectID = "sKH-zI-XQH"; */
+"sKH-zI-XQH.text" = "Biometric Authentication";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "u6t-Ku-Llr"; */
+"u6t-Ku-Llr.text" = "4";
+
+/* Class = "UILabel"; text = "APR"; ObjectID = "vRC-Vf-kOV"; */
+"vRC-Vf-kOV.text" = "APR";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "w8Q-Vt-ePJ"; */
+"w8Q-Vt-ePJ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "wYG-Bd-yF9"; */
+"wYG-Bd-yF9.text" = "Change Password";
+
+/* Class = "UINavigationItem"; title = "Connect with Google Account"; ObjectID = "x8p-dZ-K8v"; */
+"x8p-dZ-K8v.title" = "Connect with Google Account";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xIv-oq-FhK"; */
+"xIv-oq-FhK.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "3"; ObjectID = "xuO-0s-K83"; */
+"xuO-0s-K83.configuration.title" = "3";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xuO-0s-K83"; */
+"xuO-0s-K83.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "MAR"; ObjectID = "zWn-bY-Ok6"; */
+"zWn-bY-Ok6.text" = "MAR";
+
+/* Class = "UILabel"; text = "June 2023"; ObjectID = "zlI-dP-XQg"; */
+"zlI-dP-XQg.text" = "June 2023";
+
+/* Class = "UILabel"; text = "You can't recover your password if you forget it!"; ObjectID = "zzC-JY-0o4"; */
+"zzC-JY-0o4.text" = "You can't recover your password if you forget it!";
+
+"xCH-cf-5wc.text" = "available after purchasing a premium subscription";
+

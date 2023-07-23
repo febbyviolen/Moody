@@ -84,7 +84,7 @@ extension PasswordSettingsViewController {
             changePassView.isHidden = false
             passSwitch.setOn(true, animated: false)
         }
-        if userDefault.string(forKey: "biosPassword") == "true" {
+        if userDefault.string(forKey: "bioPassword") == "true" {
             bioSwitch.setOn(true, animated: false)
         }
     }
@@ -107,13 +107,26 @@ extension PasswordSettingsViewController {
 
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
                     DispatchQueue.main.async {
-                        if let error = error {
-                            self.bioSwitch.isOn = false
-                        } else {
+                        guard success, error == nil else {
                             // Face ID authentication failed
-                            self.authenticateWithFaceID()
+                            let alertController = UIAlertController(
+                                title: String(format: NSLocalizedString("faceId.localizedAuthenticationFailed", comment: "")), message: "",
+                                preferredStyle: .alert)
+                            
+                            let cancelAction = UIAlertAction(
+                                title: String(format: NSLocalizedString("네", comment: "")),
+                                style: .default
+                            ) { _ in
+                                self.bioSwitch.isOn = false
+                            }
+                            
+                            alertController.addAction(cancelAction)
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                            return
                         }
                         
+                        //success
                         self.userDefault.set("true", forKey: "bioPassword")
                     }
                 }
@@ -135,7 +148,8 @@ extension PasswordSettingsViewController {
                     title: String(format: NSLocalizedString("네", comment: "")),
                     style: .default,
                     handler: { _ in
-                        self.bioSwitch.isOn = false
+                        self.bioSwitch.setOn(false, animated: true)
+                        self.userDefault.set("false", forKey: "bioPassword")
                     })
                 cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
                 

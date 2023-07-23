@@ -130,7 +130,7 @@ extension SettingViewController {
         languageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLanguageSettings)))
         googleAuthView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(googleAuth)))
         rateAppView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(rateApp)))
-        
+        buySubscribeBackground.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSubscription)))
     }
     
     @objc private func showLanguageSettings() {
@@ -140,6 +140,11 @@ extension SettingViewController {
     @objc private func showLockSettings() {
         performSegue(withIdentifier: "showLockSettings", sender: self)
     }
+   
+    @objc private func showSubscription() {
+        performSegue(withIdentifier: "showSubscriptionScreen", sender: self)
+    }
+                                                    
     
     private func setupTime() {
         let timeString = "22:00"

@@ -22,6 +22,7 @@ class Firebase {
         return Firestore.firestore().collection("users").document(userID)
     }
     
+    //MARK: USERS INFO
     func anonymSign(completion: @escaping () -> Void) {
         Auth.auth().signInAnonymously { (authResult, error) in
             if let error = error {
@@ -38,6 +39,18 @@ class Firebase {
         }
     }
     
+    func deleteUser(user: String){
+        let docRef = Firestore.firestore().collection("users").document("\(user)")
+        docRef.delete() { error in
+            if let _ = error {
+//                print("\(error.localizedDescription)")
+            } else {
+//                print("success")
+            }
+        }
+    }
+    
+    //MARK: EDITING DIARY DATA
     //get data for viewcontroller
     func getDiaryData(date: Date, completion: @escaping ([String], String, String, String) -> Void){
         formatter.dateFormat = "yyyy"
@@ -62,6 +75,51 @@ class Firebase {
         }
     }
     
+    func addDiary(date: Date, sticker: [String], story: String) {
+        formatter.dateFormat = "yyyy"
+        let year = formatter.string(from: date)
+        formatter.dateFormat = "MM"
+        let month = formatter.string(from: date)
+        formatter.dateFormat = "dd"
+        let day = formatter.string(from: date)
+        
+        let docRef = userDocRef.collection("\(year)").document("\(year).\(month).\(day)")
+        
+        let data : [String: Any] = [
+            "sticker" : sticker,
+            "story" : story,
+            "date" : "\(year).\(month).\(day)"
+        ]
+        
+        docRef.setData(data, merge: true) { error in
+            if let _ = error {
+//                print("\(error.localizedDescription)")
+            } else {
+//                print("success")
+            }
+        }
+    }
+    
+    func deleteDiary(date: Date) {
+        formatter.dateFormat = "yyyy"
+        let year = formatter.string(from: date)
+        formatter.dateFormat = "MM"
+        let month = formatter.string(from: date)
+        formatter.dateFormat = "dd"
+        let day = formatter.string(from: date)
+        
+        let docRef = userDocRef.collection("\(year)").document("\(year).\(month).\(day)")
+        
+        docRef.delete() { error in
+            if let _ = error {
+//                print("\(error.localizedDescription)")
+            } else {
+//                print("success")
+            }
+        }
+    }
+    
+    //MARK: TRANSFERING DATA
     //get user data
     func transferUserData(idToken: String, completion: @escaping () -> Void){
         
@@ -162,53 +220,38 @@ class Firebase {
         completion()
     }
     
-    func addDiary(date: Date, sticker: [String], story: String) {
-        formatter.dateFormat = "yyyy"
-        let year = formatter.string(from: date)
-        formatter.dateFormat = "MM"
-        let month = formatter.string(from: date)
-        formatter.dateFormat = "dd"
-        let day = formatter.string(from: date)
+    //MARK: SUBSCRIPTION
+    func getSubscriptionInfo() {
+        let docRef = userDocRef.collection("subscription")
         
-        let docRef = userDocRef.collection("\(year)").document("\(year).\(month).\(day)")
+        docRef.getDocuments { document, err in
+            if let _ = err {
+                self.userDefault.set("false", forKey: "premiumPass")
+            } else {
+                for document in document!.documents {
+                    let data = document.data()
+                    if let premiumPass = data["premiumPass"] as? String {
+                        if premiumPass == "true" {
+                            self.userDefault.set("true", forKey: "premiumPass")
+                        } else {
+                            self.userDefault.set("false", forKey: "premiumPass")
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    func saveSubscriptionInfo(premiumID: String) {
+        let docRef = userDocRef.collection("subscription").document("subsciptionInfo")
         
         let data : [String: Any] = [
-            "sticker" : sticker,
-            "story" : story,
-            "date" : "\(year).\(month).\(day)"
+            "premiumPass" : "true",
+            "premiumPassID" : "\(premiumID)"
         ]
         
-        docRef.setData(data, merge: true) { error in
-            if let _ = error {
-//                print("\(error.localizedDescription)")
-            } else {
-//                print("success")
-            }
-        }
-    }
-    
-    func deleteDiary(date: Date) {
-        formatter.dateFormat = "yyyy"
-        let year = formatter.string(from: date)
-        formatter.dateFormat = "MM"
-        let month = formatter.string(from: date)
-        formatter.dateFormat = "dd"
-        let day = formatter.string(from: date)
-        
-        let docRef = userDocRef.collection("\(year)").document("\(year).\(month).\(day)")
-        
-        docRef.delete() { error in
-            if let _ = error {
-//                print("\(error.localizedDescription)")
-            } else {
-//                print("success")
-            }
-        }
-    }
-    
-    func deleteUser(user: String){
-        let docRef = Firestore.firestore().collection("users").document("\(user)")
-        docRef.delete() { error in
+        docRef.setData(data, merge: false) { error in
             if let _ = error {
 //                print("\(error.localizedDescription)")
             } else {

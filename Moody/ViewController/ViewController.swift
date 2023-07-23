@@ -160,7 +160,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     }
     
     @IBAction func TodayButton(_ sender: Any) {
-        
         formatter.dateFormat = "dd"
         let date = formatter.string(from: Date())
         if date == "01" || date == "1" {
@@ -194,6 +193,7 @@ extension ViewController {
     private func setupUser(){
         if userdefault.string(forKey: "userID") != nil{
             calendarSetup()
+            fb.getSubscriptionInfo()
         } else {
             fb.anonymSign {
                 self.calendarSetup()
@@ -205,7 +205,6 @@ extension ViewController {
     //if user allow the notification, and hasn't open the settings it will initially set alarm at 10pm
     private func setNotification() {
         if userdefault.string(forKey: "alarmSetting") == nil {
-            
             
             // Request authorization for notifications
             UNUserNotificationCenter.current()
@@ -260,7 +259,9 @@ extension ViewController {
         todayButton.titleLabel?.font = font.sub2Size
         todayButton.titleLabel?.text = String(format: NSLocalizedString("오늘", comment: ""))
         
-//        bannerSetup()
+        if userdefault.string(forKey: "premiumPass") != "true" {
+            bannerSetup()
+        }
         
         //change navigationcontroller title font
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font.subSize ]

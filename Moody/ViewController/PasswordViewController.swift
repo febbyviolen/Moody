@@ -230,14 +230,14 @@ extension PasswordViewController {
                     DispatchQueue.main.async {
                         guard success, error == nil else {
                             // Face ID authentication failed
-                            
+//
                             //if its from PasswordSettingsViewController
                             if self.authMethod == "bio" {
                                 let alertController = UIAlertController(
                                     title: String(format: NSLocalizedString("faceId.localizedAuthenticationFailed", comment: "")),
                                     message: String(format: NSLocalizedString("faceId.localizedMismatch", comment: "")),
                                     preferredStyle: .alert)
-                                
+
                                 let tryAgainAction = UIAlertAction(
                                     title: String(format: NSLocalizedString("faceId.localizedFallbackTitle", comment: "")),
                                     style: .default
@@ -245,7 +245,7 @@ extension PasswordViewController {
                                     self.authenticateWithFaceID() // Retry Face ID authentication
                                 }
                                 alertController.addAction(tryAgainAction)
-                                
+
                                 self.present(alertController, animated: true, completion: nil)
                             }
                             

@@ -10,3 +10,5 @@
 
 - password : 4 numeric password in string
 - bioPassword : faceID or touchID (true or false)
+
+- subscribed : true or not true

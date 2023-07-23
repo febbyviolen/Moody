@@ -163,7 +163,10 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
 extension DiaryListViewController {
     private func setupUI(){
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        bannerSetup()
+        
+        if UserDefaults.standard.string(forKey: "premiumPass")! != "true"  {
+            bannerSetup()
+        }
         
         dateLabel.text = reloadCalendarFormatter.string(from: date)
         dateLabel.font = font.title2Size

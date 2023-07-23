@@ -86,8 +86,8 @@ extension StickerViewController {
             NSAttributedString.Key.font: font.sub2Size,
             NSAttributedString.Key.foregroundColor: UIColor.gray
         ]
+        
         segmentedControl.setTitleTextAttributes(attributes, for: .normal)
-
     }
 }
 
@@ -133,8 +133,13 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
             
             return cell
         case 1:
-            buySubscriptionView.isHidden = false
-            buySubscriptionLabel.isHidden = false
+            if UserDefaults.standard.string(forKey: "premiumPass")! == "true" {
+                buySubscriptionView.isHidden = true
+                buySubscriptionLabel.isHidden = true
+            } else if UserDefaults.standard.string(forKey: "premiumPass")! != "true"  {
+                buySubscriptionView.isHidden = false
+                buySubscriptionLabel.isHidden = false
+            }
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
             cell.stickerImg.image = UIImage(named: lifeSticker[indexPath.item].imgName)
