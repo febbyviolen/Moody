@@ -8,6 +8,6 @@
 import Foundation
 
 enum Subscription: String, CaseIterable {
-    case premiumPass = "com.febby.premiumPass"
+    case premiumPass = "moody.premiumPass"
     
 }

@@ -12,3 +12,4 @@
 - bioPassword : faceID or touchID (true or false)
 
 - subscribed : true or not true
+- needSendToServer : when in the middle of saving purchaseId to server get interrupted, the value is still true

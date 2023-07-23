@@ -46,6 +46,7 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        print(response.products.first!)
         DispatchQueue.main.async {
             self.model = response.products.first!
             self.setupInfo()
@@ -54,6 +55,7 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
     
     private func fetchProducts(){
         let request = SKProductsRequest(productIdentifiers: Set(Subscription.allCases.compactMap({$0.rawValue})))
+        print(request.description)
         request.delegate = self
         request.start()
     }
@@ -72,10 +74,16 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
             switch $0.transactionState {
             case.purchased:
                 self.userDefault.set("true", forKey: "premiumPass")
-                if let purchaseID = $0.transactionIdentifier {
-                    self.fb.saveSubscriptionInfo(premiumID: purchaseID)
+                self.userDefault.set("true", forKey: "needSendToServer")
+                if let url = Bundle.main.appStoreReceiptURL,
+                   let data = try? Data(contentsOf: url) {
+                    let receiptBase64 = data.base64EncodedString()
+                    // Send to server
+                    self.fb.saveSubscriptionInfo(premiumID: receiptBase64, completion: {
+                        self.userDefault.set("false", forKey: "needSendToServer")
+                    })
                 }
-                
+                                
                 buyButton.isHidden = true
                 retrieveLabel.isHidden = true
                 queue.finishTransaction($0)
@@ -122,7 +130,7 @@ extension SubscriptionViewController {
         fourthView.layer.cornerRadius = 15
         buyButton.layer.cornerRadius = 15
         
-        if userDefault.string(forKey: "premiumPass")! == "true" {
+        if userDefault.string(forKey: "premiumPass") == "true"  {
             buyButton.isHidden = true
             retrieveLabel.isHidden = true
         } else {

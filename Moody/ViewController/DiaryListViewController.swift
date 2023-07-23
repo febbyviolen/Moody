@@ -164,7 +164,7 @@ extension DiaryListViewController {
     private func setupUI(){
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        if UserDefaults.standard.string(forKey: "premiumPass")! != "true"  {
+        if UserDefaults.standard.string(forKey: "premiumPass") != "true"  {
             bannerSetup()
         }
         

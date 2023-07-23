@@ -128,7 +128,7 @@ extension GraphViewController {
     }
     
     private func setupUI(){
-        if UserDefaults.standard.string(forKey: "premiumPass")! != "true"  {
+        if UserDefaults.standard.string(forKey: "premiumPass") != "true"  {
             banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
             addBannerViewToView(banner)
             

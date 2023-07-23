@@ -243,7 +243,7 @@ class Firebase {
         }
     }
     
-    func saveSubscriptionInfo(premiumID: String) {
+    func saveSubscriptionInfo(premiumID: String, completion: @escaping () -> Void) {
         let docRef = userDocRef.collection("subscription").document("subsciptionInfo")
         
         let data : [String: Any] = [
@@ -256,6 +256,7 @@ class Firebase {
 //                print("\(error.localizedDescription)")
             } else {
 //                print("success")
+                completion()
             }
         }
     }

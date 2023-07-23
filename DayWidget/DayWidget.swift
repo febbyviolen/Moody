@@ -67,9 +67,8 @@ struct DayWidgetEntryView : View {
                 Image(entry.img)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(minWidth: 20, idealWidth: 50, minHeight: 20, idealHeight: 50)
+                    .frame(minWidth: 30, idealWidth: 60, minHeight: 30, idealHeight: 60)
             }
-            .padding()
             .padding()
         }
     }

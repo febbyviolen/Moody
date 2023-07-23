@@ -94,10 +94,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     override func viewWillAppear(_ animated: Bool) {
         sendFromAddSticker = false
         
+        if userdefault.string(forKey: "needSendToServer") == "true" {
+            if let url = Bundle.main.appStoreReceiptURL,
+               let data = try? Data(contentsOf: url) {
+                let receiptBase64 = data.base64EncodedString()
+                // Send to server
+                self.fb.saveSubscriptionInfo(premiumID: receiptBase64, completion: {
+                    self.userdefault.set("false", forKey: "needSendToServer")
+                })
+            }
+        }
+        
         if calendarDataSource.isEmpty {
             setupUser()
         }
         
+        UISetup()
         self.navigationController?.navigationBar.isHidden = false
     }
     

@@ -38,6 +38,7 @@
 		80354F1B2A4456EE00412C73 /* MainStickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F1A2A4456EE00412C73 /* MainStickers.swift */; };
 		80354F1D2A447B0300412C73 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F1C2A447B0300412C73 /* DiaryListViewController.swift */; };
 		80354F232A44841F00412C73 /* DiaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F222A44841F00412C73 /* DiaryListCell.swift */; };
+		8063CC872A6D51EB0050AD39 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063CC862A6D51EA0050AD39 /* StoreKit.framework */; };
 		80B23E4D2A52A82D007AECEF /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B23E4C2A52A82D007AECEF /* LanguageManager.swift */; };
 		80D456622A6D166300B4ABD0 /* subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D456612A6D166300B4ABD0 /* subscription.swift */; };
 		80D965B82A63EFDD00B8394A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80D965B72A63EFDD00B8394A /* WidgetKit.framework */; };
@@ -116,6 +117,7 @@
 		80354F1A2A4456EE00412C73 /* MainStickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStickers.swift; sourceTree = "<group>"; };
 		80354F1C2A447B0300412C73 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		80354F222A44841F00412C73 /* DiaryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListCell.swift; sourceTree = "<group>"; };
+		8063CC862A6D51EA0050AD39 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		80B23E4C2A52A82D007AECEF /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		80D456612A6D166300B4ABD0 /* subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subscription.swift; sourceTree = "<group>"; };
 		80D456632A6D19BB00B4ABD0 /* configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = configuration.storekit; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B21207D1455055F968CD2B /* Pods_Moody.framework in Frameworks */,
+				8063CC872A6D51EB0050AD39 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +286,7 @@
 		F5E60CD3BA765F62C95FEB80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8063CC862A6D51EA0050AD39 /* StoreKit.framework */,
 				B192CBBC8EFADB5D77DD3199 /* Pods_Moody.framework */,
 				80D965B72A63EFDD00B8394A /* WidgetKit.framework */,
 				80D965B92A63EFDD00B8394A /* SwiftUI.framework */,

@@ -133,10 +133,10 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
             
             return cell
         case 1:
-            if UserDefaults.standard.string(forKey: "premiumPass")! == "true" {
+            if UserDefaults.standard.string(forKey: "premiumPass") == "true" {
                 buySubscriptionView.isHidden = true
                 buySubscriptionLabel.isHidden = true
-            } else if UserDefaults.standard.string(forKey: "premiumPass")! != "true"  {
+            } else if UserDefaults.standard.string(forKey: "premiumPass") != "true"  {
                 buySubscriptionView.isHidden = false
                 buySubscriptionLabel.isHidden = false
             }
