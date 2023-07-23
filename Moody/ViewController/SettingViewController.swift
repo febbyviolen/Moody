@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
 import StoreKit
+import NVActivityIndicatorView
 
 class SettingViewController: UIViewController, DatePickerDelegate {
     
@@ -44,6 +45,8 @@ class SettingViewController: UIViewController, DatePickerDelegate {
     let fb = Firebase()
     let userdefault = UserDefaults.standard
     let appStoreID = ""
+    
+    var activityIndicatorView: NVActivityIndicatorView! = nil
     
     var showTimeFormatter : DateFormatter {
         let formatter = DateFormatter()
@@ -148,8 +151,20 @@ extension SettingViewController {
     private func setupUI(){
         buySubscribeBackground.layer.cornerRadius = 10
         buySubscribeLable.text = "\(String(format: NSLocalizedString("subscription.title", comment: ""))) "
-//        buySubscribeBackground.layer.borderColor = UIColor.black.cgColor
-//        buySubscribeBackground.layer.borderWidth = 1
+        
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        let center = CGPoint(x: screenWidth/2, y: screenHeight/2)
+        
+        let frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        let type = NVActivityIndicatorType.ballPulse
+        let color = UIColor(named: "black")
+        let padding: CGFloat = 0
+        
+        activityIndicatorView = NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
+        
+        activityIndicatorView.center = center
+        self.view.addSubview(activityIndicatorView)
         
     }
     
@@ -257,7 +272,11 @@ extension SettingViewController {
     
     @objc private func rateApp() {
         if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
+            activityIndicatorView.startAnimating()
+            DispatchQueue.main.async {
+                SKStoreReviewController.requestReview()
+            }
+            activityIndicatorView.stopAnimating()
         } else {
             // Older versions of iOS, you can redirect the user to the App Store manually
             if let appStoreURL = URL(string: "itms-apps://itunes.apple.com/app/{\(appStoreID)}") {

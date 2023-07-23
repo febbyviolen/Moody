@@ -84,6 +84,9 @@ extension PasswordSettingsViewController {
             changePassView.isHidden = false
             passSwitch.setOn(true, animated: false)
         }
+        if userDefault.string(forKey: "biosPassword") == "true" {
+            bioSwitch.setOn(true, animated: false)
+        }
     }
     
     private func setupFont() {
@@ -104,43 +107,11 @@ extension PasswordSettingsViewController {
 
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
                     DispatchQueue.main.async {
-                        guard success, error == nil else {
+                        if let error = error {
+                            self.bioSwitch.isOn = false
+                        } else {
                             // Face ID authentication failed
-                            let alertController = UIAlertController(
-                                title: String(format: NSLocalizedString("faceId.localizedAuthenticationFailed", comment: "")),
-                                message: String(format: NSLocalizedString("faceId.localizedMismatch", comment: "")),
-                                preferredStyle: .alert)
-                            
-                            
-                            let messageFont = [NSAttributedString.Key.font: self.font.sub2Size]
-                            
-                            let attributedTitle = NSAttributedString(string: String(format: NSLocalizedString("faceId.localizedAuthenticationFailed", comment: "")), attributes: messageFont)
-                            
-                            alertController.setValue(attributedTitle, forKey: "attributedMessage")
-                            
-                            
-                            let tryAgainAction = UIAlertAction(
-                                title: String(format: NSLocalizedString("faceId.localizedFallbackTitle", comment: "")),
-                                style: .default
-                            ) { _ in
-                                self.authenticateWithFaceID() // Retry Face ID authentication
-                            }
-                            
-                            let cancelAction = UIAlertAction(
-                                title: String(format: NSLocalizedString("취소", comment: "")),
-                                style: .default
-                            ) { _ in
-                                self.bioSwitch.isOn = false
-                            }
-                            
-                            tryAgainAction.setValue(UIColor.black, forKey: "titleTextColor")
-                            cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
-                            
-                            alertController.addAction(tryAgainAction)
-                            alertController.addAction(cancelAction)
-                            
-                            self.present(alertController, animated: true, completion: nil)
-                            return
+                            self.authenticateWithFaceID()
                         }
                         
                         self.userDefault.set("true", forKey: "bioPassword")

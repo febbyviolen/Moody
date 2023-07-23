@@ -203,6 +203,7 @@ extension ConnectGoogleAccountViewController {
         
         startConnectingButton.layer.cornerRadius = 10
         startConnectingButton.isEnabled = false
+        startConnectingButton.setTitleColor(UIColor.systemGray2, for: .disabled)
         
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height

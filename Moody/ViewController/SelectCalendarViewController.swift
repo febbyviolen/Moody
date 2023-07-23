@@ -89,51 +89,51 @@ extension SelectCalendarViewController {
         calendarBackgroundView.layer.cornerRadius = 10
         
         janLabel.layer.cornerRadius = 5
-        janLabel.layer.borderColor = UIColor.black.cgColor
+        janLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         janLabel.layer.borderWidth = 1
         
         febLabel.layer.cornerRadius = 5
-        febLabel.layer.borderColor = UIColor.black.cgColor
+        febLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         febLabel.layer.borderWidth = 1
         
         marLabel.layer.cornerRadius = 5
-        marLabel.layer.borderColor = UIColor.black.cgColor
+        marLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         marLabel.layer.borderWidth = 1
         
         aprLabel.layer.cornerRadius = 5
-        aprLabel.layer.borderColor = UIColor.black.cgColor
+        aprLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         aprLabel.layer.borderWidth = 1
         
         mayLabel.layer.cornerRadius = 5
-        mayLabel.layer.borderColor = UIColor.black.cgColor
+        mayLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         mayLabel.layer.borderWidth = 1
         
         juneLabel.layer.cornerRadius = 5
-        juneLabel.layer.borderColor = UIColor.black.cgColor
+        juneLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         juneLabel.layer.borderWidth = 1
         
         julyLabel.layer.cornerRadius = 5
-        julyLabel.layer.borderColor = UIColor.black.cgColor
+        julyLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         julyLabel.layer.borderWidth = 1
         
         augLabel.layer.cornerRadius = 5
-        augLabel.layer.borderColor = UIColor.black.cgColor
+        augLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         augLabel.layer.borderWidth = 1
         
         septLabel.layer.cornerRadius = 5
-        septLabel.layer.borderColor = UIColor.black.cgColor
+        septLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         septLabel.layer.borderWidth = 1
         
         octLabel.layer.cornerRadius = 5
-        octLabel.layer.borderColor = UIColor.black.cgColor
+        octLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         octLabel.layer.borderWidth = 1
         
         novLabel.layer.cornerRadius = 5
-        novLabel.layer.borderColor = UIColor.black.cgColor
+        novLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         novLabel.layer.borderWidth = 1
         
         decLabel.layer.cornerRadius = 5
-        decLabel.layer.borderColor = UIColor.black.cgColor
+        decLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         decLabel.layer.borderWidth = 1
         
     }

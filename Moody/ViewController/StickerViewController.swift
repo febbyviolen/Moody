@@ -15,6 +15,8 @@ protocol StickerViewDelegate{
 class StickerViewController: UIViewController {
     var delegate: StickerViewDelegate! = nil
     
+    @IBOutlet weak var buySubscriptionLabel: UILabel!
+    @IBOutlet weak var buySubscriptionView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -74,6 +76,7 @@ extension StickerViewController {
     func setupFont(){
         dateLabel.font = font.sub2Size
         titleLabel.font = font.title2Size
+        buySubscriptionLabel.font = font.sub2Size
     }
     
     func setupUI(){
@@ -98,8 +101,7 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
             delegate.stickerTapped(controller: self)
             
         case 1:
-            let selectedLifeSticker = lifeSticker[indexPath.item]
-            
+            selectedMoodSticker = lifeSticker[indexPath.item].imgName
             // Do something with the selected life sticker
             delegate.stickerTapped(controller: self)
             
@@ -123,11 +125,16 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
         switch showIndex {
         case 0:
+            buySubscriptionView.isHidden = true
+            buySubscriptionLabel.isHidden = true
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
             cell.stickerImg.image = UIImage(named: moodSticker[indexPath.item].imgName)
             
             return cell
         case 1:
+            buySubscriptionView.isHidden = false
+            buySubscriptionLabel.isHidden = false
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! StickerCell2
             cell.stickerImg.image = UIImage(named: lifeSticker[indexPath.item].imgName)
@@ -143,9 +150,9 @@ extension StickerViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Return the desired size for each cell
-        let itemSpacing: CGFloat = 5 // Adjust the item spacing as needed
+        let itemSpacing: CGFloat = 3 // Adjust the item spacing as needed
         let availableWidth = collectionView.bounds.width - itemSpacing
-        let cellWidth = availableWidth / 4 // Adjust the number of cells per row as needed
+        let cellWidth = availableWidth / 4// Adjust the number of cells per row as needed
         let cellSize = CGSize(width: cellWidth, height: cellWidth)
         return cellSize
     }

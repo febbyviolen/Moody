@@ -88,7 +88,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     //MARK: LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        if sticker.isEmpty || fromAddSticker {
+        if sticker.isEmpty || ( fromAddSticker && sticker.count < 5 ) {
             performSegue(withIdentifier: "showSticker", sender: self)
         }
         if sticker.count >= 5 {
@@ -183,7 +183,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         }
     }
     
-    @IBAction func addSticker(_ sender: Any) {  
+    @IBAction func addSticker(_ sender: Any) {
         performSegue(withIdentifier: "showSticker", sender: self)
     }
     
@@ -371,6 +371,7 @@ extension DiaryDetailViewController : UICollectionViewDataSource, UICollectionVi
         cell.delegate = self
         
         cell.stickerImg.image = UIImage(named: sticker[indexPath.item])
+        print(sticker[indexPath.item])
         cell.stickerImg.transform = CGAffineTransform.identity
         
         return cell

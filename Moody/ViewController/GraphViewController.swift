@@ -126,7 +126,7 @@ extension GraphViewController {
     //MARK: SETUP UI
     private func setupFont(){
         rankTitleLabel.text = String(format: NSLocalizedString("감정 순위", comment: ""))
-        rankTitleLabel.font = font.titleSize
+        rankTitleLabel.font = font.title2Size
     }
     
     private func setupUI(){

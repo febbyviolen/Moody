@@ -51,10 +51,18 @@ enum Mood: CaseIterable{
 }
 
 enum mainDaily: CaseIterable {
-    case netflix, youtube, cleaning, work, paint, plant, birthday, cafe, camera, coding, gaming, drink, eat, drive, salon, holiday, knitting, medicine
+    case sunny, cloudy, rain, music, cleaning, work, paint, plant, birthday, cafe, camera, coding, gaming, drink, eat, drive, salon, holiday, knitting, medicine, netflix, youtube
     
     var imgName: String {
         switch self {
+        case .sunny:
+            return "sunny"
+        case .cloudy:
+            return "cloudy"
+        case .rain:
+            return "rain"
+        case .music:
+            return "music"
         case .netflix:
             return "netflix"
         case .youtube:
