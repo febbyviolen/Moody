@@ -7,7 +7,6 @@
 
 import UIKit
 import JTAppleCalendar
-import UserNotifications
 import GoogleMobileAds
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetailDelegate, DiaryListDelegate, passwordDelegate, SelectCalendarDelegate{
@@ -94,6 +93,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     override func viewWillAppear(_ animated: Bool) {
         sendFromAddSticker = false
         
+        //when sending receipt? purchase ID to server but interrupted the value is still true
+        //then send the receipt again to the server
         if userdefault.string(forKey: "needSendToServer") == "true" {
             if let url = Bundle.main.appStoreReceiptURL,
                let data = try? Data(contentsOf: url) {
@@ -207,6 +208,7 @@ extension ViewController {
         if userdefault.string(forKey: "userID") != nil{
             calendarSetup()
             fb.getSubscriptionInfo()
+            
         } else {
             fb.anonymSign {
                 self.calendarSetup()
