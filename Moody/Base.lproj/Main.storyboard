@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="오뮤_다예쁨체.ttf">
+        <array key="Font-Regular.ttf">
             <string>omyu_pretty</string>
         </array>
     </customFonts>
@@ -1612,7 +1612,7 @@
                                     <constraint firstItem="JIe-UL-MeN" firstAttribute="top" secondItem="cNA-57-orB" secondAttribute="top" id="9eT-f7-thM"/>
                                     <constraint firstAttribute="trailing" secondItem="JIe-UL-MeN" secondAttribute="trailing" id="Klt-3V-mhr"/>
                                     <constraint firstItem="JIe-UL-MeN" firstAttribute="width" secondItem="cNA-57-orB" secondAttribute="width" id="W3k-0C-6gZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="JIe-UL-MeN" secondAttribute="bottom" constant="30" id="XSY-1L-Rx9"/>
+                                    <constraint firstAttribute="bottom" secondItem="JIe-UL-MeN" secondAttribute="bottom" constant="50" id="XSY-1L-Rx9"/>
                                     <constraint firstItem="JIe-UL-MeN" firstAttribute="leading" secondItem="cNA-57-orB" secondAttribute="leading" id="fxK-yL-PHM"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="gnk-ns-qM5"/>
@@ -1998,6 +1998,7 @@
                         <outlet property="sceondBenefitLabel" destination="vJS-L0-BxC" id="fZu-2F-k9b"/>
                         <outlet property="secondVIew" destination="ExF-gU-fef" id="av4-Vb-Jef"/>
                         <outlet property="thirdBenefitLabel" destination="r2d-Te-jhZ" id="aeX-Jt-hao"/>
+                        <outlet property="thirdBenefitSubSubLabel" destination="XKS-d1-mok" id="jKD-hB-SWP"/>
                         <outlet property="thirdView" destination="GdD-o3-sxc" id="TZB-59-PZO"/>
                         <outlet property="titleLabel" destination="L5a-zm-vpA" id="CLd-Vk-fhH"/>
                     </connections>
@@ -3071,7 +3072,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondary">
-            <color red="0.51764705882352935" green="0.49411764705882355" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.51800000667572021" green="0.49399998784065247" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="soft">
             <color red="0.98400002717971802" green="0.97299998998641968" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

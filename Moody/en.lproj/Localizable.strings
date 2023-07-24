@@ -42,3 +42,7 @@
 
 "today.title" = "Today";
 "widget.today.message" = "Show your today's mood";
+
+"subscription.title" = "Premium Pass";
+"buy.premium" = "Buy Premium Pass";
+"retrieve.premium" = "restore purchase";

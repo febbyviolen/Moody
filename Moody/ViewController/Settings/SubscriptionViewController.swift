@@ -10,6 +10,7 @@ import StoreKit
 
 class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
+    @IBOutlet weak var thirdBenefitSubSubLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var thirdView: UIView!
     @IBOutlet weak var fourthView: UIView!
@@ -31,6 +32,11 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
     var model : SKProduct!
     let userDefault = UserDefaults.standard
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupUI()
+        setupFont()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +45,8 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
         //observer
         SKPaymentQueue.default().add(self)
         
-        setupUI()
-        setupFont()
+//        setupUI()
+//        setupFont()
         
         fetchProducts()
     }
@@ -83,7 +89,6 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
                         self.userDefault.set("false", forKey: "needSendToServer")
                     })
                 }
-                                
                 buyButton.isHidden = true
                 retrieveLabel.isHidden = true
                 queue.finishTransaction($0)
@@ -146,6 +151,7 @@ extension SubscriptionViewController {
         firstBenefitLabel.font = font.subSize
         sceondBenefitLabel.font = font.subSize
         thirdBenefitLabel.font = font.subSize
+        thirdBenefitSubSubLabel.font = font.subSize
         fourthLabel.font = font.subSize
         fourthBenefitSubLabel.font = font.dateSize
         explanationLabel.font = font.subSize

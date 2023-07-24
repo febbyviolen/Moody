@@ -402,8 +402,8 @@
 "r2d-Te-jhZ.text" = "Record your day with";
 "XKS-d1-mok.text" = "more variety of stickers";
 
-"gRG-Ra-y0i.text" = "The purchased Premium Pass can be accessed on other Apple devices through the purchase restore option"
+"gRG-Ra-y0i.text" = "The purchased Premium Pass can be accessed on other Apple devices through the purchase restore option";
 
-"3X0-3d-8ua.normalTitle" = "Buy Premium Pass"
+"3X0-3d-8ua.configuration.title" = "Buy Premium Pass";
+"n0v-1E-erX.configuration.title" = "restore purchase";
 
-"n0v-1E-erX.normalTitle" = "restore purchase"

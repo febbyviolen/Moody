@@ -315,7 +315,7 @@
 "jGv-f1-Crj.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Waktu Pemberitahuan"; ObjectID = "k7F-S0-i4p"; */
-"k7F-S0-i4p.text" = "Waktu Pemberitahuan";
+"k7F-S0-i4p.text" = "Waktu Notifikasi";
 
 /* Class = "UIButton"; configuration.title = "9"; ObjectID = "kcq-dV-AJ7"; */
 "kcq-dV-AJ7.configuration.title" = "9";
@@ -449,7 +449,7 @@
 /* Class = "UILabel"; text = "Jika Anda lupa kata sandi, Anda tidak akan dapat mengembalikannya!"; ObjectID = "zzC-JY-0o4"; */
 "zzC-JY-0o4.text" = "Jika Anda lupa kata sandi, Anda tidak akan dapat mengembalikannya!";
 
-"xCH-cf-5wc.text" = "Tersedia setelah membeli langganan premium"
+"xCH-cf-5wc.text" = "Tersedia setelah membeli langganan premium";
 
 "L5a-zm-vpA.text" = "Langganan Premium ";
 
@@ -464,6 +464,6 @@
 
 "gRG-Ra-y0i.text" = "Langganan Premium yang dibeli dapat diakses di perangkat Apple lain melalui opsi pemulihan pembelian";
 
-"3X0-3d-8ua.normalTitle" = "Langganan Premium";
+"3X0-3d-8ua.configuration.title" = "Langganan Premium";
 
-"n0v-1E-erX.normalTitle" = "pemulihan pembelian"
+"n0v-1E-erX.configuration.title" = "pemulihan pembelian";

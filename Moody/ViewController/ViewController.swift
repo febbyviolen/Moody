@@ -116,7 +116,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+    
         checkPasscodeAvail()
         setNotification()
         calendar.ibCalendarDelegate = self

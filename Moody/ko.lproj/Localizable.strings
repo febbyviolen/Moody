@@ -47,3 +47,5 @@
 "widget.today.message" = "오늘의 감정을 확인합니다";
 
 "subscription.title" = "프리미엄 이용권 구매";
+"buy.premium" = "프리미엄 패스 구매";
+"retrieve.premium" = "이전에 구매한 이용권 가져오기";

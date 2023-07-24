@@ -44,3 +44,8 @@
 
 "today.title" = "Hari ini";
 "widget.today.message" = "Menunjukan mood hari ini";
+
+"subscription.title" = "Langganan Premium";
+"buy.premium" = "Langganan premium";
+"retrieve.premium" = "pulihkan pembelian";
+
