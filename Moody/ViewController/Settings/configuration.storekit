@@ -1,0 +1,33 @@
+{
+  "identifier" : "4DEA51A3",
+  "nonRenewingSubscriptions" : [
+    {
+      "displayPrice" : "3300",
+      "familyShareable" : false,
+      "internalID" : "12DE9EC5",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "moody.premiumPass",
+      "referenceName" : "Premium Pass",
+      "type" : "NonRenewingSubscription"
+    }
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
