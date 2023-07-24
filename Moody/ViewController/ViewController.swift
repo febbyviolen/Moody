@@ -280,9 +280,7 @@ extension ViewController {
         todayButton.titleLabel?.font = font.sub2Size
         todayButton.titleLabel?.text = String(format: NSLocalizedString("오늘", comment: ""))
         
-        if userdefault.string(forKey: "premiumPass") != "true" {
-            bannerSetup()
-        }
+        bannerSetup()
         
         //change navigationcontroller title font
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font.subSize ]
@@ -291,6 +289,8 @@ extension ViewController {
     private func bannerSetup(){
         banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
         addBannerViewToView(banner)
+        
+        
         
         banner.adUnitID = "ca-app-pub-2267001621089435/8329415847"
         banner.backgroundColor = .secondarySystemBackground
@@ -303,22 +303,28 @@ extension ViewController {
         banner.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(banner)
         view.addConstraints(
-          [NSLayoutConstraint(item: banner!,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .bottom,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: banner!,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
-       }
+            [NSLayoutConstraint(item: banner!,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .bottom,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: banner!,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+        
+        if let ud = userdefault.string(forKey: "premiumPass") {
+            if userdefault.string(forKey: "premiumPass") == "true" {
+                banner.removeFromSuperview()
+            }
+        }
+    }
     
     private func FontSetup() {
         UILabel.appearance().font = font.sub2Size
