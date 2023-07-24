@@ -124,6 +124,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
         UISetup()
         FontSetup()
         setFunc()
+        setWidgetDate()
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
@@ -211,6 +212,12 @@ extension ViewController {
                 self.calendarSetup()
             }
         }
+    }
+    
+    private func setWidgetDate() {
+        let UD = UserDefaults(suiteName: "group.febby.moody.widgetcache")
+        UD?.set(Date(), forKey: "date")
+        
     }
     
     //MARK: FIRST DOWNLOAD

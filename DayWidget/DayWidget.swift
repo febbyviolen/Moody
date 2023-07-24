@@ -20,15 +20,20 @@ struct Provider: TimelineProvider {
         
         let userDefaults = UserDefaults(suiteName: "group.febby.moody.widgetcache")
         var img = userDefaults?.value(forKey: "img") as? String ?? ""
+        var date = userDefaults?.value(forKey: "date") as? Date ?? Date()
         
         let currentDate = Date()
         for dayOffSet in 0...1 {
             let entryDate = Calendar.current.date(byAdding: .day, value: dayOffSet ,to: currentDate)!
             let startOfDate = Calendar.current.startOfDay(for: entryDate)
-            if startOfDate == Date() {
+            
+            if startOfDate > date {
                 userDefaults?.set("", forKey: "img")
                 img = userDefaults?.value(forKey: "img") as? String ?? ""
+                userDefaults?.set(startOfDate, forKey: "date")
             }
+            
+            userDefaults?.set(startOfDate, forKey: "date")
             let entry = DayEntry(date: startOfDate,
                                  img: img)
             entries.append(entry)
