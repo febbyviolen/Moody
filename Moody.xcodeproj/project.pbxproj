@@ -18,7 +18,7 @@
 		802CB2E22A515BFA00509957 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802CB2E42A515BFA00509957 /* Localizable.strings */; };
 		802CB2ED2A51697600509957 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CB2EC2A51697600509957 /* LanguageViewController.swift */; };
 		802E92442A4DC06500A25A23 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E92432A4DC06500A25A23 /* PasswordSettingsViewController.swift */; };
-		80343F192A715F5F002B8FBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80343F182A715F5F002B8FBA /* GoogleService-Info.plist */; };
+		80343F1B2A716E5B002B8FBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80343F1A2A716E5B002B8FBA /* GoogleService-Info.plist */; };
 		80354EE82A3B206A00412C73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354EE72A3B206A00412C73 /* AppDelegate.swift */; };
 		80354EEA2A3B206A00412C73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354EE92A3B206A00412C73 /* SceneDelegate.swift */; };
 		80354EEC2A3B206A00412C73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354EEB2A3B206A00412C73 /* ViewController.swift */; };
@@ -95,7 +95,7 @@
 		802CB2EA2A51660B00509957 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		802CB2EC2A51697600509957 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		802E92432A4DC06500A25A23 /* PasswordSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsViewController.swift; sourceTree = "<group>"; };
-		80343F182A715F5F002B8FBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		80343F1A2A716E5B002B8FBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80354EE42A3B206A00412C73 /* Moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80354EE72A3B206A00412C73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80354EE92A3B206A00412C73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */,
 				802CB2E42A515BFA00509957 /* Localizable.strings */,
 				80354EF02A3B206D00412C73 /* Assets.xcassets */,
-				80343F182A715F5F002B8FBA /* GoogleService-Info.plist */,
+				80343F1A2A716E5B002B8FBA /* GoogleService-Info.plist */,
 				80354EF52A3B206D00412C73 /* Info.plist */,
 			);
 			path = Moody;
@@ -381,11 +381,11 @@
 			files = (
 				80354F0E2A3DAA1C00412C73 /* GamjaFlower-Regular.ttf in Resources */,
 				80354F082A3DA24000412C73 /* Dongle-Regular.ttf in Resources */,
+				80343F1B2A716E5B002B8FBA /* GoogleService-Info.plist in Resources */,
 				8022919E2A6BB6870020CE86 /* LaunchScreen.storyboard in Resources */,
 				802CB2E22A515BFA00509957 /* Localizable.strings in Resources */,
 				80354EF12A3B206D00412C73 /* Assets.xcassets in Resources */,
 				80354EEF2A3B206A00412C73 /* Main.storyboard in Resources */,
-				80343F192A715F5F002B8FBA /* GoogleService-Info.plist in Resources */,
 				80354F132A3DAF9900412C73 /* 오뮤_다예쁨체.ttf in Resources */,
 				80354F112A3DAF8000412C73 /* Font-Regular.ttf in Resources */,
 			);
