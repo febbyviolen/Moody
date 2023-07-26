@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="오뮤_다예쁨체.ttf">
+        <array key="Font-Regular.ttf">
             <string>omyu_pretty</string>
         </array>
     </customFonts>
@@ -1593,7 +1593,7 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구글 계정을 연결하면 추가로 기억할 필요 없는 사용자 이름이나 비밀번호 없이도 간편하고 손쉽게 로그인할 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgB-zN-1as">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정을 연결하면 추가로 기억할 필요 없는 사용자 이름이나 비밀번호 없이도 간편하고 손쉽게 로그인할 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgB-zN-1as">
                                                                                 <rect key="frame" x="50" y="0.0" width="324" height="62.333333333333336"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1778,7 +1778,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="연결 시작하기"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Apple ID 계정 연동">
+                                                <buttonConfiguration key="configuration" style="plain" title="Apple ID 계정 연동" titleAlignment="center">
                                                     <fontDescription key="titleFontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -1795,7 +1795,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="연결 시작하기"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="구글 계정 연동">
+                                                <buttonConfiguration key="configuration" style="plain" title="구글 계정 연동" titleAlignment="center">
                                                     <fontDescription key="titleFontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
                                                 </buttonConfiguration>
                                                 <connections>

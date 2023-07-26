@@ -148,11 +148,17 @@ extension SettingViewController {
     }
     
     @objc private func deleteAccount() {
-        let alert = UIAlertController(title: "계정 삭제하시겠습니까?", message: "계정 삭제 시 복구 불가능합니다", preferredStyle: .alert)
+        let alert = UIAlertController(title: String(format: NSLocalizedString("deleteaccount.title", comment: "")), message: String(format: NSLocalizedString("deleteaccount.message", comment: "")), preferredStyle: .alert)
+        
         let yesaction = UIAlertAction(title: String(format: NSLocalizedString("네", comment: "")), style: .default) { _ in
             let userr = Auth.auth().currentUser
             userr?.delete { error in
                 if let error = error {
+                    let alert = UIAlertController(title: String(format: NSLocalizedString("실패했습니다", comment: "")), message: "", preferredStyle: .alert)
+                    let action = UIAlertAction(title: String(format: NSLocalizedString("네", comment: "")), style: .default, handler: nil)
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true)
                 } else {
                     self.fb.deleteUser(user: userr?.uid ?? "", date: Date())
                     self.userdefault.set(nil, forKey: "userID")
@@ -163,6 +169,7 @@ extension SettingViewController {
                 }
             }
         }
+        
         let noaction = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "")), style: .default)
         
         alert.addAction(noaction)

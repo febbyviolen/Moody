@@ -47,7 +47,7 @@
 "AaW-SI-5yX.text" = "Data Sync";
 
 /* Class = "UILabel"; text = "By connecting your Google account, you can log in conveniently and easily without the need to remember additional usernames or passwords."; ObjectID = "AgB-zN-1as"; */
-"AgB-zN-1as.text" = "Connect to your Google Account for convenient and effortless login to our app.";
+"AgB-zN-1as.text" = "Connect for convenient and effortless login to our app.";
 
 /* Class = "UINavigationItem"; title = "Graph"; ObjectID = "AgM-5m-ciS"; */
 "AgM-5m-ciS.title" = "Graph";
@@ -68,7 +68,7 @@
 "DiE-BB-nj4.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "By securely backing up your mood data to your Google account, you can recover valuable information without losing it in case of device loss, damage, or app reinstallation."; ObjectID = "DnL-WA-b1u"; */
-"DnL-WA-b1u.text" = "By securely backing up your mood data to your Google account, you can recover valuable information without losing it in case of device loss, damage, or app reinstallation.";
+"DnL-WA-b1u.text" = "By securely backing up your mood data to your account, you can recover valuable information without losing it in case of device loss, damage, or app reinstallation.";
 
 /* Class = "UILabel"; text = "Language Setting"; ObjectID = "FU4-hM-jMw"; */
 "xkA-Bg-oFo.text" = "Language Setting";
@@ -95,7 +95,7 @@
 "McV-jy-M6v.text" = "Data Backup";
 
 /* Class = "UILabel"; text = "Connect Your Google Account"; ObjectID = "Mop-gM-MkS"; */
-"lA8-M1-oRh.text" = "Connect Your Google Account";
+"lA8-M1-oRh.text" = "Connect Account";
 
 "nbF-S3-5Gc.text" = "Connect with Apple ID";
 "R5p-HK-SGq.text" = "Delete account";
@@ -188,7 +188,7 @@
 "apM-65-WoV.title" = "Item";
 
 /* Class = "UILabel"; text = "기존에 사용 중인 구글 계정이 있는 경우, 현재의 앱 데이터와 병합할 수 있습니다. 데이터가 중복된 경우에도 저희 앱의 데이터가 우선됩니다."; ObjectID = "bW0-2R-L33"; */
-"bW0-2R-L33.text" = "If you have an existing Google account, you have the option to merge your current app data with our app. In case of duplicate data, our app's data will take precedence.";
+"bW0-2R-L33.text" = "If you have an existing account, you have the option to merge your current app data with our app. In case of duplicate data, our app's data will take precedence.";
 
 /* Class = "UILabel"; text = "iPad 및 iPhone과 같은 여러 기기에서 사용하는 기분 다이어리를 원활하게 동기화하여 언제 어디서든 항상 최신 정보를 확인하실 수 있습니다."; ObjectID = "bua-Vf-nTc"; */
 "bua-Vf-nTc.text" = "Seamlessly synchronize your mood diary across multiple devices, ensuring your entries are always up to date, regardless of the device you use.";
@@ -272,13 +272,13 @@
 "knx-bW-T5E.normalTitle" = "Button";
 
 /* Class = "UIButton"; configuration.title = "By connecting your Google account, you understand that data will be synchronized and backup functionality will be provided by our app."; ObjectID = "kpf-GW-DPN"; */
-"kpf-GW-DPN.configuration.title" = "By connecting your Google account, you understand that data will be synchronized and backup functionality will be provided by our app.";
+"kpf-GW-DPN.configuration.title" = "By connecting your account, you understand that data will be synchronized and backup functionality will be provided by our app.";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kpf-GW-DPN"; */
 "kpf-GW-DPN.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "By connecting your Google account, you can enjoy various benefits in using our app."; ObjectID = "mPZ-BV-NEZ"; */
-"mPZ-BV-NEZ.text" = "By connecting your Google account, you can enjoy various benefits in using our app.";
+"mPZ-BV-NEZ.text" = "By connecting your account, you can enjoy various benefits in using our app.";
 
 /* Class = "UILabel"; text = "How was your day today?"; ObjectID = "meV-l6-7v7"; */
 "meV-l6-7v7.text" = "How was your day?";
@@ -321,10 +321,7 @@
 "piF-NK-mr4.text" = "1";
 
 /* Class = "UIButton"; configuration.title = "Start Connection"; ObjectID = "prv-o2-QaS"; */
-"prv-o2-QaS.configuration.title" = "Start Connection";
-
-/* Class = "UIButton"; normalTitle = "Start Connection"; ObjectID = "prv-o2-QaS"; */
-"prv-o2-QaS.normalTitle" = "Start Connection";
+"prv-o2-QaS.configuration.title" = "Connect with Google";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "q0a-Gs-p2o"; */
 "q0a-Gs-p2o.normalTitle" = "Button";
@@ -372,7 +369,7 @@
 "wYG-Bd-yF9.text" = "Change Password";
 
 /* Class = "UINavigationItem"; title = "Connect with Google Account"; ObjectID = "x8p-dZ-K8v"; */
-"x8p-dZ-K8v.title" = "Connect with Google Account";
+"x8p-dZ-K8v.title" = "Connect Account";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xIv-oq-FhK"; */
 "xIv-oq-FhK.normalTitle" = "Button";
@@ -409,4 +406,8 @@
 
 "3X0-3d-8ua.configuration.title" = "Buy Premium Pass";
 "n0v-1E-erX.configuration.title" = "restore purchase";
+
+//accountcontrollerscreen
+"xw3-cZ-gtQ.configuration.title" = "Unconnect";
+"L1T-RA-Kef.configuration.title" = "Connect with Apple ID";
 

@@ -37,7 +37,7 @@
 "language.later" = "Later";
 
 "connection.message" = "Connected";
-"merge_data_message" = "A Google account has been registered with this app. Do you want to merge data from your previous login?";
+"merge_data_message" = "An account has been registered with this app. Do you want to merge data from your previous login?";
 
 
 "today.title" = "Today";
@@ -46,3 +46,8 @@
 "subscription.title" = "Premium Pass";
 "buy.premium" = "Buy Premium Pass";
 "retrieve.premium" = "restore purchase";
+
+"deleteaccount.title" = "Are you sure you want to delete your account?";
+"deleteaccount.message" = "If you proceed, you will not be able to recover your data.";
+
+"실패했습니다" = "Failed";

@@ -141,7 +141,7 @@ class AccountConnectViewController: UIViewController, UIGestureRecognizerDelegat
                     self.activityIndicatorView.stopAnimating()
                     if str != "false" {
                         // Create a new UIAlertController
-                        let alertController = UIAlertController(title: "", message: "A Google account has been registered with this app. Do you want to merge data from your previous login?", preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "", message: String(format: NSLocalizedString("merge_data_message", comment: "")), preferredStyle: .alert)
 
                         // Customize the appearance using attributed strings
                         let messageFont = [NSAttributedString.Key.font: self.font.sub2Size]
@@ -256,7 +256,7 @@ extension AccountConnectViewController: ASAuthorizationControllerDelegate {
                 self.activityIndicatorView.stopAnimating()
                 if str != "false" {
                     // Create a new UIAlertController
-                    let alertController = UIAlertController(title: "", message: "A Google account has been registered with this app. Do you want to merge data from your previous login?", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "", message: String(format: NSLocalizedString("merge_data_message", comment: "")), preferredStyle: .alert)
 
                     // Customize the appearance using attributed strings
                     let messageFont = [NSAttributedString.Key.font: self.font.sub2Size]

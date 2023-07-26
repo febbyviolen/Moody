@@ -40,7 +40,7 @@
 "language.later" = "Nanti";
 
 "connection.message" = "Terhubung";
-"merge_data_message" = "Akun Google telah terdaftar dengan aplikasi ini. Apakah Anda ingin menggabungkan data dari login sebelumnya?";
+"merge_data_message" = "Akun telah terdaftar dalam aplikasi ini. Apakah Anda ingin menggabungkan data dari login sebelumnya?";
 
 "today.title" = "Hari ini";
 "widget.today.message" = "Menunjukan mood hari ini";
@@ -49,3 +49,6 @@
 "buy.premium" = "Langganan premium";
 "retrieve.premium" = "pulihkan pembelian";
 
+"deleteaccount.title" = "Apakah Anda yakin ingin menghapus akun Anda?";
+"deleteaccount.message" = "Jika Anda menghapus akun, Anda tidak akan dapat memulihkan data kembali.";
+"실패했습니다" = "Gagal";

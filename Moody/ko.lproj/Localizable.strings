@@ -41,7 +41,7 @@
 "language.later" = "나중에";
 
 "connection.message" = "연결되었습니다";
-"merge_data_message" = "이 앱에서 Google 계정이 등록되었습니다. 이전 로그인에서 데이터를 병합하시겠습니까?";
+"merge_data_message" = "이 앱에 계정이 등록되어 있습니다. 이전 로그인에서 데이터를 병합하시겠습니까?";
 
 "today.title" = "오늘";
 "widget.today.message" = "오늘의 감정을 확인합니다";
@@ -49,3 +49,8 @@
 "subscription.title" = "프리미엄 이용권 구매";
 "buy.premium" = "프리미엄 패스 구매";
 "retrieve.premium" = "이전에 구매한 이용권 가져오기";
+
+"deleteaccount.title" = "계정을 삭제하시겠습니까?";
+"deleteaccount.message" = "계정 삭제 진행하시면 정보를 복구할 수 없습니다";
+
+"실패했습니다" = "실패했습니다";

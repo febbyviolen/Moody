@@ -53,7 +53,7 @@
 "L5C-aH-4R0.text" = "Kunci Layar";
 
 /* Class = "UILabel"; text = "Data berharga Anda akan disimpan secara aman di akun Google Anda sehingga Anda dapat memulihkan informasi penting Anda jika perangkat hilang, rusak, atau Anda harus menginstal ulang aplikasi."; ObjectID = "DnL-WA-b1u"; */
-"DnL-WA-b1u.text" = "Data berharga Anda akan disimpan secara aman di akun Google Anda sehingga Anda dapat memulihkan informasi penting Anda jika perangkat hilang, rusak, atau Anda harus menginstal ulang aplikasi.";
+"DnL-WA-b1u.text" = "Data berharga Anda akan disimpan secara aman di akun Anda sehingga Anda dapat memulihkan informasi penting Anda jika perangkat hilang, rusak, atau Anda harus menginstal ulang aplikasi.";
 
 /* Class = "UILabel"; text = "Pengaturan Bahasa"; ObjectID = "FU4-hM-jMw"; */
 "xkA-Bg-oFo.text" = "Pengaturan Bahasa";
@@ -113,7 +113,7 @@
 "AaW-SI-5yX.text" = "Sinkronisasi Data";
 
 /* Class = "UILabel"; text = "Dengan menghubungkan akun Google, Anda dapat masuk dengan mudah tanpa perlu mengingat nama pengguna atau kata sandi tambahan."; ObjectID = "AgB-zN-1as"; */
-"AgB-zN-1as.text" = "Dengan menghubungkan akun Google, Anda dapat masuk dengan mudah tanpa perlu mengingat nama pengguna atau kata sandi tambahan.";
+"AgB-zN-1as.text" = "Dengan menghubungkan akun, Anda dapat masuk dengan mudah tanpa perlu mengingat nama pengguna atau kata sandi tambahan.";
 
 /* Class = "UINavigationItem"; title = "Grafik"; ObjectID = "AgM-5m-ciS"; */
 "AgM-5m-ciS.title" = "Grafik";
@@ -153,7 +153,7 @@
 "McV-jy-M6v.text" = "Cadangkan Data";
 
 /* Class = "UILabel"; text = "Hubungkan Akun Google"; ObjectID = "Mop-gM-MkS"; */
-"lA8-M1-oRh.text" = "Hubungkan Akun Google";
+"lA8-M1-oRh.text" = "Hubungkan Akun";
 
 "nbF-S3-5Gc.text" = "Hubungan Dengan Apple ID";
 "R5p-HK-SGq.text" = "Hapus Akun";
@@ -246,7 +246,7 @@
 "apM-65-WoV.title" = "Item";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "bW0-2R-L33"; */
-"bW0-2R-L33.text" = "Jika Anda memiliki akun Google yang sudah ada, Anda memiliki opsi untuk menggabungkan data aplikasi Anda saat ini dengan aplikasi kami. Jika terdapat data yang duplikat, data dari aplikasi kami akan diutamakan.";
+"bW0-2R-L33.text" = "Jika Anda memiliki akun yang sudah ada, Anda memiliki opsi untuk menggabungkan data aplikasi Anda saat ini dengan aplikasi kami. Jika terdapat data yang duplikat, data dari aplikasi kami akan diutamakan.";
 
 /* Class = "UILabel"; text = "Sinkronisasi data suasana hati yang digunakan di berbagai perangkat seperti iPad dan iPhone untuk selalu memastikan informasi terkini dapat diakses di mana saja dan kapan saja."; ObjectID = "bua-Vf-nTc"; */
 "bua-Vf-nTc.text" = "Sinkronisasi diary mood Anda di berbagai perangkat, seperti iPad dan iPhone, memastikan entri Anda selalu terbaru, terlepas dari perangkat yang Anda gunakan.";
@@ -333,13 +333,13 @@
 "knx-bW-T5E.normalTitle" = "Button";
 
 /* Class = "UIButton"; configuration.title = "Dengan menghubungkan akun Google, Anda memahami bahwa data akan disinkronkan dan fitur cadangan akan disediakan."; ObjectID = "kpf-GW-DPN"; */
-"kpf-GW-DPN.configuration.title" = "Dengan menghubungkan akun Google, Anda memahami bahwa data akan disinkronkan dan fitur cadangan akan disediakan.";
+"kpf-GW-DPN.configuration.title" = "Dengan menghubungkan akun, Anda memahami bahwa data akan disinkronkan dan fitur cadangan akan disediakan.";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kpf-GW-DPN"; */
 "kpf-GW-DPN.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Dengan menghubungkan akun Google, Anda dapat menikmati berbagai keuntungan saat menggunakan aplikasi kami."; ObjectID = "mPZ-BV-NEZ"; */
-"mPZ-BV-NEZ.text" = "Dengan menghubungkan akun Google, Anda dapat menikmati berbagai keuntungan saat menggunakan aplikasi kami.";
+"mPZ-BV-NEZ.text" = "Dengan menghubungkan akun, Anda dapat menikmati berbagai keuntungan saat menggunakan aplikasi kami.";
 
 /* Class = "UILabel"; text = "Bagaimana harimu hari ini?"; ObjectID = "meV-l6-7v7"; */
 "meV-l6-7v7.text" = "Bagaimana harimu?";
@@ -381,10 +381,7 @@
 "piF-NK-mr4.text" = "1";
 
 /* Class = "UIButton"; configuration.title = "Mulai Menghubungkan"; ObjectID = "prv-o2-QaS"; */
-"prv-o2-QaS.configuration.title" = "Mulai Menghubungkan";
-
-/* Class = "UIButton"; normalTitle = "Mulai Menghubungkan"; ObjectID = "prv-o2-QaS"; */
-"prv-o2-QaS.normalTitle" = "Mulai Menghubungkan";
+"prv-o2-QaS.configuration.title" = "Sambungkan dengan Google";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "q0a-Gs-p2o"; */
 "q0a-Gs-p2o.normalTitle" = "Button";
@@ -432,7 +429,7 @@
 "wYG-Bd-yF9.text" = "Ubah Kata Sandi";
 
 /* Class = "UINavigationItem"; title = "Hubungkan Akun Google"; ObjectID = "x8p-dZ-K8v"; */
-"x8p-dZ-K8v.title" = "Hubungkan Akun Google";
+"x8p-dZ-K8v.title" = "Hubungkan Akun";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xIv-oq-FhK"; */
 "xIv-oq-FhK.normalTitle" = "Button";
@@ -470,3 +467,5 @@
 "3X0-3d-8ua.configuration.title" = "Langganan Premium";
 
 "n0v-1E-erX.configuration.title" = "pemulihan pembelian";
+"xw3-cZ-gtQ.configuration.title" = "Batalkan koneksi";
+"L1T-RA-Kef.configuration.title" = "Sambung dengan Apple ID";
