@@ -1,10 +1,13 @@
 {
   "identifier" : "4DEA51A3",
   "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
     {
-      "displayPrice" : "3300",
+      "displayPrice" : "0.99",
       "familyShareable" : false,
-      "internalID" : "12DE9EC5",
+      "internalID" : "30F9D8DE",
       "localizations" : [
         {
           "description" : "",
@@ -13,12 +16,9 @@
         }
       ],
       "productID" : "moody.premiumPass",
-      "referenceName" : "Premium Pass",
-      "type" : "NonRenewingSubscription"
+      "referenceName" : "Premium pass",
+      "type" : "NonConsumable"
     }
-  ],
-  "products" : [
-
   ],
   "settings" : {
 

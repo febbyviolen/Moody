@@ -44,24 +44,25 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
         
         //observer
         SKPaymentQueue.default().add(self)
-        
-//        setupUI()
-//        setupFont()
-        
+        setupUI()
+        setupFont()
         fetchProducts()
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        print(response.products.first!)
         DispatchQueue.main.async {
-            self.model = response.products.first!
+            guard let product = response.products.first else {
+                // Handle the case when no products are available
+                return
+            }
+            // Rest of the implementation...
+            self.model = product
             self.setupInfo()
         }
     }
     
     private func fetchProducts(){
         let request = SKProductsRequest(productIdentifiers: Set(Subscription.allCases.compactMap({$0.rawValue})))
-        print(request.description)
         request.delegate = self
         request.start()
     }
@@ -71,8 +72,13 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
     }
     
     @IBAction func buyButton(_ sender: Any) {
-        let payment = SKPayment(product: model!)
-        SKPaymentQueue.default().add(payment)
+        if model != nil {
+            let payment = SKPayment(product: model!)
+            SKPaymentQueue.default().add(payment)
+        } else {
+            let alert = UIAlertController(title: String(format: NSLocalizedString("실패했습니다", comment: "")), message: "", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: String(format: NSLocalizedString("네", comment: "")), style: .default, handler: nil)
+        }
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
@@ -94,7 +100,7 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
                 queue.finishTransaction($0)
                 break
             case .failed:
-                let alert = UIAlertController(title: "결제 실패했습니다", message: "", preferredStyle: .alert)
+                let alert = UIAlertController(title: String(format: NSLocalizedString("실패했습니다", comment: "")), message: "", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: String(NSLocalizedString("네", comment: "")), style: .default, handler: nil)
                 alert.addAction(okAction)
                 present(alert, animated: true)
@@ -120,8 +126,8 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
         print("success!")
-        buyButton.isHidden = true
-        retrieveLabel.isHidden = true
+//        buyButton.isHidden = true
+//        retrieveLabel.isHidden = true
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
