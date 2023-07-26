@@ -16,7 +16,7 @@
         }
       ],
       "productID" : "moody.premiumPass",
-      "referenceName" : "Premium pass",
+      "referenceName" : "premiumPass",
       "type" : "NonConsumable"
     }
   ],

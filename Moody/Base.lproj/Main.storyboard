@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Font-Regular.ttf">
+        <array key="오뮤_다예쁨체.ttf">
             <string>omyu_pretty</string>
         </array>
     </customFonts>
@@ -1397,22 +1397,22 @@
                                 <rect key="frame" x="0.0" y="103" width="414" height="710"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIe-UL-MeN">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="753.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="b2J-T6-NM8">
-                                                <rect key="frame" x="15" y="10" width="384" height="743.66666666666663"/>
+                                                <rect key="frame" x="15" y="10" width="384" height="727"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uWa-73-dS7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="96.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정을 연결함으로써 저희 앱 이용에 다양한 이점을 누리실 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPZ-BV-NEZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="46.666666666666664"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
                                                                 <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xw3-cZ-gtQ">
-                                                                <rect key="frame" x="0.0" y="56.666666666666657" width="384" height="40"/>
+                                                                <rect key="frame" x="0.0" y="50" width="384" height="40"/>
                                                                 <color key="backgroundColor" name="secondary"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="QGh-F2-TfA"/>
@@ -1429,7 +1429,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kgD-bN-hfD">
-                                                        <rect key="frame" x="0.0" y="121.66666666666663" width="384" height="436"/>
+                                                        <rect key="frame" x="0.0" y="115" width="384" height="436"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5o-qt-j4R">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="5"/>
@@ -1461,7 +1461,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGo-FH-TK2">
-                                                                        <rect key="frame" x="0.0" y="25.333333333333339" width="384" height="62.666666666666657"/>
+                                                                        <rect key="frame" x="0.0" y="25.333333333333311" width="384" height="62.666666666666657"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRZ-hT-QLn">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="62.666666666666664"/>
@@ -1499,7 +1499,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jd4-wf-IMg">
-                                                                <rect key="frame" x="0.0" y="123.00000000000003" width="384" height="87.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="123" width="384" height="87.333333333333314"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNr-Kw-Ijm">
                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="20.333333333333332"/>
@@ -1557,7 +1557,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yny-rP-uOT">
-                                                                <rect key="frame" x="0.0" y="225.33333333333334" width="384" height="87.666666666666657"/>
+                                                                <rect key="frame" x="0.0" y="225.33333333333329" width="384" height="87.666666666666657"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHB-dd-TZ2">
                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="20.333333333333332"/>
@@ -1577,7 +1577,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9h-Ni-6ME">
-                                                                        <rect key="frame" x="0.0" y="25.333333333333318" width="384" height="62.333333333333343"/>
+                                                                        <rect key="frame" x="0.0" y="25.333333333333375" width="384" height="62.333333333333343"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cH7-sc-wX4">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="62.333333333333336"/>
@@ -1684,7 +1684,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7So-8a-zRT">
-                                                        <rect key="frame" x="0.0" y="582.66666666666663" width="384" height="161"/>
+                                                        <rect key="frame" x="0.0" y="576" width="384" height="151"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="진행하기 전에 다음 내용을 체크해주세요:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dV-zl-RAc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="18"/>
@@ -1693,13 +1693,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5OX-BN-o4k">
-                                                                <rect key="frame" x="0.0" y="28" width="384" height="98"/>
+                                                                <rect key="frame" x="0.0" y="28" width="384" height="88"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uo-yE-y0W">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="49"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpf-GW-DPN">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="49"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="계정을 연결하면 데이터가 동기화되고 백업 기능이 제공됨을 이해하였습니다." imagePadding="16" titleAlignment="automatic">
                                                                                     <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
@@ -1712,10 +1712,10 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-65-yxB">
-                                                                        <rect key="frame" x="0.0" y="49" width="384" height="49"/>
+                                                                        <rect key="frame" x="0.0" y="44" width="384" height="44"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXd-fB-kUd">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="49"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="데이터 병합 시 기존 계정의 중복된 항목은 덮어쓰여질 수 있다는 사실을 이해하였습니다." imagePadding="16" titleAlignment="automatic">
                                                                                     <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
@@ -1730,7 +1730,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위의 항목에 체크하여 본인이 약관에 동의한 것으로 간주됩니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8N-S2-kn8">
-                                                                <rect key="frame" x="0.0" y="136" width="384" height="25"/>
+                                                                <rect key="frame" x="0.0" y="126" width="384" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="dMC-Bq-kg6"/>
                                                                 </constraints>
@@ -1763,7 +1763,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="KTt-Pl-tmc"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sdU-2H-gl1">
-                                <rect key="frame" x="15" y="763" width="384" height="50"/>
+                                <rect key="frame" x="15" y="753" width="384" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4Xz-cr-9eC">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
@@ -1813,7 +1813,7 @@
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="D6d-3Q-GqS" firstAttribute="trailing" secondItem="sdU-2H-gl1" secondAttribute="trailing" constant="15" id="CBg-i9-uXF"/>
-                            <constraint firstItem="D6d-3Q-GqS" firstAttribute="bottom" secondItem="sdU-2H-gl1" secondAttribute="bottom" id="Irq-dI-lR9"/>
+                            <constraint firstItem="D6d-3Q-GqS" firstAttribute="bottom" secondItem="sdU-2H-gl1" secondAttribute="bottom" constant="10" id="Irq-dI-lR9"/>
                             <constraint firstItem="sdU-2H-gl1" firstAttribute="leading" secondItem="D6d-3Q-GqS" secondAttribute="leading" constant="15" id="OEd-Lj-S8B"/>
                             <constraint firstItem="cNA-57-orB" firstAttribute="leading" secondItem="D6d-3Q-GqS" secondAttribute="leading" id="dVZ-14-xto"/>
                             <constraint firstItem="cNA-57-orB" firstAttribute="bottom" secondItem="D6d-3Q-GqS" secondAttribute="bottom" id="jGd-FJ-cHF"/>

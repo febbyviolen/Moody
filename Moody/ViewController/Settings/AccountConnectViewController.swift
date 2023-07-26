@@ -143,11 +143,6 @@ class AccountConnectViewController: UIViewController, UIGestureRecognizerDelegat
                         // Create a new UIAlertController
                         let alertController = UIAlertController(title: "", message: String(format: NSLocalizedString("merge_data_message", comment: "")), preferredStyle: .alert)
 
-                        // Customize the appearance using attributed strings
-                        let messageFont = [NSAttributedString.Key.font: self.font.sub2Size]
-                        let attributedMessage = NSAttributedString(string: String(format: NSLocalizedString("merge_data_message", comment: "")), attributes: messageFont)
-                        alertController.setValue(attributedMessage, forKey: "attributedMessage")
-
                         // Add actions
                         let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
                             self.fb.transferUserData(idToken: uid) {
@@ -257,11 +252,6 @@ extension AccountConnectViewController: ASAuthorizationControllerDelegate {
                 if str != "false" {
                     // Create a new UIAlertController
                     let alertController = UIAlertController(title: "", message: String(format: NSLocalizedString("merge_data_message", comment: "")), preferredStyle: .alert)
-
-                    // Customize the appearance using attributed strings
-                    let messageFont = [NSAttributedString.Key.font: self.font.sub2Size]
-                    let attributedMessage = NSAttributedString(string: String(format: NSLocalizedString("merge_data_message", comment: "")), attributes: messageFont)
-                    alertController.setValue(attributedMessage, forKey: "attributedMessage")
 
                     // Add actions
                     let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
