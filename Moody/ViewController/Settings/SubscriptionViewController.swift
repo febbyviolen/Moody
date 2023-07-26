@@ -101,7 +101,14 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
                 queue.finishTransaction($0)
             case .restored:
                 self.userDefault.set("true", forKey: "premiumPass")
-                
+                if let url = Bundle.main.appStoreReceiptURL,
+                   let data = try? Data(contentsOf: url) {
+                    let receiptBase64 = data.base64EncodedString()
+                    // Send to server
+                    self.fb.saveSubscriptionInfo(premiumID: receiptBase64, completion: {
+                        //if done
+                    })
+                }
                 buyButton.isHidden = true
                 retrieveLabel.isHidden = true
                 queue.finishTransaction($0)
@@ -109,6 +116,12 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
                 print("on purchase..")
             }
         })
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        print("success!")
+        buyButton.isHidden = true
+        retrieveLabel.isHidden = true
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {

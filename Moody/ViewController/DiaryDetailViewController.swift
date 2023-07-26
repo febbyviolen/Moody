@@ -19,7 +19,7 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
     //MARK: DELEGATE
     func deleteSticker(cell: StickerCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
-            print(indexPath)
+//            print(indexPath)
             collectionView.performBatchUpdates({
                 // Perform any additional deletion logic if needed
                 collectionView.deleteItems(at: [indexPath])
@@ -371,7 +371,7 @@ extension DiaryDetailViewController : UICollectionViewDataSource, UICollectionVi
         cell.delegate = self
         
         cell.stickerImg.image = UIImage(named: sticker[indexPath.item])
-        print(sticker[indexPath.item])
+//        print(sticker[indexPath.item])
         cell.stickerImg.transform = CGAffineTransform.identity
         
         return cell

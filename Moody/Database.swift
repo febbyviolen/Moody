@@ -39,9 +39,15 @@ class Firebase {
         }
     }
     
-    func deleteUser(user: String){
-        let docRef = Firestore.firestore().collection("users").document("\(user)")
-        docRef.delete() { error in
+    func deleteUser(user: String, date: Date){
+        let docRef = userDocRef
+        
+        let data : [String: Any] = [
+            "deleted" : "True", 
+            "date" : date.description
+        ]
+        
+        docRef.setData(data, merge: false) { error in
             if let _ = error {
 //                print("\(error.localizedDescription)")
             } else {
@@ -92,7 +98,7 @@ class Firebase {
         ]
         
         docRef.setData(data, merge: true) { error in
-            if let _ = error {
+            if let error = error {
 //                print("\(error.localizedDescription)")
             } else {
 //                print("success")
@@ -167,6 +173,38 @@ class Firebase {
             }
         }
         
+        let docRef = userDocRef.collection("subscription")
+        let destDocRef = Firestore.firestore().collection("users").document(idToken).collection("subscription")
+        
+        docRef.getDocuments { document, err in
+            if let _ = err {
+//                print("Error getting documents: \(err)")
+                completion()
+            } else {
+                for document in document!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+                    let data = document.data()
+                    if let premiumPass = data["premiumPass"] as? String, let ID = data["premiumPassID"] {
+                        
+                        let data : [String: Any] = [
+                            "premiumPass" : premiumPass,
+                            "premiumPassID" : ID
+                        ]
+                        
+                        destDocRef.document("subscriptionInfo").setData(data, merge: true) { error in
+                            if let _ = error {
+                                completion()
+                            } else {
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+        
+        
         completion()
     }
     
@@ -217,6 +255,37 @@ class Firebase {
             }
         }
         
+        let docRef = userDocRef.collection("subscription")
+        let destDocRef = Firestore.firestore().collection("users").document(idToken).collection("subscription")
+        
+        docRef.getDocuments { document, err in
+            if let _ = err {
+//                print("Error getting documents: \(err)")
+                completion()
+            } else {
+                for document in document!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+                    let data = document.data()
+                    if let premiumPass = data["premiumPass"] as? String, let ID = data["premiumPassID"] {
+                        
+                        let data : [String: Any] = [
+                            "premiumPass" : premiumPass,
+                            "premiumPassID" : ID
+                        ]
+                        
+                        destDocRef.document("subscriptionInfo").setData(data, merge: true) { error in
+                            if let _ = error {
+                                completion()
+                            } else {
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+        
         completion()
     }
     
@@ -254,6 +323,7 @@ class Firebase {
         docRef.setData(data, merge: false) { error in
             if let _ = error {
 //                print("\(error.localizedDescription)")
+                completion()
             } else {
 //                print("success")
                 completion()

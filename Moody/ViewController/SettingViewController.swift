@@ -24,8 +24,8 @@ class SettingViewController: UIViewController, DatePickerDelegate {
         updateNotificationHours(newHour: Int(String(string![0]))!, newMinute: Int(String(string![1]))!)
     }
     
-    @IBOutlet weak var appleLabel: UILabel!
-    @IBOutlet weak var appleVie: UIView!
+    @IBOutlet weak var deleteAccountLabel: UILabel!
+    @IBOutlet weak var deleteAccountView: UIView!
     @IBOutlet weak var rateAppView: UIView!
     @IBOutlet weak var googleAuthView: UIView!
     @IBOutlet weak var languageView: UIView!
@@ -132,7 +132,7 @@ extension SettingViewController {
         googleAuthView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(googleAuth)))
         rateAppView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(rateApp)))
         buySubscribeBackground.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSubscription)))
-        appleVie.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(appleAuth)))
+        deleteAccountView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(deleteAccount)))
     }
     
     @objc private func showLanguageSettings() {
@@ -147,8 +147,27 @@ extension SettingViewController {
         performSegue(withIdentifier: "showSubscriptionScreen", sender: self)
     }
     
-    @objc private func appleAuth() {
-        performSegue(withIdentifier: "showAppleConnect", sender: self)
+    @objc private func deleteAccount() {
+        let alert = UIAlertController(title: "계정 삭제하시겠습니까?", message: "계정 삭제 시 복구 불가능합니다", preferredStyle: .alert)
+        let yesaction = UIAlertAction(title: String(format: NSLocalizedString("네", comment: "")), style: .default) { _ in
+            let userr = Auth.auth().currentUser
+            userr?.delete { error in
+                if let error = error {
+                } else {
+                    self.fb.deleteUser(user: userr?.uid ?? "", date: Date())
+                    self.userdefault.set(nil, forKey: "userID")
+                    self.userdefault.set(nil, forKey: "userEmail")
+                    self.userdefault.set("false", forKey: "premiumPass")
+                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+        let noaction = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "")), style: .default)
+        
+        alert.addAction(noaction)
+        alert.addAction(yesaction)
+        self.present(alert, animated: true)
     }
                                                     
     private func setupTime() {
@@ -187,7 +206,7 @@ extension SettingViewController {
         googleLabel.font = font.subSize
         appReviewLabel.font = font.subSize
         timeClockLabel.font = font.subSize
-        appleLabel.font = font.subSize
+        deleteAccountLabel.font = font.subSize
     }
     
     //MARK NOTIFICATION SETTINGS

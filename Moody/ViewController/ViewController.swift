@@ -106,7 +106,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
             }
         }
         
-        if calendarDataSource.isEmpty {
+        if calendarDataSource.isEmpty || userdefault.string(forKey: "userID") == nil {
+//            print(userdefault.string(forKey: "userID"))
+            calendarDataSource.removeAll()
+            calendar.reloadData()
             setupUser()
         }
         
