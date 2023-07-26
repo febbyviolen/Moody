@@ -137,6 +137,17 @@ extension GraphViewController {
             banner.rootViewController = self
             
             banner.load(GADRequest())
+        }else {
+            banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
+            addBannerViewToView(banner)
+            
+            banner.adUnitID = "ca-app-pub-2267001621089435/8329415847"
+            banner.backgroundColor = .secondarySystemBackground
+            banner.rootViewController = self
+            
+            banner.load(GADRequest())
+
+            banner.isHidden = true
         }
         
         dateLabel.text = reloadCalendarFormatter.string(from: date)

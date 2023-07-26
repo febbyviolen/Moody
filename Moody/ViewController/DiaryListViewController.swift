@@ -166,6 +166,9 @@ extension DiaryListViewController {
         
         if UserDefaults.standard.string(forKey: "premiumPass") != "true"  {
             bannerSetup()
+        } else {
+            bannerSetup()
+            banner.isHidden = true
         }
         
         dateLabel.text = reloadCalendarFormatter.string(from: date)

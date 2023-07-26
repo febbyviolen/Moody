@@ -105,14 +105,15 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
                 })
             }
         }
-        
-        if calendarDataSource.isEmpty || userdefault.string(forKey: "userID") == nil {
-//            print(userdefault.string(forKey: "userID"))
-            calendarDataSource.removeAll()
-            calendar.reloadData()
-            setupUser()
+       
+        DispatchQueue.main.async {
+            if self.calendarDataSource.isEmpty || self.userdefault.string(forKey: "userID") == nil {
+                //            print(userdefault.string(forKey: "userID"))
+                self.calendarDataSource.removeAll()
+                self.calendar.reloadData()
+                self.setupUser()
+            }
         }
-        
         UISetup()
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -235,35 +236,35 @@ extension ViewController {
                 .requestAuthorization(
                     options: [.alert, .sound, .badge]
                 ) { (granted, error) in
-                if granted {
-                    // User granted permission
-                    // Create notification content
-                    let content = UNMutableNotificationContent()
-                    content.title = "Moody"
-                    content.body = String(format: NSLocalizedString("오늘 하루도 기록해보세요!", comment: ""))
-                    content.sound = UNNotificationSound.default
-                    
-                    // Create date components for 10 PM
-                    var dateComponents = DateComponents()
-                    dateComponents.hour = self.userdefault.integer(forKey: "alarmTime") == 0 ? 22 : self.userdefault.integer(forKey: "alarmTime")
-                    dateComponents.minute = self.userdefault.integer(forKey: "alarmMinute") == 0 ? 00 : self.userdefault.integer(forKey: "alarmMinute")
-                    
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-                    
-                    let request = UNNotificationRequest(identifier: "addDiaryNotification", content: content, trigger: trigger)
-                    
-                    UNUserNotificationCenter.current().add(request) { error in
-                        if let _ = error {
-//                            print("error")
-                        } else {
-//                            print("not error")
+                    if granted {
+                        // User granted permission
+                        // Create notification content
+                        let content = UNMutableNotificationContent()
+                        content.title = "Moody"
+                        content.body = String(format: NSLocalizedString("오늘 하루도 기록해보세요!", comment: ""))
+                        content.sound = UNNotificationSound.default
+                        
+                        // Create date components for 10 PM
+                        var dateComponents = DateComponents()
+                        dateComponents.hour = self.userdefault.integer(forKey: "alarmTime") == 0 ? 22 : self.userdefault.integer(forKey: "alarmTime")
+                        dateComponents.minute = self.userdefault.integer(forKey: "alarmMinute") == 0 ? 00 : self.userdefault.integer(forKey: "alarmMinute")
+                        
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                        
+                        let request = UNNotificationRequest(identifier: "addDiaryNotification", content: content, trigger: trigger)
+                        
+                        UNUserNotificationCenter.current().add(request) { error in
+                            if let _ = error {
+                                //                            print("error")
+                            } else {
+                                //                            print("not error")
+                            }
                         }
+                    } else {
+                        // User denied permission or there was an error
+                        //                    print("Notification permission denied or error: \(error?.localizedDescription ?? "")")
                     }
-                } else {
-                    // User denied permission or there was an error
-//                    print("Notification permission denied or error: \(error?.localizedDescription ?? "")")
                 }
-            }
             
         }
     }
@@ -283,8 +284,14 @@ extension ViewController {
         todayButton.titleLabel?.font = font.sub2Size
         todayButton.titleLabel?.text = String(format: NSLocalizedString("오늘", comment: ""))
         
-        bannerSetup()
-        
+        if userdefault.string(forKey: "premiumPass") != "true" {
+            bannerSetup()
+            banner?.isHidden = true
+        } else if userdefault.string(forKey: "premiumPass") == "true"{
+            bannerSetup()
+            banner?.isHidden = true
+        }
+
         //change navigationcontroller title font
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font.subSize ]
     }
@@ -292,8 +299,6 @@ extension ViewController {
     private func bannerSetup(){
         banner = GADBannerView(adSize: GADAdSizeFromCGSize(CGSize(width: view.frame.size.width, height: 50)))
         addBannerViewToView(banner)
-        
-        
         
         banner.adUnitID = "ca-app-pub-2267001621089435/8329415847"
         banner.backgroundColor = .secondarySystemBackground
@@ -321,12 +326,6 @@ extension ViewController {
                                 multiplier: 1,
                                 constant: 0)
             ])
-        
-        if let ud = userdefault.string(forKey: "premiumPass") {
-            if userdefault.string(forKey: "premiumPass") == "true" {
-                banner.removeFromSuperview()
-            }
-        }
     }
     
     private func FontSetup() {
