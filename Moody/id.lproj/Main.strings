@@ -50,13 +50,13 @@
 "CRz-GY-y7J.text" = "Bahasa Indonesia";
 
 /* Class = "UILabel"; text = "Kunci Layar"; ObjectID = "DCd-fd-KTH"; */
-"DCd-fd-KTH.text" = "Kunci Layar";
+"L5C-aH-4R0.text" = "Kunci Layar";
 
 /* Class = "UILabel"; text = "Data berharga Anda akan disimpan secara aman di akun Google Anda sehingga Anda dapat memulihkan informasi penting Anda jika perangkat hilang, rusak, atau Anda harus menginstal ulang aplikasi."; ObjectID = "DnL-WA-b1u"; */
 "DnL-WA-b1u.text" = "Data berharga Anda akan disimpan secara aman di akun Google Anda sehingga Anda dapat memulihkan informasi penting Anda jika perangkat hilang, rusak, atau Anda harus menginstal ulang aplikasi.";
 
 /* Class = "UILabel"; text = "Pengaturan Bahasa"; ObjectID = "FU4-hM-jMw"; */
-"FU4-hM-jMw.text" = "Pengaturan Bahasa";
+"xkA-Bg-oFo.text" = "Pengaturan Bahasa";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HOs-U2-eww"; */
 "HOs-U2-eww.normalTitle" = "Tombol";
@@ -153,7 +153,10 @@
 "McV-jy-M6v.text" = "Cadangkan Data";
 
 /* Class = "UILabel"; text = "Hubungkan Akun Google"; ObjectID = "Mop-gM-MkS"; */
-"Mop-gM-MkS.text" = "Hubungkan Akun Google";
+"lA8-M1-oRh.text" = "Hubungkan Akun Google";
+
+"nbF-S3-5Gc.text" = "Hubungan Dengan Apple ID";
+"R5p-HK-SGq.text" = "Hapus Akun";
 
 /* Class = "UIButton"; configuration.title = "Batal"; ObjectID = "P9t-FD-aRI"; */
 "P9t-FD-aRI.configuration.title" = "Batal";
@@ -168,7 +171,7 @@
 "PZV-Uw-1mi.text" = "Label";
 
 /* Class = "UILabel"; text = "Dukung Pengembang"; ObjectID = "Pyd-Zy-PfF"; */
-"Pyd-Zy-PfF.text" = "Rate aplikasi kami";
+"n7q-E9-5ot.text" = "Rate aplikasi kami";
 
 /* Class = "UISegmentedControl"; RIq-mo-Cmp.segmentTitles[0] = "Mood"; ObjectID = "RIq-mo-Cmp"; */
 "RIq-mo-Cmp.segmentTitles[0]" = "Mood";
@@ -189,7 +192,7 @@
 "UIu-82-S2p.text" = "Label";
 
 /* Class = "UILabel"; text = "Pengingat Diary"; ObjectID = "UXV-Ut-nSi"; */
-"UXV-Ut-nSi.text" = "Notifikasi";
+"xM1-AU-gZW.text" = "Notifikasi";
 
 /* Class = "UILabel"; text = "Perhatian"; ObjectID = "VCP-qp-Ar9"; */
 "VCP-qp-Ar9.text" = "Perhatian";
@@ -315,7 +318,7 @@
 "jGv-f1-Crj.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Waktu Pemberitahuan"; ObjectID = "k7F-S0-i4p"; */
-"k7F-S0-i4p.text" = "Waktu Notifikasi";
+"Jsn-y3-6U6.text" = "Waktu Notifikasi";
 
 /* Class = "UIButton"; configuration.title = "9"; ObjectID = "kcq-dV-AJ7"; */
 "kcq-dV-AJ7.configuration.title" = "9";

@@ -56,7 +56,7 @@
 "CRz-GY-y7J.text" = "Bahasa Indonesia";
 
 /* Class = "UILabel"; text = "Screen Lock"; ObjectID = "DCd-fd-KTH"; */
-"DCd-fd-KTH.text" = "Screen Lock";
+"L5C-aH-4R0.text" = "Screen Lock";
 
 /* Class = "UILabel"; text = "FEB"; ObjectID = "DLb-Tv-5Db"; */
 "DLb-Tv-5Db.text" = "FEB";
@@ -71,7 +71,7 @@
 "DnL-WA-b1u.text" = "By securely backing up your mood data to your Google account, you can recover valuable information without losing it in case of device loss, damage, or app reinstallation.";
 
 /* Class = "UILabel"; text = "Language Setting"; ObjectID = "FU4-hM-jMw"; */
-"FU4-hM-jMw.text" = "Language Setting";
+"xkA-Bg-oFo.text" = "Language Setting";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HOs-U2-eww"; */
 "HOs-U2-eww.normalTitle" = "Button";
@@ -95,7 +95,10 @@
 "McV-jy-M6v.text" = "Data Backup";
 
 /* Class = "UILabel"; text = "Connect Your Google Account"; ObjectID = "Mop-gM-MkS"; */
-"Mop-gM-MkS.text" = "Connect Your Google Account";
+"lA8-M1-oRh.text" = "Connect Your Google Account";
+
+"nbF-S3-5Gc.text" = "Connect with Apple ID";
+"R5p-HK-SGq.text" = "Delete account";
 
 /* Class = "UIButton"; configuration.title = "취소"; ObjectID = "P9t-FD-aRI"; */
 "P9t-FD-aRI.configuration.title" = "Cancel";
@@ -110,7 +113,7 @@
 "PZV-Uw-1mi.text" = "Label";
 
 /* Class = "UILabel"; text = "개발자 응원하러 가기"; ObjectID = "Pyd-Zy-PfF"; */
-"Pyd-Zy-PfF.text" = "Support the Developer";
+"n7q-E9-5ot.text" = "Support the Developer";
 
 /* Class = "UISegmentedControl"; RIq-mo-Cmp.segmentTitles[0] = "기분"; ObjectID = "RIq-mo-Cmp"; */
 "RIq-mo-Cmp.segmentTitles[0]" = "Mood";
@@ -131,7 +134,7 @@
 "UIu-82-S2p.text" = "Label";
 
 /* Class = "UILabel"; text = "일기 알림"; ObjectID = "UXV-Ut-nSi"; */
-"UXV-Ut-nSi.text" = "Diary Notifications";
+"xM1-AU-gZW.text" = "Diary Notifications";
 
 /* Class = "UILabel"; text = "주의 사항"; ObjectID = "VCP-qp-Ar9"; */
 "VCP-qp-Ar9.text" = "Caution";
@@ -254,7 +257,7 @@
 "jGv-f1-Crj.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "알림 시간"; ObjectID = "k7F-S0-i4p"; */
-"k7F-S0-i4p.text" = "Notification Time";
+"Jsn-y3-6U6.text" = "Notification Time";
 
 /* Class = "UIButton"; configuration.title = "9"; ObjectID = "kcq-dV-AJ7"; */
 "kcq-dV-AJ7.configuration.title" = "9";

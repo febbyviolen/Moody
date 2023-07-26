@@ -24,6 +24,8 @@ class SettingViewController: UIViewController, DatePickerDelegate {
         updateNotificationHours(newHour: Int(String(string![0]))!, newMinute: Int(String(string![1]))!)
     }
     
+    @IBOutlet weak var appleLabel: UILabel!
+    @IBOutlet weak var appleVie: UIView!
     @IBOutlet weak var rateAppView: UIView!
     @IBOutlet weak var googleAuthView: UIView!
     @IBOutlet weak var languageView: UIView!
@@ -130,6 +132,7 @@ extension SettingViewController {
         googleAuthView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(googleAuth)))
         rateAppView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(rateApp)))
         buySubscribeBackground.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSubscription)))
+        appleVie.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(appleAuth)))
     }
     
     @objc private func showLanguageSettings() {
@@ -143,8 +146,11 @@ extension SettingViewController {
     @objc private func showSubscription() {
         performSegue(withIdentifier: "showSubscriptionScreen", sender: self)
     }
-                                                    
     
+    @objc private func appleAuth() {
+        performSegue(withIdentifier: "showAppleConnect", sender: self)
+    }
+                                                    
     private func setupTime() {
         let timeString = "22:00"
         time = showTimeFormatter.date(from: timeString)
@@ -181,6 +187,7 @@ extension SettingViewController {
         googleLabel.font = font.subSize
         appReviewLabel.font = font.subSize
         timeClockLabel.font = font.subSize
+        appleLabel.font = font.subSize
     }
     
     //MARK NOTIFICATION SETTINGS
@@ -250,7 +257,6 @@ extension SettingViewController {
         }
     }
 
-    
     @objc private func showTimePicker() {
         performSegue(withIdentifier: "showDatePicker", sender: self)
     }
@@ -270,6 +276,7 @@ extension SettingViewController {
         
     }
 }
+
 
 //MARK: RATE OUR APP SETTINGS
 extension SettingViewController {
