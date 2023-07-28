@@ -15,6 +15,8 @@ protocol DiaryListCellDelegate: AnyObject {
 
 class DiaryListCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var bigStack: UIStackView!
+    @IBOutlet weak var dateStoryStack: UIStackView!
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -27,7 +29,7 @@ class DiaryListCell: UITableViewCell, UICollectionViewDataSource, UICollectionVi
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
         collectionView.dataSource = self
         collectionView.delegate = self
         let layout = KTCenterFlowLayout()
@@ -42,6 +44,8 @@ class DiaryListCell: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         super.layoutSubviews()
 
         view.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
+        dateStoryStack.layoutMargins = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        dateStoryStack.isLayoutMarginsRelativeArrangement = true
         view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
     

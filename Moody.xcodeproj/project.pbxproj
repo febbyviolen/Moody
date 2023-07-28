@@ -13,6 +13,10 @@
 		800C8C762A4AF02500BE512E /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C8C752A4AF02500BE512E /* DatePickerViewController.swift */; };
 		800C8C782A4C2A6800BE512E /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C8C772A4C2A6800BE512E /* PasswordViewController.swift */; };
 		800F84E12A59336A004A5D01 /* AccountConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800F84E02A59336A004A5D01 /* AccountConnectViewController.swift */; };
+		801A16222A739032009BA246 /* Font-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 801A161F2A738F00009BA246 /* Font-Regular.ttf */; };
+		801A16232A739032009BA246 /* Font-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 801A161F2A738F00009BA246 /* Font-Regular.ttf */; };
+		801A16242A739035009BA246 /* Dosis-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 801A161E2A738ECF009BA246 /* Dosis-VariableFont_wght.ttf */; };
+		801A16252A739035009BA246 /* Dosis-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 801A161E2A738ECF009BA246 /* Dosis-VariableFont_wght.ttf */; };
 		8022919E2A6BB6870020CE86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */; };
 		802291A52A6D03680020CE86 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802291A42A6D03680020CE86 /* SubscriptionViewController.swift */; };
 		802CB2E22A515BFA00509957 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802CB2E42A515BFA00509957 /* Localizable.strings */; };
@@ -28,11 +32,7 @@
 		80354F012A3B6DD200412C73 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F002A3B6DD200412C73 /* DiaryDetailViewController.swift */; };
 		80354F032A3C1B4B00412C73 /* StickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F022A3C1B4B00412C73 /* StickerCell.swift */; };
 		80354F052A3CA1BC00412C73 /* StickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F042A3CA1BC00412C73 /* StickerViewController.swift */; };
-		80354F082A3DA24000412C73 /* Dongle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F072A3DA23700412C73 /* Dongle-Regular.ttf */; };
 		80354F0A2A3DA37900412C73 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F092A3DA37900412C73 /* Font.swift */; };
-		80354F0E2A3DAA1C00412C73 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F0D2A3DAA1A00412C73 /* GamjaFlower-Regular.ttf */; };
-		80354F112A3DAF8000412C73 /* Font-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F0F2A3DAC7F00412C73 /* Font-Regular.ttf */; };
-		80354F132A3DAF9900412C73 /* 오뮤_다예쁨체.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */; };
 		80354F152A3EE3B700412C73 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F142A3EE3B700412C73 /* Database.swift */; };
 		80354F192A416B1400412C73 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F182A416B1400412C73 /* DiaryModel.swift */; };
 		80354F1B2A4456EE00412C73 /* MainStickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F1A2A4456EE00412C73 /* MainStickers.swift */; };
@@ -85,6 +85,8 @@
 		800C8C752A4AF02500BE512E /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		800C8C772A4C2A6800BE512E /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		800F84E02A59336A004A5D01 /* AccountConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountConnectViewController.swift; sourceTree = "<group>"; };
+		801A161E2A738ECF009BA246 /* Dosis-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		801A161F2A738F00009BA246 /* Font-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font-Regular.ttf"; sourceTree = "<group>"; };
 		8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8022919F2A6BF1E00020CE86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		802291A02A6BF2090020CE86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -106,11 +108,7 @@
 		80354F002A3B6DD200412C73 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 		80354F022A3C1B4B00412C73 /* StickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerCell.swift; sourceTree = "<group>"; };
 		80354F042A3CA1BC00412C73 /* StickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerViewController.swift; sourceTree = "<group>"; };
-		80354F072A3DA23700412C73 /* Dongle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dongle-Regular.ttf"; sourceTree = "<group>"; };
 		80354F092A3DA37900412C73 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		80354F0D2A3DAA1A00412C73 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
-		80354F0F2A3DAC7F00412C73 /* Font-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font-Regular.ttf"; sourceTree = "<group>"; };
-		80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "오뮤_다예쁨체.ttf"; sourceTree = "<group>"; };
 		80354F142A3EE3B700412C73 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		80354F162A3EF7B400412C73 /* user defaults.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "user defaults.md"; sourceTree = "<group>"; };
 		80354F182A416B1400412C73 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
@@ -243,10 +241,8 @@
 		80354F062A3DA22600412C73 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				80354F122A3DAF9900412C73 /* 오뮤_다예쁨체.ttf */,
-				80354F0F2A3DAC7F00412C73 /* Font-Regular.ttf */,
-				80354F0D2A3DAA1A00412C73 /* GamjaFlower-Regular.ttf */,
-				80354F072A3DA23700412C73 /* Dongle-Regular.ttf */,
+				801A161E2A738ECF009BA246 /* Dosis-VariableFont_wght.ttf */,
+				801A161F2A738F00009BA246 /* Font-Regular.ttf */,
 				80354F092A3DA37900412C73 /* Font.swift */,
 			);
 			path = Font;
@@ -379,15 +375,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80354F0E2A3DAA1C00412C73 /* GamjaFlower-Regular.ttf in Resources */,
-				80354F082A3DA24000412C73 /* Dongle-Regular.ttf in Resources */,
 				80343F1B2A716E5B002B8FBA /* GoogleService-Info.plist in Resources */,
 				8022919E2A6BB6870020CE86 /* LaunchScreen.storyboard in Resources */,
+				801A16242A739035009BA246 /* Dosis-VariableFont_wght.ttf in Resources */,
 				802CB2E22A515BFA00509957 /* Localizable.strings in Resources */,
 				80354EF12A3B206D00412C73 /* Assets.xcassets in Resources */,
+				801A16222A739032009BA246 /* Font-Regular.ttf in Resources */,
 				80354EEF2A3B206A00412C73 /* Main.storyboard in Resources */,
-				80354F132A3DAF9900412C73 /* 오뮤_다예쁨체.ttf in Resources */,
-				80354F112A3DAF8000412C73 /* Font-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +389,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801A16252A739035009BA246 /* Dosis-VariableFont_wght.ttf in Resources */,
 				80D965C22A63EFE100B8394A /* Assets.xcassets in Resources */,
+				801A16232A739032009BA246 /* Font-Regular.ttf in Resources */,
 				80D965CD2A63F4BC00B8394A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

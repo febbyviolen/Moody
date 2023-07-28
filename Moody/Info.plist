@@ -223,7 +223,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Font-Regular.ttf</string>
-		<string>Dongle-Regular.ttf</string>
+		<string>Dosis-VariableFont_wght.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

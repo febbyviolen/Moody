@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
+        let languageCodes = UserDefaults.standard.array(forKey: "AppleLanguages") as? [String]
+        languageCode = languageCodes?.first ?? "kor"
+        
         return true
     }
     

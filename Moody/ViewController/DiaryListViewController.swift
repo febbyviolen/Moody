@@ -11,7 +11,23 @@ import GoogleMobileAds
 protocol DiaryListDelegate {
     func passDataBack(controller: DiaryListViewController)
 }
+extension UIStackView {
 
+    func addArrangedSubview(_ v:UIView, withMargin m:UIEdgeInsets )
+    {
+        let containerForMargin = UIView()
+        containerForMargin.addSubview(v)
+        v.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            v.topAnchor.constraint(equalTo: containerForMargin.topAnchor, constant:m.top ),
+            v.bottomAnchor.constraint(equalTo: containerForMargin.bottomAnchor, constant: m.bottom ),
+            v.leftAnchor.constraint(equalTo: containerForMargin.leftAnchor, constant: m.left),
+            v.rightAnchor.constraint(equalTo: containerForMargin.rightAnchor, constant: m.right)
+        ])
+
+        addArrangedSubview(containerForMargin)
+    }
+}
 class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetailDelegate, SelectCalendarDelegate, DiaryListCellDelegate {
     
     //MARK: DELEGATE
@@ -97,7 +113,6 @@ class DiaryListViewController: UIViewController, UIGestureRecognizerDelegate, Di
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableViewSetup()
-        
         
         //=== GESTURE RECOGNIZER ===
         dateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showCalendarSelect)))
@@ -263,7 +278,9 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.storyLabel.isHidden = false
         } else {cell.storyLabel.isHidden = true}
         
+        
         cell.delegate = self
+        
         
         return cell
     }

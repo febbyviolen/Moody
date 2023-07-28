@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="오뮤_다예쁨체.ttf">
+        <array key="Font-Regular.ttf">
             <string>omyu_pretty</string>
         </array>
     </customFonts>
@@ -58,23 +58,24 @@
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-Sn-vnK">
                                 <rect key="frame" x="15" y="158" width="400" height="730"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="white"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="m5Q-VM-OBD" customClass="DiaryListCell" customModule="Moody" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="400" height="143.33332824707031"/>
+                                        <rect key="frame" x="0.0" y="50" width="400" height="149.33332824707031"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m5Q-VM-OBD" id="gn2-Oj-61T">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="143.33332824707031"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="149.33332824707031"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9x-lc-hVh">
-                                                    <rect key="frame" x="10" y="0.0" width="380" height="123.33333333333333"/>
+                                                    <rect key="frame" x="10" y="0.0" width="380" height="129.33333333333334"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-y1-fzI">
-                                                            <rect key="frame" x="5" y="0.0" width="370" height="113.33333333333333"/>
+                                                            <rect key="frame" x="5" y="0.0" width="370" height="119.33333333333333"/>
                                                             <subviews>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yp4-fY-LkU">
                                                                     <rect key="frame" x="0.0" y="0.0" width="370" height="70"/>
+                                                                    <color key="backgroundColor" name="white"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="70" id="Rys-uL-VvI"/>
                                                                     </constraints>
@@ -96,6 +97,7 @@
                                                                                         <rect key="frame" x="5" y="5" width="80" height="60"/>
                                                                                     </imageView>
                                                                                 </subviews>
+                                                                                <color key="backgroundColor" name="white"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="Brf-eM-moC" firstAttribute="leading" secondItem="mMg-1D-tgR" secondAttribute="leading" constant="5" id="29b-9z-Tda"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="Brf-eM-moC" secondAttribute="trailing" constant="5" id="4dc-KV-nLo"/>
@@ -105,14 +107,15 @@
                                                                                     <constraint firstItem="Brf-eM-moC" firstAttribute="centerX" secondItem="mMg-1D-tgR" secondAttribute="centerX" id="wtF-14-1Kc"/>
                                                                                 </constraints>
                                                                             </collectionViewCellContentView>
+                                                                            <color key="backgroundColor" name="white"/>
                                                                             <connections>
                                                                                 <outlet property="stickerImg" destination="Brf-eM-moC" id="sdi-iO-n4J"/>
                                                                             </connections>
                                                                         </collectionViewCell>
                                                                     </cells>
                                                                 </collectionView>
-                                                                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MZq-kt-BVD">
-                                                                    <rect key="frame" x="0.0" y="59" width="370" height="54.333333333333343"/>
+                                                                <stackView opaque="NO" contentMode="scaleAspectFit" layoutMarginsFollowReadableWidth="YES" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MZq-kt-BVD">
+                                                                    <rect key="frame" x="0.0" y="59" width="370" height="60.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clz-xG-hqg">
                                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="24"/>
@@ -121,18 +124,21 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a2-Hw-8jG">
-                                                                            <rect key="frame" x="0.0" y="29" width="370" height="25.333333333333329"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a2-Hw-8jG">
+                                                                            <rect key="frame" x="0.0" y="29" width="370" height="31.333333333333329"/>
                                                                             <color key="tintColor" systemColor="linkColor"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                                            <nil key="textColor"/>
+                                                                            <attributedString key="attributedText">
+                                                                                <fragment content="Label">
+                                                                                    <attributes>
+                                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <font key="NSFont" metaFont="system" size="21"/>
+                                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.25" tighteningFactorForTruncation="0.0"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="8a2-Hw-8jG" firstAttribute="leading" secondItem="MZq-kt-BVD" secondAttribute="leading" id="Qe7-SK-JF2"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="8a2-Hw-8jG" secondAttribute="trailing" id="qUx-em-M1E"/>
-                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
@@ -140,7 +146,7 @@
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" name="white"/>
                                                     <constraints>
                                                         <constraint firstItem="GbM-y1-fzI" firstAttribute="leading" secondItem="y9x-lc-hVh" secondAttribute="leading" constant="5" id="jd4-OC-zsD"/>
                                                         <constraint firstAttribute="bottom" secondItem="GbM-y1-fzI" secondAttribute="bottom" constant="10" id="lPd-xh-Jor"/>
@@ -149,6 +155,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" name="white"/>
                                             <constraints>
                                                 <constraint firstItem="y9x-lc-hVh" firstAttribute="top" secondItem="gn2-Oj-61T" secondAttribute="top" id="166-Hi-xYV"/>
                                                 <constraint firstItem="y9x-lc-hVh" firstAttribute="leading" secondItem="gn2-Oj-61T" secondAttribute="leading" constant="10" id="hmE-ch-2Bp"/>
@@ -158,8 +165,10 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="background" destination="y9x-lc-hVh" id="wl9-YP-AlB"/>
+                                            <outlet property="bigStack" destination="GbM-y1-fzI" id="jYK-zm-61E"/>
                                             <outlet property="collectionView" destination="yp4-fY-LkU" id="Jbo-sk-1Sm"/>
                                             <outlet property="dateLabel" destination="clz-xG-hqg" id="9ka-Fd-60V"/>
+                                            <outlet property="dateStoryStack" destination="MZq-kt-BVD" id="jzX-sW-G0Q"/>
                                             <outlet property="storyLabel" destination="8a2-Hw-8jG" id="Pj2-60-pkb"/>
                                             <outlet property="view" destination="y9x-lc-hVh" id="bdR-Ph-a8N"/>
                                         </connections>
@@ -168,7 +177,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sfP-P4-Leq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="D6K-Sn-vnK" firstAttribute="top" secondItem="S6H-5z-Zm9" secondAttribute="bottom" constant="20" id="2dM-MG-vHY"/>
                             <constraint firstItem="S6H-5z-Zm9" firstAttribute="centerX" secondItem="Nxo-9G-Fay" secondAttribute="centerX" id="FeK-8N-0QH"/>
@@ -229,7 +238,7 @@
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ymt-dE-nzS" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
                                         <rect key="frame" x="0.0" y="50" width="360" height="400"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="360" id="01k-NS-OKH"/>
                                             <constraint firstAttribute="height" constant="400" id="Dfh-6G-EAB"/>
@@ -317,7 +326,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="nao-pA-7Am" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="4ie-AZ-brm"/>
                             <constraint firstItem="nao-pA-7Am" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Aa-Lf-9Jq"/>
@@ -392,7 +401,7 @@
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BuZ-BP-hlD">
                                         <rect key="frame" x="0.0" y="50" width="410" height="80"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="tpO-dJ-fqM"/>
                                         </constraints>
@@ -448,12 +457,19 @@
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <color key="highlightedColor" systemColor="systemGrayColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3BY-Wi-U9s">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3BY-Wi-U9s">
                                                 <rect key="frame" x="0.0" y="32" width="410" height="410"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="white"/>
                                                 <color key="tintColor" name="black"/>
-                                                <color key="textColor" name="black"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="text">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" metaFont="toolTip"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.25" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -462,6 +478,7 @@
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fll-jM-UBJ">
                                 <rect key="frame" x="5" y="854" width="420" height="44"/>
+                                <color key="backgroundColor" name="white"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="qWQ-Eh-6sJ"/>
                                 </constraints>
@@ -470,10 +487,12 @@
                                         <color key="tintColor" name="black"/>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" name="black"/>
+                                <color key="barTintColor" name="white"/>
                             </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nR0-Sh-tDs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nR0-Sh-tDs" firstAttribute="bottom" secondItem="DXP-hF-DtJ" secondAttribute="bottom" constant="208" id="Vyn-hr-VrQ"/>
@@ -800,7 +819,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x43-Lj-qXg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="ceR-jm-oxP" firstAttribute="top" secondItem="1x0-Zf-4qU" secondAttribute="bottom" constant="15" id="Cqu-y7-LdS"/>
                             <constraint firstItem="1x0-Zf-4qU" firstAttribute="top" secondItem="g8i-ts-yE9" secondAttribute="bottom" constant="20" id="GJ2-yA-GDH"/>
@@ -928,7 +947,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="luu-F3-bwi" secondAttribute="trailing" constant="15" id="F2l-p1-ZHs"/>
                                                                     <constraint firstAttribute="bottom" secondItem="luu-F3-bwi" secondAttribute="bottom" id="U0e-De-tVh"/>
@@ -969,7 +988,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="DGM-8J-GOf"/>
                                                                     <constraint firstItem="fQL-a0-ePO" firstAttribute="leading" secondItem="369-Se-V2n" secondAttribute="leading" constant="15" id="MTw-sj-UTx"/>
@@ -1010,7 +1029,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstItem="0jn-2C-Z3o" firstAttribute="leading" secondItem="XS6-tL-qZr" secondAttribute="leading" constant="15" id="1TS-Id-SGY"/>
                                                                     <constraint firstAttribute="bottom" secondItem="0jn-2C-Z3o" secondAttribute="bottom" id="Jsk-x4-j6x"/>
@@ -1051,7 +1070,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="6iK-qX-V6h"/>
                                                                     <constraint firstItem="Zfb-pf-Tfa" firstAttribute="leading" secondItem="Hsi-aM-afl" secondAttribute="leading" constant="15" id="9JX-bD-y6J"/>
@@ -1077,7 +1096,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstItem="mDx-ci-MVV" firstAttribute="leading" secondItem="ktD-vf-6ee" secondAttribute="leading" constant="15" id="2RB-x0-pbo"/>
                                                                     <constraint firstAttribute="height" constant="10" id="Ght-zB-Kj2"/>
@@ -1119,7 +1138,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Ys3-bO-kj9" firstAttribute="leading" secondItem="cyA-d7-J3C" secondAttribute="leading" constant="15" id="7x8-RE-vRX"/>
                                                                     <constraint firstAttribute="height" constant="50" id="8G7-uM-Bhi"/>
@@ -1161,7 +1180,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="qad-rN-29S" secondAttribute="trailing" constant="15" id="NHR-8v-c4O"/>
                                                                     <constraint firstAttribute="height" constant="50" id="PKd-8S-qrA"/>
@@ -1187,7 +1206,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="01d-vC-qxe" secondAttribute="bottom" id="EVJ-hx-XnV"/>
                                                                     <constraint firstAttribute="height" constant="10" id="Pjy-Ry-Nhx"/>
@@ -1228,7 +1247,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" name="white"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="UyM-Ph-wmO" secondAttribute="bottom" id="3qD-PK-XxS"/>
                                                                     <constraint firstAttribute="trailing" secondItem="UyM-Ph-wmO" secondAttribute="trailing" constant="15" id="5gu-IU-5Xy"/>
@@ -1238,11 +1257,13 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
+                                                        <color key="backgroundColor" name="white"/>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" name="AccentColor"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstItem="ZV4-cx-Lcb" firstAttribute="leading" secondItem="OVU-pM-qA2" secondAttribute="leading" constant="15" id="JCh-8H-PAQ"/>
                                             <constraint firstAttribute="bottom" secondItem="ZV4-cx-Lcb" secondAttribute="bottom" id="KCH-2m-OpY"/>
@@ -1251,6 +1272,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" name="white"/>
                                 <constraints>
                                     <constraint firstItem="OVU-pM-qA2" firstAttribute="top" secondItem="Liv-QH-lW8" secondAttribute="top" id="6MY-fe-VZm"/>
                                     <constraint firstItem="OVU-pM-qA2" firstAttribute="leading" secondItem="Liv-QH-lW8" secondAttribute="leading" id="bsf-vi-AHb"/>
@@ -1325,6 +1347,7 @@
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="H5O-lQ-swU">
                                         <rect key="frame" x="0.0" y="10" width="320" height="185.66666666666666"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <locale key="locale" localeIdentifier="ko"/>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EW-DU-QtL">
@@ -1427,6 +1450,7 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <color key="backgroundColor" name="white"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kgD-bN-hfD">
                                                         <rect key="frame" x="0.0" y="115" width="384" height="436"/>
@@ -1465,7 +1489,7 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRZ-hT-QLn">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="62.666666666666664"/>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" name="white"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="50" id="W2K-in-i9F"/>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="lOc-Lr-Ukk"/>
@@ -1497,6 +1521,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" name="white"/>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jd4-wf-IMg">
                                                                 <rect key="frame" x="0.0" y="123" width="384" height="87.333333333333314"/>
@@ -1523,7 +1548,7 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sp3-4h-NpW">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" name="white"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="50" id="PPG-LQ-PbN"/>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="jMz-9W-NCc"/>
@@ -1555,6 +1580,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" name="white"/>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yny-rP-uOT">
                                                                 <rect key="frame" x="0.0" y="225.33333333333329" width="384" height="87.666666666666657"/>
@@ -1581,7 +1607,7 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cH7-sc-wX4">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="62.333333333333336"/>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" name="white"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="50" id="gUI-lB-P2f"/>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="5" id="hUP-Aj-40Q"/>
@@ -1613,6 +1639,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" name="white"/>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DMK-3V-0Xl">
                                                                 <rect key="frame" x="0.0" y="328" width="384" height="88"/>
@@ -1639,7 +1666,7 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-Sd-nyY">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="62.666666666666664"/>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" name="white"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="50" id="5ji-di-tlL"/>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="Tm0-N2-fzI"/>
@@ -1671,6 +1698,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" name="white"/>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIr-aN-Vhh">
                                                                 <rect key="frame" x="0.0" y="431" width="384" height="5"/>
@@ -1682,6 +1710,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <color key="backgroundColor" name="white"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7So-8a-zRT">
                                                         <rect key="frame" x="0.0" y="576" width="384" height="151"/>
@@ -1739,11 +1768,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <color key="backgroundColor" name="white"/>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" name="white"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstItem="b2J-T6-NM8" firstAttribute="top" secondItem="JIe-UL-MeN" secondAttribute="top" constant="10" id="26n-6G-Jo3"/>
                                             <constraint firstAttribute="bottom" secondItem="b2J-T6-NM8" secondAttribute="bottom" id="3PB-9W-bgz"/>
@@ -1809,7 +1840,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D6d-3Q-GqS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="D6d-3Q-GqS" firstAttribute="trailing" secondItem="sdU-2H-gl1" secondAttribute="trailing" constant="15" id="CBg-i9-uXF"/>
@@ -2076,7 +2107,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstItem="BKn-ga-rR9" firstAttribute="top" secondItem="lyc-Bs-Ag7" secondAttribute="top" constant="15" id="3Rr-xY-llW"/>
                                             <constraint firstAttribute="trailing" secondItem="BKn-ga-rR9" secondAttribute="trailing" constant="15" id="EBM-KP-xro"/>
@@ -2085,6 +2116,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" name="white"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="lyc-Bs-Ag7" secondAttribute="bottom" constant="70" id="oO5-gG-zO8"/>
                                     <constraint firstItem="lyc-Bs-Ag7" firstAttribute="top" secondItem="bO0-Db-7ES" secondAttribute="top" id="pL4-BY-WDL"/>
@@ -2131,7 +2163,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O8W-dO-0tW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="bO0-Db-7ES" firstAttribute="bottom" secondItem="O8W-dO-0tW" secondAttribute="bottom" id="64t-3e-LrP"/>
@@ -2231,7 +2263,7 @@
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="tWA-zG-ha8" secondAttribute="bottom" id="1L4-jF-fQK"/>
                                             <constraint firstAttribute="height" constant="50" id="Lkr-Cw-yNt"/>
@@ -2272,7 +2304,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="DhX-So-Ajx" secondAttribute="trailing" constant="15" id="5kg-f6-Y62"/>
                                             <constraint firstAttribute="height" constant="50" id="908-NV-KAc"/>
@@ -2319,7 +2351,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6z6-JY-MCF"/>
                                             <constraint firstAttribute="bottom" secondItem="guh-gm-rmk" secondAttribute="bottom" id="Kbv-uT-rl3"/>
@@ -2338,7 +2370,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Zi-lF-2KX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="zzC-JY-0o4" firstAttribute="centerX" secondItem="GW4-NX-MJY" secondAttribute="centerX" id="3dl-QR-42F"/>
@@ -2418,7 +2450,7 @@
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstItem="twg-8Q-KtT" firstAttribute="top" secondItem="4GP-V9-84B" secondAttribute="top" id="0n9-Y2-A6c"/>
                                             <constraint firstAttribute="height" constant="50" id="6JU-d9-EYA"/>
@@ -2458,7 +2490,7 @@
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="btm-3l-Lxf" secondAttribute="bottom" id="JLr-im-HvX"/>
                                             <constraint firstItem="btm-3l-Lxf" firstAttribute="leading" secondItem="sNR-0h-XJU" secondAttribute="leading" constant="15" id="LSa-2V-wvN"/>
@@ -2498,7 +2530,7 @@
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5IF-eO-bqk"/>
                                             <constraint firstItem="nfC-Dh-Agn" firstAttribute="leading" secondItem="gTu-nq-zj4" secondAttribute="leading" constant="15" id="E32-PH-a0L"/>
@@ -2511,7 +2543,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vCT-g2-xWV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="GtZ-jF-2gk" firstAttribute="leading" secondItem="vCT-g2-xWV" secondAttribute="leading" constant="20" id="cxe-PF-9m3"/>
                             <constraint firstAttribute="trailing" secondItem="GtZ-jF-2gk" secondAttribute="trailing" constant="10" id="i91-Nf-UAt"/>
@@ -2598,7 +2630,7 @@
                                                                     <constraint firstAttribute="height" constant="30" id="vpm-eO-BlV"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FEB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLb-Tv-5Db">
@@ -2717,7 +2749,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="white"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="7zk-Ch-cSE"/>
                                     <constraint firstItem="wag-HU-yY5" firstAttribute="leading" secondItem="bg3-Ag-ENz" secondAttribute="leading" constant="10" id="DwU-g5-hDh"/>
@@ -2881,7 +2913,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="white"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="BOk-q2-Qkd" secondAttribute="trailing" id="1wo-co-eKm"/>
                                                     <constraint firstItem="BOk-q2-Qkd" firstAttribute="leading" secondItem="RFZ-bG-aUF" secondAttribute="leading" id="3S4-p0-Xpw"/>
@@ -2908,7 +2940,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p7k-d9-UR5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="p7k-d9-UR5" firstAttribute="trailing" secondItem="igx-5v-Aw8" secondAttribute="trailing" constant="20" id="PKf-AQ-da6"/>
                             <constraint firstItem="igx-5v-Aw8" firstAttribute="leading" secondItem="p7k-d9-UR5" secondAttribute="leading" constant="20" id="fBV-jH-Epq"/>
@@ -3019,7 +3051,6 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Vrl-cA-DSR" firstAttribute="centerY" secondItem="GKy-pS-utU" secondAttribute="centerY" id="DPd-3w-Xwb"/>
                                             <constraint firstItem="Vrl-cA-DSR" firstAttribute="centerX" secondItem="GKy-pS-utU" secondAttribute="centerX" id="qSX-0W-vhB"/>
@@ -3165,7 +3196,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TRW-TE-rrD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="s6N-Iz-ht4" firstAttribute="top" secondItem="OCz-bO-EKh" secondAttribute="top" constant="50" id="4I1-7U-uKv"/>
                             <constraint firstAttribute="trailing" secondItem="s6N-Iz-ht4" secondAttribute="trailing" constant="10" id="9A2-wW-WBp"/>
@@ -3237,8 +3268,11 @@
         <image name="trash.fill" catalog="system" width="119" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.99607843137254903" green="0.97647058823529409" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="black">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18400000035762787" green="0.1289999932050705" blue="0.030999999493360519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondary">
             <color red="0.51800000667572021" green="0.49399998784065247" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
