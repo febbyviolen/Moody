@@ -52,3 +52,4 @@
 "deleteaccount.title" = "Apakah Anda yakin ingin menghapus akun Anda?";
 "deleteaccount.message" = "Jika Anda menghapus akun, Anda tidak akan dapat memulihkan data kembali.";
 "실패했습니다" = "Gagal";
+"성공했습니다" = "Sukses";

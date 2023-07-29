@@ -276,6 +276,7 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
         if item[indexPath.item].story != "" {
             cell.storyLabel.text = item[indexPath.item].story
             cell.storyLabel.isHidden = false
+            cell.storyLabel.textColor = UIColor(named: "black")
         } else {cell.storyLabel.isHidden = true}
         
         

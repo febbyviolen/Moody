@@ -317,7 +317,8 @@ class Firebase {
         
         let data : [String: Any] = [
             "premiumPass" : "true",
-            "premiumPassID" : "\(premiumID)"
+            "premiumPassID" : "\(premiumID)",
+            "date" : Date().description
         ]
         
         docRef.setData(data, merge: false) { error in

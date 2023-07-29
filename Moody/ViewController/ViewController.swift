@@ -54,6 +54,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     
     func passDataBack(controller: DiaryListViewController) {
         calendarDataSource = controller.calendarDataSource
+        calendar.reloadData()
     }
     
     func passData(controller: PasswordViewController) {

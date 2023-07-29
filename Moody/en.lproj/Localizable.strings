@@ -51,3 +51,4 @@
 "deleteaccount.message" = "If you proceed, you will not be able to recover your data.";
 
 "실패했습니다" = "Failed";
+"성공했습니다" = "Success";
