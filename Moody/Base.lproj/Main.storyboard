@@ -142,15 +142,16 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="yp4-fY-LkU" firstAttribute="top" secondItem="GbM-y1-fzI" secondAttribute="top" id="VjL-s5-8sx"/>
+                                                                <constraint firstItem="yp4-fY-LkU" firstAttribute="leading" secondItem="GbM-y1-fzI" secondAttribute="leading" id="88B-y5-Jbf"/>
+                                                                <constraint firstAttribute="trailing" secondItem="yp4-fY-LkU" secondAttribute="trailing" id="LNB-gX-xmh"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" name="white"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="GbM-y1-fzI" secondAttribute="bottom" constant="10" id="fii-IQ-8va"/>
                                                         <constraint firstItem="GbM-y1-fzI" firstAttribute="leading" secondItem="y9x-lc-hVh" secondAttribute="leading" constant="5" id="jd4-OC-zsD"/>
-                                                        <constraint firstAttribute="bottom" secondItem="GbM-y1-fzI" secondAttribute="bottom" constant="10" id="lPd-xh-Jor"/>
-                                                        <constraint firstItem="GbM-y1-fzI" firstAttribute="top" secondItem="y9x-lc-hVh" secondAttribute="top" id="wI1-u0-nlD"/>
+                                                        <constraint firstItem="GbM-y1-fzI" firstAttribute="top" secondItem="y9x-lc-hVh" secondAttribute="top" id="k9c-ed-Fjm"/>
                                                         <constraint firstAttribute="trailing" secondItem="GbM-y1-fzI" secondAttribute="trailing" constant="5" id="wWR-z4-fD9"/>
                                                     </constraints>
                                                 </view>
@@ -2854,14 +2855,14 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stickerCell" id="BtI-7J-qMh" customClass="StickerCell2" customModule="Moody" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="101"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EZp-eS-ilj">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="101"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWZ-c3-l7b">
-                                                                            <rect key="frame" x="5" y="5" width="90" height="90"/>
+                                                                            <rect key="frame" x="5" y="5" width="90" height="91"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <constraints>
@@ -2871,13 +2872,13 @@
                                                                         <constraint firstAttribute="trailing" secondItem="fWZ-c3-l7b" secondAttribute="trailing" constant="5" id="ogx-Cj-IcM"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
-                                                                <size key="customSize" width="100" height="100"/>
+                                                                <size key="customSize" width="100" height="101"/>
                                                                 <connections>
                                                                     <outlet property="stickerImg" destination="fWZ-c3-l7b" id="Pd4-hy-4Gp"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="comingSoonCell" id="7xH-JQ-Gps" customClass="comingSoonCell" customModule="Moody" customModuleProvider="target">
-                                                                <rect key="frame" x="125" y="0.0" width="100" height="100"/>
+                                                                <rect key="frame" x="105" y="0.66666666666666663" width="100" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BBo-pK-xEB">
                                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -3234,8 +3235,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="KaJ-vc-GpT"/>
-        <segue reference="3jP-Nj-UWb"/>
-        <segue reference="ZZf-lq-SjG"/>
+        <segue reference="qrc-6j-0SO"/>
+        <segue reference="Ra0-QD-eix"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="align.vertical.bottom.fill" catalog="system" width="128" height="115"/>

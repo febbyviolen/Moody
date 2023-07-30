@@ -136,55 +136,39 @@ class DiaryDetailViewController: UIViewController, UIGestureRecognizerDelegate, 
         guard let NC = navigationController?.viewControllers else {return}
         
         if let _ = NC[NC.count - 2] as? ViewController{
-            if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
-                
-                self.fb.deleteDiary(date: self.date)
-                self.delegate.diaryDeleted(controller: self)
-            }
-            
-            if !sticker.isEmpty {
-                if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
-                    fb.addDiary(date: date, sticker: sticker, story: "")
-                    
-                } else {
-                    fb.addDiary(date: date, sticker: sticker, story: diary.text)
-                }
-                
-                delegate.diaryAdded(controller: self)
-            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) && diary.text != "") {
-                fb.addDiary(date: date, sticker: [], story: diary.text)
-            }
-    
-            updateWidget()
-            navigationController?.popViewController(animated: true)
+            checkDiarySave()
         }
         
         if let _ = NC[NC.count - 2] as? DiaryListViewController {
-            if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
-                self.fb.deleteDiary(date: self.date)
-                self.delegate.diaryDeleted(controller: self)
-            }
-            
-            if !sticker.isEmpty {
-                if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
-                    fb.addDiary(date: date, sticker: sticker, story: "")
-                    
-                } else {
-                    fb.addDiary(date: date, sticker: sticker, story: diary.text)
-                }
-                
-                delegate.diaryAdded(controller: self)
-            } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) && diary.text != "") {
-                fb.addDiary(date: date, sticker: [], story: diary.text)
-            }
-            
-            updateWidget()
-            navigationController?.popViewController(animated: true)
+           checkDiarySave()
         }
     }
     
     @IBAction func addSticker(_ sender: Any) {
         performSegue(withIdentifier: "showSticker", sender: self)
+    }
+    
+    private func checkDiarySave() {
+        if sticker.isEmpty && (diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) || diary.text == "") {
+            self.fb.deleteDiary(date: self.date)
+            self.delegate.diaryDeleted(controller: self)
+        }
+        
+        if !sticker.isEmpty {
+            if diary.text == String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) {
+                fb.addDiary(date: date, sticker: sticker, story: "")
+                
+            } else {
+                fb.addDiary(date: date, sticker: sticker, story: diary.text)
+            }
+            
+            delegate.diaryAdded(controller: self)
+        } else if (diary.text != String(format: NSLocalizedString("오늘 하루를 기록해보세요", comment: "")) && diary.text != "") {
+            fb.addDiary(date: date, sticker: [], story: diary.text)
+        }
+        
+        updateWidget()
+        navigationController?.popViewController(animated: true)
     }
     
     private func updateWidget() {

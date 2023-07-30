@@ -241,7 +241,7 @@ extension ViewController {
                         // User granted permission
                         // Create notification content
                         let content = UNMutableNotificationContent()
-                        content.title = "Moody"
+                        content.title = String(format: NSLocalizedString("무디", comment: "")) //사실 무드오미터
                         content.body = String(format: NSLocalizedString("오늘 하루도 기록해보세요!", comment: ""))
                         content.sound = UNNotificationSound.default
                         

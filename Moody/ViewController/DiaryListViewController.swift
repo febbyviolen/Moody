@@ -256,12 +256,6 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DiaryListCell
         
-        cell.selectionStyle = .none
-        
-        cell.background.layer.cornerRadius = 10
-        cell.background.layer.borderWidth = 1
-        cell.background.layer.borderColor = UIColor(named: "black")?.cgColor
-        
         cell.item = item[indexPath.item].sticker
         cell.reloadDataCollectionView()
         if item[indexPath.item].sticker != [] {
@@ -279,9 +273,13 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.storyLabel.textColor = UIColor(named: "black")
         } else {cell.storyLabel.isHidden = true}
         
+        cell.selectionStyle = .none
+        
+        cell.background.layer.cornerRadius = 10
+        cell.background.layer.borderWidth = 1
+        cell.background.layer.borderColor = UIColor(named: "black")?.cgColor
         
         cell.delegate = self
-        
         
         return cell
     }
@@ -291,13 +289,13 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
         selectedIndex = indexPath
         performSegue(withIdentifier: "showDetailController", sender: self)
     }
-    
+//
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130.0 + 10.0
-    }
+
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 130.0
+//    }
 }
 

@@ -115,7 +115,7 @@ extension LanguageViewController {
         let languageCodes = UserDefaults.standard.array(forKey: "AppleLanguages") as? [String]
         let languageCode = languageCodes?.first ?? "kor"
         
-        print(languageCode)
+        print("language: ", languageCode)
         switch languageCode {
         case "kor" :
             KoreanButton.setImage(UIImage(systemName: "circle.inset.filled"), for: .normal)
