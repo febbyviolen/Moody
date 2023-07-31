@@ -44,8 +44,8 @@ class DiaryListCell: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         super.layoutSubviews()
 
 //        view.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
-//        dateStoryStack.layoutMargins = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-//        dateStoryStack.isLayoutMarginsRelativeArrangement = true
+        dateStoryStack.layoutMargins = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        dateStoryStack.isLayoutMarginsRelativeArrangement = true
 //        view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
     

@@ -294,8 +294,8 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableView.automaticDimension
     }
 
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 130.0
-//    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130.0 + 10.0
+    }
 }
 
