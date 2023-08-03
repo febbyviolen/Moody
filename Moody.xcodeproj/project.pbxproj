@@ -40,6 +40,8 @@
 		80354F232A44841F00412C73 /* DiaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354F222A44841F00412C73 /* DiaryListCell.swift */; };
 		8063CC872A6D51EB0050AD39 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063CC862A6D51EA0050AD39 /* StoreKit.framework */; };
 		80B23E4D2A52A82D007AECEF /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B23E4C2A52A82D007AECEF /* LanguageManager.swift */; };
+		80CE8AF32A7B86E4003DE318 /* ViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE8AF22A7B86E4003DE318 /* ViewViewModel.swift */; };
+		80CE8AF52A7B8C83003DE318 /* DateFormatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE8AF42A7B8C83003DE318 /* DateFormatModel.swift */; };
 		80D456622A6D166300B4ABD0 /* subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D456612A6D166300B4ABD0 /* subscription.swift */; };
 		80D965B82A63EFDD00B8394A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80D965B72A63EFDD00B8394A /* WidgetKit.framework */; };
 		80D965BA2A63EFDD00B8394A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80D965B92A63EFDD00B8394A /* SwiftUI.framework */; };
@@ -117,6 +119,8 @@
 		80354F222A44841F00412C73 /* DiaryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListCell.swift; sourceTree = "<group>"; };
 		8063CC862A6D51EA0050AD39 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		80B23E4C2A52A82D007AECEF /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		80CE8AF22A7B86E4003DE318 /* ViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewViewModel.swift; sourceTree = "<group>"; };
+		80CE8AF42A7B8C83003DE318 /* DateFormatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatModel.swift; sourceTree = "<group>"; };
 		80D456612A6D166300B4ABD0 /* subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subscription.swift; sourceTree = "<group>"; };
 		80D456632A6D19BB00B4ABD0 /* configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = configuration.storekit; sourceTree = "<group>"; };
 		80D965B62A63EFDD00B8394A /* DayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +214,7 @@
 				80B23E4C2A52A82D007AECEF /* LanguageManager.swift */,
 				80354F172A416B0000412C73 /* Model */,
 				80354F062A3DA22600412C73 /* Font */,
+				80CE8AF12A7B86C2003DE318 /* ViewModel */,
 				80354EFD2A3B270B00412C73 /* ViewController */,
 				80354EED2A3B206A00412C73 /* Main.storyboard */,
 				8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */,
@@ -256,6 +261,15 @@
 				80D456612A6D166300B4ABD0 /* subscription.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		80CE8AF12A7B86C2003DE318 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				80CE8AF22A7B86E4003DE318 /* ViewViewModel.swift */,
+				80CE8AF42A7B8C83003DE318 /* DateFormatModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		80D965BB2A63EFDD00B8394A /* DayWidget */ = {
@@ -450,6 +464,7 @@
 				80354EE82A3B206A00412C73 /* AppDelegate.swift in Sources */,
 				800C8C742A4ADC9600BE512E /* SettingViewController.swift in Sources */,
 				80354F1B2A4456EE00412C73 /* MainStickers.swift in Sources */,
+				80CE8AF32A7B86E4003DE318 /* ViewViewModel.swift in Sources */,
 				80354F1D2A447B0300412C73 /* DiaryListViewController.swift in Sources */,
 				802291A52A6D03680020CE86 /* SubscriptionViewController.swift in Sources */,
 				800C8C702A4A83E800BE512E /* SelectCalendarViewController.swift in Sources */,
@@ -463,6 +478,7 @@
 				800C8C762A4AF02500BE512E /* DatePickerViewController.swift in Sources */,
 				802E92442A4DC06500A25A23 /* PasswordSettingsViewController.swift in Sources */,
 				80354F192A416B1400412C73 /* DiaryModel.swift in Sources */,
+				80CE8AF52A7B8C83003DE318 /* DateFormatModel.swift in Sources */,
 				80354F152A3EE3B700412C73 /* Database.swift in Sources */,
 				80354EEA2A3B206A00412C73 /* SceneDelegate.swift in Sources */,
 				80354EFF2A3B298C00412C73 /* DateCell.swift in Sources */,

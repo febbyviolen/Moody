@@ -37,7 +37,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
         formatter.dateFormat = "dd"
         let date = formatter.string(from: controller.date)
         
-        if date == "01" || date == "1" {
+        if date == "01" || date == "02" || date == "03" || date == "04" || date == "05" || date == "06" {
             formatter.dateFormat = "yyyy.MMMM.dd"
             let newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
             calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
@@ -61,6 +61,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
         loggedIn = true
     }
      
+    //MARK: ====================
+    
     @IBOutlet weak var dateStackView: UIStackView!
     @IBOutlet weak var todayButton: UIButton!
     @IBOutlet weak var yearLabel: UILabel!
@@ -69,6 +71,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     @IBOutlet weak var calendar: JTAppleCalendarView!
     
     private var banner: GADBannerView!
+    
+    private let VM = ViewViewModel()
+    private let dateModel = DateFormatModel()
     
     let formatter = DateFormatter()
     let font = Font()
@@ -93,28 +98,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     //MARK: LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
         sendFromAddSticker = false
-        
-        //when sending receipt? purchase ID to server but interrupted the value is still true
-        //then send the receipt again to the server
-        if userdefault.string(forKey: "needSendToServer") == "true" {
-            if let url = Bundle.main.appStoreReceiptURL,
-               let data = try? Data(contentsOf: url) {
-                let receiptBase64 = data.base64EncodedString()
-                // Send to server
-                self.fb.saveSubscriptionInfo(premiumID: receiptBase64, completion: {
-                    self.userdefault.set("false", forKey: "needSendToServer")
-                })
-            }
-        }
+        VM.checkInterruptedReceipt()
        
         DispatchQueue.main.async {
             if self.calendarDataSource.isEmpty || self.userdefault.string(forKey: "userID") == nil {
-                //            print(userdefault.string(forKey: "userID"))
+                self.setupUser()
+                
                 self.calendarDataSource.removeAll()
                 self.calendar.reloadData()
-                self.setupUser()
             }
         }
+        
         UISetup()
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -179,16 +173,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, DiaryDetail
     }
     
     @IBAction func TodayButton(_ sender: Any) {
-        formatter.dateFormat = "dd"
-        let date = formatter.string(from: Date())
-        if date == "01" || date == "1" {
-            formatter.dateFormat = "yyyy.MMMM.dd"
-            let newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
-            calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
+        if let newDate = VM.isMaybeFirstLineOfCalendar(date: Date()) {
+            calendar.scrollToDate(newDate , animateScroll: false)
         } else {
             calendar.scrollToDate(Date(), animateScroll: false)
         }
-        
     }
 }
 
@@ -224,7 +213,6 @@ extension ViewController {
     private func setWidgetDate() {
         let UD = UserDefaults(suiteName: "group.febby.moody.widgetcache")
         UD?.set(Date(), forKey: "date")
-        
     }
     
     //MARK: FIRST DOWNLOAD
@@ -363,24 +351,20 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         calendar.showsVerticalScrollIndicator = false
         
         //year label
-        formatter.dateFormat = "yyyy"
-        yearLabel.text = formatter.string(from: Date())
+        yearLabel.text = dateModel.getYearString(date: Date())
         
         //month label
-        formatter.dateFormat = "MMMM"
-        monthLabel.text = formatter.string(from: Date())
+        monthLabel.text = dateModel.getLongMonthString(date: Date())
         
-        formatter.dateFormat = "dd"
-        let date = formatter.string(from: Date())
-        if date == "01" || date == "1" {
-            formatter.dateFormat = "yyyy.MMMM.dd"
-            let newDate = formatter.date(from: "\(yearLabel.text!).\(monthLabel.text!).\(15)")
-            calendar.scrollToDate(newDate ?? Date(), animateScroll: false)
+        let date = dateModel.getDateString(date: Date())
+        if let newDate = VM.isMaybeFirstLineOfCalendar(date: Date()) {
+            calendar.scrollToDate(newDate , animateScroll: false)
         } else {
             calendar.scrollToDate(Date(), animateScroll: false)
         }
         
-        currentYear = formatter.string(from: Date())
+        //get current year string
+        currentYear = dateModel.getYearString(date: Date())
         
         populateDataSource()
     }

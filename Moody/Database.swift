@@ -10,7 +10,6 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class Firebase {
-    
     let formatter = DateFormatter()
     var calendar = Calendar.current
     let userDefault = UserDefaults.standard
