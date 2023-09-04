@@ -45,7 +45,7 @@ class SettingViewController: UIViewController, DatePickerDelegate {
     let font = Font()
     let fb = Firebase()
     let userdefault = UserDefaults.standard
-    let appStoreID = ""
+    let appStoreID = "6452397746"
     
     var activityIndicatorView: NVActivityIndicatorView! = nil
     
@@ -311,12 +311,15 @@ extension SettingViewController {
         if #available(iOS 10.3, *) {
             activityIndicatorView.startAnimating()
             DispatchQueue.main.async {
-                SKStoreReviewController.requestReview()
+//                SKStoreReviewController.requestReview()
+                if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: windowScene)
+                }
             }
             activityIndicatorView.stopAnimating()
         } else {
             // Older versions of iOS, you can redirect the user to the App Store manually
-            if let appStoreURL = URL(string: "itms-apps://itunes.apple.com/app/{\(appStoreID)}") {
+            if let appStoreURL = URL(string: "https://apps.apple.com/app/id\(appStoreID)?action=write-review") {
                 UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
             }
         }
