@@ -19,6 +19,7 @@
 		801A16252A739035009BA246 /* Dosis-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 801A161E2A738ECF009BA246 /* Dosis-VariableFont_wght.ttf */; };
 		8022919E2A6BB6870020CE86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8022919D2A6BB6870020CE86 /* LaunchScreen.storyboard */; };
 		802291A52A6D03680020CE86 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802291A42A6D03680020CE86 /* SubscriptionViewController.swift */; };
+		80255CCD2AA5AD4800330063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80354EF02A3B206D00412C73 /* Assets.xcassets */; };
 		802CB2E22A515BFA00509957 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802CB2E42A515BFA00509957 /* Localizable.strings */; };
 		802CB2ED2A51697600509957 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CB2EC2A51697600509957 /* LanguageViewController.swift */; };
 		802E92442A4DC06500A25A23 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E92432A4DC06500A25A23 /* PasswordSettingsViewController.swift */; };
@@ -407,6 +408,7 @@
 				80D965C22A63EFE100B8394A /* Assets.xcassets in Resources */,
 				801A16232A739032009BA246 /* Font-Regular.ttf in Resources */,
 				80D965CD2A63F4BC00B8394A /* Localizable.strings in Resources */,
+				80255CCD2AA5AD4800330063 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +658,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Moody/Moody.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -665,7 +668,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "무드오미터";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with face ID";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -692,6 +695,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Moody/Moody.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -701,7 +705,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "무드오미터";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with face ID";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
