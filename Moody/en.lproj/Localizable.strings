@@ -30,6 +30,7 @@
 
 "네" = "Yes";
 "취소" = "Cancel";
+"아니요" = "No";
 
 "language.restartInstruction" = "You need to restart the app to see the language changes";
 "language.restartMessage" = "Do you want to restart now?";
@@ -52,3 +53,6 @@
 
 "실패했습니다" = "Failed";
 "성공했습니다" = "Success";
+
+"review.title" = "Do you love our app?";
+"review.subtitle" = "Please rate our services to make our app better";

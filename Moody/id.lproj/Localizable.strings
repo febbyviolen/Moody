@@ -3,7 +3,6 @@
   Moody
 
   Created by Ebbyy on 2023/07/02.
-  
 */
 
 "무디" = "Mood-o-meter";
@@ -33,6 +32,7 @@
 
 "네" = "Ya";
 "취소" = "Batal";
+"아니요" = "Tidak";
 
 "language.restartInstruction" = "Anda perlu me-restart aplikasi untuk melihat perubahan bahasa";
 "language.restartMessage" = "Apakah Anda ingin me-restart sekarang?";
@@ -51,5 +51,9 @@
 
 "deleteaccount.title" = "Apakah Anda yakin ingin menghapus akun Anda?";
 "deleteaccount.message" = "Jika Anda menghapus akun, Anda tidak akan dapat memulihkan data kembali.";
+
 "실패했습니다" = "Gagal";
 "성공했습니다" = "Sukses";
+
+"review.title" = "Apakah anda menyukai aplikasi kami?";
+"review.subtitle" = "Berikan penilaian untuk membuat aplikasi kami lebih baik";

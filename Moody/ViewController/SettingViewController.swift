@@ -13,9 +13,7 @@ import StoreKit
 import NVActivityIndicatorView
 
 class SettingViewController: UIViewController, DatePickerDelegate {
-    
-    
-    func passData(controller: DatePickerViewController) {
+        func passData(controller: DatePickerViewController) {
         time = controller.datePicker.date
         timeClockLabel.text = showTimeFormatter.string(from: time!)
         let string = timeClockLabel.text?.split(separator: ":")
@@ -308,20 +306,22 @@ extension SettingViewController {
 extension SettingViewController {
     
     @objc private func rateApp() {
-        if #available(iOS 10.3, *) {
-            activityIndicatorView.startAnimating()
-            DispatchQueue.main.async {
-//                SKStoreReviewController.requestReview()
-                if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-                    SKStoreReviewController.requestReview(in: windowScene)
-                }
-            }
-            activityIndicatorView.stopAnimating()
-        } else {
-            // Older versions of iOS, you can redirect the user to the App Store manually
-            if let appStoreURL = URL(string: "https://apps.apple.com/app/id\(appStoreID)?action=write-review") {
+        let alert = UIAlertController(title: String(format: NSLocalizedString("review.title", comment: "")), message: String(format: NSLocalizedString("review.subtitle", comment: "")), preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: String(format: NSLocalizedString("네", comment: "")), style: .default) { _ in
+            self.activityIndicatorView.startAnimating()
+            
+            if let appStoreURL = URL(string: "https://apps.apple.com/app/id\(self.appStoreID)?action=write-review") {
                 UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
             }
+            self.activityIndicatorView.stopAnimating()
         }
+        
+        let noAction = UIAlertAction(title: String(format: NSLocalizedString("아니요", comment: "")), style: .default)
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+       
+        self.present(alert, animated: true)
     }
+    
 }

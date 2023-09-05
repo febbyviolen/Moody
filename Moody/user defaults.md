@@ -13,3 +13,5 @@
 
 - subscribed : true or not true
 - needSendToServer : when in the middle of saving purchaseId to server get interrupted, the value is still true
+
+- reviewTime : how many times the review pop up is called this year
