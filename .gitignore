@@ -1,0 +1,15 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+.swiftpm/
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Dependency directories
+Pods/
+Carthage/
+
+
