@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pet-hm-jKW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pet-hm-jKW">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1919,10 +1920,10 @@
                                 <rect key="frame" x="0.0" y="103" width="414" height="710"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyc-Bs-Ag7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="594.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="604.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BKn-ga-rR9">
-                                                <rect key="frame" x="15" y="15" width="384" height="579.33333333333337"/>
+                                                <rect key="frame" x="15" y="15" width="384" height="589.33333333333337"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mesmerized" translatesAutoresizingMaskIntoConstraints="NO" id="86H-Sr-StA">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="80"/>
@@ -1931,7 +1932,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-qm-rBD">
-                                                        <rect key="frame" x="0.0" y="110" width="384" height="63"/>
+                                                        <rect key="frame" x="0.0" y="110" width="384" height="73"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프리미엄 패스" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5a-zm-vpA">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20"/>
@@ -1939,8 +1940,8 @@
                                                                 <color key="textColor" name="black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6a-GI-MaT">
-                                                                <rect key="frame" x="0.0" y="23" width="384" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6a-GI-MaT">
+                                                                <rect key="frame" x="0.0" y="23" width="384" height="50"/>
                                                                 <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="40"/>
                                                                 <color key="textColor" name="black"/>
                                                                 <nil key="highlightedColor"/>
@@ -1948,7 +1949,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UgK-nD-cm3">
-                                                        <rect key="frame" x="0.0" y="203.00000000000003" width="384" height="305.66666666666674"/>
+                                                        <rect key="frame" x="0.0" y="213.00000000000003" width="384" height="305.66666666666674"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모든 기능을 사용할 수 있는 프리미엄 패스를 구매해보세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWy-Ek-IY5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="40.666666666666664"/>
@@ -2113,7 +2114,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매한 프리미엄 패스는 다른 애플 기기에서 구매 복원을 통해 이용하실 수 있습니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRG-Ra-y0i">
-                                                        <rect key="frame" x="0.0" y="538.66666666666663" width="384" height="40.666666666666629"/>
+                                                        <rect key="frame" x="0.0" y="548.66666666666663" width="384" height="40.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3039,6 +3040,7 @@
                                                                 <rect key="frame" x="50" y="0.99999999999999822" width="30" height="28.666666666666664"/>
                                                                 <color key="tintColor" systemColor="labelColor"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="miC-vv-7Ea" secondAttribute="height" id="kIC-c4-ef5"/>
                                                                     <constraint firstAttribute="width" secondItem="miC-vv-7Ea" secondAttribute="height" id="qle-ZN-9NL"/>
                                                                 </constraints>
                                                             </imageView>
@@ -3046,6 +3048,7 @@
                                                                 <rect key="frame" x="100" y="0.99999999999999822" width="30" height="28.666666666666664"/>
                                                                 <color key="tintColor" systemColor="labelColor"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="RSi-mk-XON" secondAttribute="height" id="7yy-X7-aCq"/>
                                                                     <constraint firstAttribute="width" secondItem="RSi-mk-XON" secondAttribute="height" id="k6z-Gf-ONx"/>
                                                                 </constraints>
                                                             </imageView>
@@ -3054,14 +3057,12 @@
                                                                 <color key="tintColor" systemColor="labelColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="DjP-EM-TCW" secondAttribute="height" id="t1C-EP-JdU"/>
+                                                                    <constraint firstAttribute="width" secondItem="DjP-EM-TCW" secondAttribute="height" id="y4L-mR-8PL"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="RSi-mk-XON" firstAttribute="width" secondItem="RSi-mk-XON" secondAttribute="height" id="7yy-X7-aCq"/>
-                                                            <constraint firstItem="miC-vv-7Ea" firstAttribute="width" secondItem="miC-vv-7Ea" secondAttribute="height" id="kIC-c4-ef5"/>
                                                             <constraint firstAttribute="height" constant="30" id="rwe-Mh-T2S"/>
-                                                            <constraint firstItem="DjP-EM-TCW" firstAttribute="width" secondItem="DjP-EM-TCW" secondAttribute="height" id="y4L-mR-8PL"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -3285,7 +3286,7 @@
         <image name="rectangle.split.1x2.fill" catalog="system" width="128" height="93"/>
         <image name="seal.fill" catalog="system" width="128" height="124"/>
         <image name="smiley" catalog="system" width="128" height="123"/>
-        <image name="trash.fill" catalog="system" width="119" height="128"/>
+        <image name="trash.fill" catalog="system" width="117" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
@@ -3304,7 +3305,7 @@
             <color red="0.99599999189376831" green="0.97600001096725464" blue="0.92500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

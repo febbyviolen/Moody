@@ -39,6 +39,7 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
     override func viewWillAppear(_ animated: Bool) {
         setupUI()
         setupFont()
+        fetchProducts()
     }
     
     override func viewDidLoad() {
@@ -50,7 +51,7 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
         SKPaymentQueue.default().add(self)
         setupUI()
         setupFont()
-        fetchProducts()
+        
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
@@ -62,15 +63,19 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
             }
             // Rest of the implementation...
             self.model = product
-            self.setupInfo()
+            self.setupPriceInfo()
+            self.activityIndicatorView.stopAnimating()
         }
     }
     
     //MARK: BUTTON
     @IBAction func retrieveButton(_ sender: Any) {
         activityIndicatorView.startAnimating()
+        Task {
+            await self.redeemStoreKitPurchase
+        }
         
-        SKPaymentQueue.default().restoreCompletedTransactions()
+//        SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
     @IBAction func buyButton(_ sender: Any) {
@@ -90,8 +95,11 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
     }
     
     private func fetchProducts(){
+        activityIndicatorView.startAnimating()
         let request = SKProductsRequest(productIdentifiers: Set(Subscription.allCases.compactMap({$0.rawValue})))
         print(Subscription.allCases.compactMap({$0.rawValue}))
+        
+        
         request.delegate = self
         request.start()
     }
@@ -125,20 +133,21 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
                 activityIndicatorView.stopAnimating()
                 queue.finishTransaction($0)
             case .restored:
-                self.userDefault.set("true", forKey: "premiumPass")
-                self.userDefault.set("true", forKey: "needSendToServer")
-                if let url = Bundle.main.appStoreReceiptURL,
-                   let data = try? Data(contentsOf: url) {
-                    let receiptBase64 = data.base64EncodedString()
-                    // Send to server
-                    self.fb.saveSubscriptionInfo(premiumID: receiptBase64, completion: {
-                        self.userDefault.set("false", forKey: "needSendToServer")
-                    })
-                }
-                buyButton.isHidden = true
-                retrieveLabel.isHidden = true
-                
-                activityIndicatorView.stopAnimating()
+//                self.userDefault.set("true", forKey: "premiumPass")
+//                self.userDefault.set("true", forKey: "needSendToServer")
+//                if let url = Bundle.main.appStoreReceiptURL,
+//                   let data = try? Data(contentsOf: url) {
+//                    let receiptBase64 = data.base64EncodedString()
+//                    // Send to server
+//                    self.fb.saveSubscriptionInfo(premiumID: receiptBase64, completion: {
+//                        self.userDefault.set("false", forKey: "needSendToServer")
+//                    })
+//                }
+//                buyButton.isHidden = true
+//                retrieveLabel.isHidden = true
+//                
+//                activityIndicatorView.stopAnimating()
+                print("RETRIEVED")
                 queue.finishTransaction($0)
             default:
                 print("on purchase..")
@@ -182,16 +191,27 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
         
     }
     
+    //restoring payment
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
         let alert = UIAlertController(title: String(NSLocalizedString("실패했습니다", comment: "")), message: "", preferredStyle: .alert)
         let okAction = UIAlertAction(title: String(NSLocalizedString("네", comment: "")), style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    //try to restoring the purchasee
+    func redeemStoreKitPurchase() async {
+        do {
+            try await StoreKit.AppStore.sync()
+            print("redeem storeKitPurchases restored purchase")
+        } catch {
+            print ("failed redeem purchase, error: \(error)")
+        }
+    }
 }
 
 extension SubscriptionViewController {
-    private func setupInfo() {
+    private func setupPriceInfo() {
         priceLabel.text = "\(model.priceLocale.currencySymbol ?? "₩")\(model.price)"
     }
     
