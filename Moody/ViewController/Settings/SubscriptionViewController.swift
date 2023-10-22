@@ -54,35 +54,25 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
         
     }
     
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        DispatchQueue.main.async {
-            guard let product = response.products.first else {
-                // Handle the case when no products are available
-                print("NO PRODUCT")
-                return
-            }
-            // Rest of the implementation...
-            self.model = product
-            self.setupPriceInfo()
-            self.activityIndicatorView.stopAnimating()
-        }
-    }
     
     //MARK: BUTTON
     @IBAction func retrieveButton(_ sender: Any) {
         activityIndicatorView.startAnimating()
-        Task {
-            await self.redeemStoreKitPurchase
-        }
+//        Task {
+//            await self.redeemStoreKitPurchase
+//        }
         
-//        SKPaymentQueue.default().restoreCompletedTransactions()
+        SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
     @IBAction func buyButton(_ sender: Any) {
         activityIndicatorView.startAnimating()
         if model != nil {
-            let payment = SKPayment(product: model!)
-            SKPaymentQueue.default().add(payment)
+            if SKPaymentQueue.canMakePayments() {
+                let payment = SKPayment(product: model!)
+                SKPaymentQueue.default().add(payment)
+                SKPaymentQueue.default().add(self)
+            }
         } else {
             activityIndicatorView.stopAnimating()
             let alert = UIAlertController(title: String(format: NSLocalizedString("실패했습니다", comment: "")), message: "", preferredStyle: .alert)
@@ -104,10 +94,25 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
         request.start()
     }
     
+    //SKpaymenttransactionobersver delegate
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        DispatchQueue.main.async {
+            guard let product = response.products.first else {
+                // Handle the case when no products are available
+                print("NO PRODUCT")
+                return
+            }
+            // Rest of the implementation...
+            self.model = product
+            self.setupPriceInfo()
+            self.activityIndicatorView.stopAnimating()
+        }
+    }
+    
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         transactions.forEach ({
             switch $0.transactionState {
-            case.purchased:
+            case .purchased, .restored:
                 self.userDefault.set("true", forKey: "premiumPass")
                 self.userDefault.set("true", forKey: "needSendToServer")
                 if let url = Bundle.main.appStoreReceiptURL,
@@ -122,36 +127,23 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
                 retrieveLabel.isHidden = true
                 
                 activityIndicatorView.stopAnimating()
-                queue.finishTransaction($0)
+                SKPaymentQueue.default().finishTransaction($0)
+                SKPaymentQueue.default().remove(self)
                 break
-            case .failed:
+            case .failed, .deferred:
                 let alert = UIAlertController(title: String(format: NSLocalizedString("실패했습니다", comment: "")), message: "", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: String(NSLocalizedString("네", comment: "")), style: .default, handler: nil)
                 alert.addAction(okAction)
                 present(alert, animated: true)
                 
                 activityIndicatorView.stopAnimating()
-                queue.finishTransaction($0)
-            case .restored:
-//                self.userDefault.set("true", forKey: "premiumPass")
-//                self.userDefault.set("true", forKey: "needSendToServer")
-//                if let url = Bundle.main.appStoreReceiptURL,
-//                   let data = try? Data(contentsOf: url) {
-//                    let receiptBase64 = data.base64EncodedString()
-//                    // Send to server
-//                    self.fb.saveSubscriptionInfo(premiumID: receiptBase64, completion: {
-//                        self.userDefault.set("false", forKey: "needSendToServer")
-//                    })
-//                }
-//                buyButton.isHidden = true
-//                retrieveLabel.isHidden = true
-//                
-//                activityIndicatorView.stopAnimating()
-                print("RETRIEVED")
-                queue.finishTransaction($0)
+                SKPaymentQueue.default().finishTransaction($0)
+                SKPaymentQueue.default().remove(self)
             default:
                 print("on purchase..")
                 activityIndicatorView.startAnimating()
+                SKPaymentQueue.default().finishTransaction($0)
+                SKPaymentQueue.default().remove(self)
             }
         })
     }
@@ -197,17 +189,9 @@ class SubscriptionViewController: UIViewController, SKProductsRequestDelegate, S
         let okAction = UIAlertAction(title: String(NSLocalizedString("네", comment: "")), style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true)
+        activityIndicatorView.stopAnimating()
     }
     
-    //try to restoring the purchasee
-    func redeemStoreKitPurchase() async {
-        do {
-            try await StoreKit.AppStore.sync()
-            print("redeem storeKitPurchases restored purchase")
-        } catch {
-            print ("failed redeem purchase, error: \(error)")
-        }
-    }
 }
 
 extension SubscriptionViewController {
